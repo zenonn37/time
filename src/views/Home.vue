@@ -7,7 +7,9 @@
       <span>{{minutes}}</span>:
       <span>{{seconds}}</span>
     </h2>-->
-    <h1>Countdown</h1>
+
+    <Countdown />
+    <!-- <h1>Countdown</h1>
 
     <h2 v-if="d_seconds < 1">
       <span>00</span> :
@@ -32,7 +34,7 @@
         <input type="button" value="Pause" @click="onPause()" />
         <input type="button" value="Resume" @click="onResume()" />
       </form>
-    </div>
+    </div>-->
     <h6>Today:{{ today }}</h6>
     <button @click="timer()">Start</button>
     <p>
@@ -46,13 +48,14 @@
 <script>
 // import NewEntry from "@/components/NewEntry";
 import moment from "moment";
+import Countdown from "@/components/CountDown";
 
 //import numeral from "numeral";
 
 export default {
   name: "home",
   components: {
-    // NewEntry
+    Countdown
   },
   data() {
     return {
@@ -87,77 +90,6 @@ export default {
 
   computed: {},
   methods: {
-    onCountDown() {
-      this.setTime();
-    },
-
-    bosTimer() {
-      let seconds = this.save === true ? this.pause : this.entry;
-      this.stopCountDown = false;
-      const now = Date.now();
-      const then = now + seconds * 1000;
-      console.log({ now, then });
-      this.displayTimer(seconds);
-      this.interval = setInterval(() => {
-        const secondsLeft = Math.round((then - Date.now()) / 1000);
-        this.entry--;
-        //check to stop
-        if (secondsLeft < 1 || this.stopCountDown === true) {
-          clearInterval(this.interval);
-        }
-
-        this.displayTimer(secondsLeft);
-      }, 1000);
-    },
-    displayTimer(seconds) {
-      let minutes = Math.floor(seconds / 60);
-      const hour = Math.floor(seconds / 3600);
-      const min = minutes > 59 ? 59 : minutes;
-      const r_seconds = seconds % 60;
-
-      this.d_hours = hour < 10 ? `0${hour}` : hour;
-      this.d_seconds = r_seconds < 10 ? `0${r_seconds}` : r_seconds;
-
-      this.d_minutes = min < 10 ? `0${min}` : min;
-    },
-
-    setTime() {
-      let min = parseInt(this.count.d_minutes);
-      let hour = parseInt(this.count.d_hours);
-      let hours = hour > 0 ? hour * 3600 : 0;
-      let minutes = min > 0 ? min * 60 : 0;
-
-      let total = hours + minutes;
-      console.log(total);
-
-      this.entry = total;
-    },
-
-    onStopTimer() {
-      this.stopCountDown = true;
-    },
-    onResetTimer() {
-      this.stopCountDown = true;
-      this.count.d_hours = 0;
-      this.count.d_minutes = 0;
-      this.d_seconds = 0;
-      this.d_minutes = 0;
-      this.d_hours = 0;
-      this.save = false;
-      this.pause = 0;
-    },
-    onPause() {
-      let current = this.entry;
-      this.pause = current;
-      this.save = false;
-      this.stopCountDown = true;
-    },
-    onResume() {
-      this.save = true;
-      this.bosTimer();
-      console.log("pressed");
-    },
-
     //timer function starts clock countup
     timer() {
       this.onResetTimer();
