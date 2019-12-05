@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import "./style/main.css";
+import "./plugs/v-select"
+import "./filters/dates"
 
 Vue.config.productionTip = false;
 

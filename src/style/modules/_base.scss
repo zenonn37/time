@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $background;
+    font-family: 'Poppins',sans-serif;
+}
+
+.fadeIn{
+    animation-duration: .25s;
+    // animation-delay: 2s;
+    // animation-iteration-count: infinite;
+}
+.fadeOut{
+    animation-duration: .25s;
+    // animation-delay: 2s;
+    // animation-iteration-count: infinite;
+}

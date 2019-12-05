@@ -1,0 +1,39 @@
+.header-parent{
+    background-color:$white;
+    height: 70px;
+    padding: .2rem .2rem;
+    display: flex;
+    align-items: center;
+    .header-container{
+        max-width: 1500px;
+        margin: 0 auto;
+        width: 98%;
+    }
+    .header-content{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        .task{
+            width: 150px;
+           input[type="text"]{
+            width: 120px;
+               outline: none;
+               height:50px;
+               border:none;
+               font-size: 100%;
+               color: $grey;
+           }
+        }
+        .project{
+         //@at-rootmax-width: 150px;
+            width: 180px;
+            font-size: 13px;
+            i{
+                color:$grey;
+                font-size: small;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,41 @@
+.count-up-parent{
+    display: flex;
+    
+    width: 160px;
+    justify-content: space-evenly;
+    align-items: center;
+  
+
+    .count-down{
+      font-size: 18px;
+    
+    }
+
+    .edit{
+
+        i{
+            color:$grey;
+        }
+        
+    }
+
+    .clock-controls{
+
+        .play{
+            i{
+                font-size:xx-large;
+                color: $success;
+            }
+        }
+
+        .stop{
+            i{
+                font-size:xx-large;
+                color: red;
+            }
+        }
+        
+       
+    }
+    
+}

@@ -1,14 +1,6 @@
 <template>
   <div class="count-down-parent">
     <div class="count-down">
-      <h1>Countdown</h1>
-
-      <!-- <h2 v-if="d_seconds < 1">
-        <span>00</span> :
-        <span>00</span> :
-        <span>00</span>
-      </h2>-->
-
       <h2>
         <span>{{d_hours}}</span>:
         <span>{{d_minutes}}</span>:
