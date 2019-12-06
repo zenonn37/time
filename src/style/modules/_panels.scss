@@ -1,0 +1,72 @@
+.panel-parent{
+
+  background-color: $white;
+  height: 160px;
+  min-width: 320px;
+  border-radius: 10px;
+  margin: 1rem 0 1rem 0;
+
+  h6{
+    color: $grey;
+    margin-bottom: .2rem;
+}
+
+.complete{
+    color: $success;
+
+}
+.incomplete{
+    color:$warning;
+}
+
+  .panel-container{
+      padding: 1rem;
+  }
+
+  .panel-top{
+     display: flex;
+
+     .panel-date{
+      flex:1;
+     
+     }
+     .panel-time{
+         width: 72px;
+     }
+    
+  }
+
+  .panel-bottom{
+      display: flex;
+      margin: .1rem 0 0 0;
+      .panel-task{
+         display: flex;
+         flex-direction: column;
+         
+         flex:1;
+        .box-task{
+            border:2px solid $grey;
+            border-radius:6px;
+            padding: .5rem;
+            max-width: 40px;
+            font-size:14px;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+         
+      }
+      .panel-goal{
+        width: 72px;
+      }
+  }
+
+
+
+
+
+
+
+
+
+}
