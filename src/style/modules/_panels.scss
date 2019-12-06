@@ -6,6 +6,11 @@
   border-radius: 10px;
   margin: 1rem 0 1rem 0;
 
+  i{
+      font-size:small;
+      color: $title_icons;
+  }
+
   h6{
     color: $grey;
     margin-bottom: .2rem;

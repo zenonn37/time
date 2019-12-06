@@ -6,9 +6,19 @@ import moment from 'moment';
 
 
 
+
+
 Vue.filter('date', function (value) {
     return moment(value).format('ddd')
 })
+
+Vue.filter('current', function (value) {
+
+
+    //return moment(value).format('D MMM')
+    return moment(value).fromNow()
+})
+
 
 Vue.filter('hours', function (value) {
 

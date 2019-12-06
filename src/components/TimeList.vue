@@ -3,9 +3,13 @@
     <div class="panel-container">
       <div class="panel-top">
         <div class="panel-date">
-          <h3>{{hour.date | date}}</h3>
+          <h6>Task</h6>
+          <h3>{{hour.name}}</h3>
         </div>
-        <div class="panel-time">{{hour.time | hours}}</div>
+        <div class="panel-dates">
+          <h6>Date</h6>
+          <span class="from-now">{{hour.date | current}}</span>
+        </div>
       </div>
       <div class="panel-bottom">
         <div class="panel-task"></div>

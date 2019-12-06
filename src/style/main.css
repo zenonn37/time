@@ -10,8 +10,33 @@ body {
   font-family: 'Poppins',sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+}
+
+.full-screen {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.from-now {
+  font-size: 12px;
 }
 
 .title {
@@ -133,6 +158,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1rem 0 1rem 0;
 }
 
+.panel-parent i {
+  font-size: small;
+  color: #89a1f7;
+}
+
 .panel-parent h6 {
   color: #a1a1a1;
   margin-bottom: .2rem;
@@ -205,18 +235,5 @@ h1, h2, h3, h4, h5, h6 {
 
 .panel-parent .panel-bottom .panel-goal {
   width: 72px;
-}
-
-.full-screen {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 /*# sourceMappingURL=main.css.map */

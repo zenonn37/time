@@ -1,17 +1,23 @@
 //state
+import moment from 'moment'
 const state = {
     time: [
         {
+            name: 'Home Page',
             date: "Thu Dec 05 2019 15:16:19 GMT-0500 (Eastern Standard Time)",
             id: 9,
-            project: "Timer",
-            time: 1000
+
+            time: 1000,
+            project_id: 697
         },
         {
-            date: "Thu Dec 07 2019 15:16:19 GMT-0500 (Eastern Standard Time)",
+            name: 'Chart Scss',
+            date: "Thu Dec 06 2019 11:16:19 GMT-0500 (Eastern Standard Time)",
             id: 11,
-            project: "Timer",
-            time: 7200
+
+            time: 7200,
+            project_id: 699
+
         }
     ]
 
@@ -55,7 +61,7 @@ const actions = {
         const data = {
             id: Math.round(Math.random() + 9),
             time: payload,
-            date: new Date(),
+            date: moment().format(),
             project: "Timer",
 
         }
