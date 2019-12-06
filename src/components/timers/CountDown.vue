@@ -1,25 +1,27 @@
 <template>
   <div class="count-down-parent">
     <div class="count-down">
-      <h2>
-        <span>{{d_hours}}</span>:
-        <span>{{d_minutes}}</span>:
-        <span>{{d_seconds}}</span>
-      </h2>
+      <div>
+        <span>{{d_hours}}0:</span>
+        <span>{{d_minutes}}0:</span>
+        <span>{{d_seconds}}0</span>
+      </div>
+
+      <div class="count-start" @click="timer()">
+        <i class="far fa-play-circle play"></i>
+      </div>
 
       <div class="time">
         <form @submit.prevent="onCountDown()">
-          <input type="text" v-model.trim="count.d_hours" />
-          <input type="text" v-model.trim="count.d_minutes" />
-
+          <!-- 
           <input type="submit" value="Set Time" />
           <input type="button" value="Start" @click="timer()" />
           <input type="button" value="Stop" @click="onStopTimer()" />
           <input type="button" value="Reset" @click="onResetTimer()" />
           <input type="button" value="Pause" @click="onPause()" />
-          <input type="button" value="Resume" @click="onResume()" />
+          <input type="button" value="Resume" @click="onResume()" />-->
         </form>
-        <div>{{userTime}}</div>
+        <!-- <div>{{userTime}}</div> -->
       </div>
     </div>
   </div>
@@ -39,10 +41,6 @@ export default {
         d_hours: ""
       },
 
-      hour: "",
-      minutes: "",
-      sec_h: "",
-      sec_m: "",
       time: "",
       start: "",
       end: "",
@@ -82,10 +80,8 @@ export default {
       this.displayTimer();
       this.interval = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
-        this.entry--;
-        // this.secHour--;
-        this.sec_m--;
-        this.sec_h--;
+        --this.entry;
+
         console.log(this.entry);
 
         //check to stop

@@ -11,6 +11,7 @@
     </template>
 
     <template v-else>
+      <ActiveTask />
       <div class="tasks">
         <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
       </div>
@@ -20,11 +21,13 @@
 
 <script>
 import TimeList from "@/components/TimeList";
+import ActiveTask from "@/components/ActiveTask";
 export default {
   name: "Project",
   props: ["id"],
   components: {
-    TimeList
+    TimeList,
+    ActiveTask
   },
   computed: {
     project() {

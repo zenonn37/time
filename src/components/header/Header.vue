@@ -5,10 +5,10 @@
         <div class="task">
           <input type="text" placeholder="Enter Task" />
         </div>
-        <div class="project">
-          <i class="fas fa-project-diagram"></i>
-          Timer
-          <!-- <vSelect :options="projects" /> -->
+        <div class="new-time">
+          <input type="text" placeholder="Hrs" />
+          <span>:</span>
+          <input type="text" placeholder="Min" />
         </div>
 
         <div class="timer">

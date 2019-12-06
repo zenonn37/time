@@ -1,0 +1,25 @@
+.count-down-parent{
+  .count-down{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      i{
+          color:$white;
+          font-size: 30px;
+      }
+    span{
+        font-size:50px;
+      }
+
+      .count-start{
+          width: 60px;
+          height: 60px;
+          background-color: royalblue;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+  }
+   
+}

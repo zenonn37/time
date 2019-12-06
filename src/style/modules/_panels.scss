@@ -1,10 +1,16 @@
 .panel-parent{
 
   background-color: $white;
-  height: 160px;
+  height: 300px;
+  
   min-width: 320px;
   border-radius: 10px;
   margin: 1rem 0 1rem 0;
+  transition: all 0.3s ease-in;
+  overflow: hidden;
+  &:hover{
+      height: 250px;
+  }
 
   i{
       font-size:small;
@@ -38,7 +44,18 @@
      .panel-time{
          width: 72px;
      }
+     .panel-dates{
+        width: 100px;
+     }
+     .activity-name{
+         flex:1;
+     }
     
+  }
+  .activity-bottom{
+    display: flex;
+   
+    justify-content: center;
   }
 
   .panel-bottom{
