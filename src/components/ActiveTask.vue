@@ -1,28 +1,52 @@
 <template>
-  <div class="panel-parent">
-    <div class="panel-container">
-      <div class="panel-top">
-        <div class="activity-name">
-          <h6>Active Task</h6>
-          <span>Cover Page</span>
+  <div>
+    <transition name="fade" mode="out-in">
+      <template v-if="!active">No Task</template>
+
+      <template v-else>
+        <div class="panel-parent">
+          <div class="panel-container">
+            <div class="panel-top">
+              <div class="activity-name">
+                <h6>Active Task</h6>
+                <span>{{task.task}}</span>
+              </div>
+              <div class="panel-time">
+                <h6>Total Hours</h6>
+                <span class="hours">{{task.seconds}}</span>
+              </div>
+            </div>
+            <div class="activity-bottom">
+              <CountDown :seconds="task.seconds" />
+            </div>
+            <div @click="onComplete()">Complete</div>
+          </div>
         </div>
-        <div class="panel-time">
-          <h6>Total Hours</h6>
-          <span class="hours">05:56:12</span>
-        </div>
-      </div>
-      <div class="activity-bottom">
-        <CountDown />
-      </div>
-    </div>
+      </template>
+    </transition>
   </div>
 </template>
+
 
 <script>
 import CountDown from "@/components/timers/CountDown";
 export default {
   components: {
     CountDown
+  },
+
+  computed: {
+    task() {
+      return this.$store.getters["task/get_active_tasks"];
+    },
+    active() {
+      return this.$store.getters["task/active_status"];
+    }
+  },
+  methods: {
+    onComplete() {
+      this.$store.dispatch("task/set_active_task", false);
+    }
   }
 };
 </script>

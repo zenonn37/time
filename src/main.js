@@ -5,6 +5,9 @@ import store from "./store";
 import "./style/main.css";
 import "./plugs/v-select"
 import "./filters/dates"
+import "./plugs/vee-validate";
+import "./plugs/vue-filters";
+import "./plugs/toast";
 
 Vue.config.productionTip = false;
 

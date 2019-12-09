@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  props: ["seconds"],
   components: {},
 
   data() {
@@ -52,7 +53,7 @@ export default {
       stop: false,
       stopCountDown: false,
 
-      entry: "",
+      entry: this.seconds,
       pause: 0,
       save: false,
       today: ""
