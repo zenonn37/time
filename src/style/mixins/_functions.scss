@@ -1,13 +1,25 @@
 //panel mixin for all project panels aka boxes
-@mixin panels($height,$color) {
+@mixin panels($height,$color,$padding,$min-width:260px) {
     height: $height;  
     background-color: $color;
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0; 
-  min-width: 260px;
+  min-width: $min-width;
   border-radius: 10px; 
+  box-shadow: $shadow;
  // overflow: hidden;
+
+   @if $padding{
+       padding: .5rem;
+   }
     
+}
+
+//flex center
+@mixin flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 //colors
@@ -15,6 +27,21 @@
     opacity: $opacity;
     color: $color;
     font-size:$size;
+}
+//basic button
+@mixin button($color,$height,$width,$back,$font-size,$radius:50%) {
+    height: $height;
+    width: $width;
+    color:$color;
+    background-color: $back;
+    border-radius: $radius;
+    border: none;
+    font-size:$font-size;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $shadow;
+
 }
 
 //basic flex

@@ -1,5 +1,5 @@
 .panel-parent{ 
- @include panels(300px,$white);
+ @include panels(300px,$white,false);
   &:hover{
       //height: 250px;
   }

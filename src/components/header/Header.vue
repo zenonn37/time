@@ -8,15 +8,19 @@
               <input type="text" v-model.trim="task" placeholder="Enter Task" />
             </div>
             <div class="new-time">
-              <input type="text" v-model.trim="hour" placeholder="Hrs" />
-              <span>:</span>
-              <input type="text" v-model.trim="min" placeholder="Min" />
-              <input type="submit" value="Accept" />
+              <input type="text" v-model.trim="hour" placeholder="Hours" />
+              <!-- <span>:</span> -->
+              <input type="text" v-model.trim="min" placeholder="Mins" />
+              <input type="submit" value="GO" />
             </div>
           </form>
         </template>
 
-        <template v-else>Task in Progress</template>
+        <template v-else>
+          <i class="fas fa-tasks"></i>
+
+          Task in Progress
+        </template>
         <!-- <div class="timer">
           <CountUp @new="saveCurrentCount" />
         </div>-->
@@ -80,6 +84,9 @@ export default {
       console.log(data);
 
       this.$store.dispatch("task/active_task", data);
+      this.task = "";
+      this.hour = "";
+      this.min = "";
     }
   }
 };

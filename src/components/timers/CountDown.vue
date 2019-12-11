@@ -14,7 +14,19 @@
       </div>
 
       <div class="count-start" @click="timer()">
-        <i class="far fa-play-circle play"></i>
+        <img src="/images/play.png" alt="Play Icon" />
+      </div>
+
+      <div class="button-group">
+        <div class="pause">
+          <i class="fas fa-pause"></i>
+        </div>
+        <div class="resume">
+          <img src="/images/play.png" alt="Play Icon" />
+        </div>
+        <div class="stop">
+          <i class="fas fa-stop"></i>
+        </div>
       </div>
 
       <div class="time">
@@ -40,6 +52,8 @@ export default {
 
   data() {
     return {
+      //timer toggle
+      on: false,
       d_seconds: 0,
       d_minutes: 0,
       d_hours: 0,
@@ -151,6 +165,7 @@ export default {
     },
 
     timer() {
+      this.on = true;
       this.onResetTimer();
       this.bosTimer();
     }

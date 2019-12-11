@@ -91,23 +91,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-parent .header-content {
+  height: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+}
+
+.header-parent .header-content i {
+  margin-right: 1rem;
+  font-size: large;
+  color: #6da16d;
+}
+
+.header-parent .header-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-parent .header-content .new-time {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: inherit;
 }
 
 .header-parent .header-content .new-time input[type="text"] {
   height: 100%;
-  width: 30px;
+  width: 50px;
   border-bottom: 1px solid #000;
   font-size: 100%;
   color: #a1a1a1;
@@ -116,12 +142,37 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
 }
 
+.header-parent .header-content .new-time input[type="submit"] {
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  background-color: #0295a8;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
 .header-parent .header-content .task {
-  width: 100px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: inherit;
+  max-width: 100px;
 }
 
 .header-parent .header-content .task input[type="text"] {
-  width: 120px;
+  max-width: 100px;
   outline: none;
   height: 50px;
   border: none;
@@ -151,6 +202,7 @@ h1, h2, h3, h4, h5, h6 {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  outline: none;
 }
 
 .count-down-parent .count-down {
@@ -198,10 +250,13 @@ h1, h2, h3, h4, h5, h6 {
 .count-down-parent .count-down .count-start {
   bottom: -30px;
   position: absolute;
-  width: 60px;
   height: 60px;
+  width: 60px;
+  color: #fff;
   background-color: #027EC3;
   border-radius: 50%;
+  border: none;
+  font-size: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,6 +266,97 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.count-down-parent .count-down .count-start img {
+  width: 20px;
+}
+
+.count-down-parent .count-down .button-group {
+  width: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+}
+
+.count-down-parent .count-down .button-group i {
+  color: #fff;
+  font-size: 15px;
+}
+
+.count-down-parent .count-down .button-group img {
+  width: 15px;
+}
+
+.count-down-parent .count-down .button-group .pause {
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  background-color: #f5711a;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.count-down-parent .count-down .button-group .resume {
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  background-color: #6da16d;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.count-down-parent .count-down .button-group .stop {
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  background-color: #b42a2a;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 .count-up-parent {
@@ -228,6 +374,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .count-up-parent .count-down {
   font-size: 18px;
+  min-width: 88px;
 }
 
 .count-up-parent .edit i {
@@ -252,6 +399,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 .panel-parent i {
@@ -355,13 +504,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .task-parent {
-  height: 350px;
+  height: 270px;
   background-color: #0295a8;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 .task-parent .task-container {
@@ -372,6 +523,7 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: .8rem;
 }
 
 .task-parent .activity-mid {
@@ -382,6 +534,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   margin: 0 -30px 0 -30px;
 }
 
@@ -392,9 +546,13 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 0.5;
+  color: #fff;
+  font-size: 15px;
+  margin-top: .5rem;
 }
 
-.task-parent .activity-end .panel-time {
+.task-parent .activity-end > :first-child {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -410,6 +568,45 @@ h1, h2, h3, h4, h5, h6 {
 .task-parent span {
   opacity: 1;
   color: #fff;
-  font-size: 30px;
+  font-size: 20px;
+}
+
+.project-parent .project-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1.5rem;
+}
+
+.project-parent .project-header .project-title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.project-parent .clock-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.project-parent .clock-header .project-timer {
+  max-width: 180px;
+  height: inherit;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 150px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: .5rem;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,7 +1,14 @@
 <template>
   <div class="project-parent" :class="[tasks.length < 1  ? 'full-screen': '']">
-    <div class="project-title">
-      <h3 class="title">{{project.name}}</h3>
+    <div class="project-header">
+      <div class="project-title">
+        <h3 class="title">{{project.name}}</h3>
+      </div>
+    </div>
+    <div class="clock-header">
+      <div class="project-timer">
+        <CountUp />
+      </div>
     </div>
 
     <template v-if="tasks.length < 1">
@@ -22,12 +29,14 @@
 <script>
 import TimeList from "@/components/TimeList";
 import ActiveTask from "@/components/ActiveTask";
+import CountUp from "@/components/timers/CountUp";
 export default {
   name: "Project",
   props: ["id"],
   components: {
     TimeList,
-    ActiveTask
+    ActiveTask,
+    CountUp
   },
   computed: {
     project() {

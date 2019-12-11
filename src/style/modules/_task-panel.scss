@@ -1,23 +1,24 @@
 .task-parent{
-    @include panels(350px,$panel);
+    @include panels(270px,$panel,false);
     .task-container{
         padding: 1rem;
     }
     .task-top{
         display: flex;
+        margin-bottom:.8rem;
     }
     .activity-mid{
-        @include panels(150px,$white);
+        @include panels(150px,$white,false);
         margin: 0 -30px 0 -30px;
     }
     .activity-end{
         display: flex;
         align-items: center;
-        .panel-time{
-            flex:1;
-          
-            
-        }
+        @include text($white,.5,15px);
+        margin-top: .5rem;
+         >:first-child{
+             flex:1
+         }
     }
     h6{
         @include text($white,.5,12px);
@@ -26,6 +27,6 @@
       margin-bottom: .2rem;
   }
   span{
-    @include text($white,1,30px);
+    @include text($white,1,20px);
   }
 }

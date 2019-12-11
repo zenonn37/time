@@ -17,10 +17,7 @@
             </div>
 
             <div class="activity-end">
-              <div class="panel-time">
-                <h6>Total Hours</h6>
-                <span class="hours">{{task.seconds}}</span>
-              </div>
+              <div @click="onDelete()">Delete</div>
 
               <div>
                 <div @click="onComplete()">Complete</div>
@@ -52,7 +49,8 @@ export default {
   methods: {
     onComplete() {
       this.$store.dispatch("task/set_active_task", false);
-    }
+    },
+    onDelete() {}
   }
 };
 </script>
