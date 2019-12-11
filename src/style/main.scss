@@ -1,8 +1,10 @@
 @import './vars/theme';
+@import './mixins/functions';
 @import './modules/base';
 @import './modules/header';
 @import './modules/countdown';
 @import './modules/countup';
 @import './modules/panels';
+@import './modules/task-panel';
 @import './modules/project';
 

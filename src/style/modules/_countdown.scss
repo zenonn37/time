@@ -1,4 +1,9 @@
 .count-down-parent{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   .count-down{
       display: flex;
       flex-direction: column;
@@ -9,12 +14,26 @@
       }
     span{
         font-size:50px;
+        @include text($hours,1,50px);
       }
-
+      .clock-down{
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        .time-dots{
+          @include text($hours,.3,45px);
+          padding-right:10px;
+         // margin-bottom:-11px;
+        }
+        
+      }
+      
       .count-start{
+           bottom: -30px;
+           position:absolute;
           width: 60px;
           height: 60px;
-          background-color: royalblue;
+          background-color: #027EC3;
           border-radius: 50%;
           display: flex;
           justify-content: center;

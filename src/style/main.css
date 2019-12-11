@@ -53,14 +53,23 @@ h1, h2, h3, h4, h5, h6 {
   width: 90%;
 }
 
+.fade-enter-active, .fade-leave-active {
+  -webkit-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 .fadeIn {
-  -webkit-animation-duration: .25s;
-          animation-duration: .25s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 .fadeOut {
-  -webkit-animation-duration: .25s;
-          animation-duration: .25s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 .header-parent {
@@ -130,6 +139,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: small;
 }
 
+.count-down-parent {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
 .count-down-parent .count-down {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,12 +173,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .count-down-parent .count-down span {
   font-size: 50px;
+  opacity: 1;
+  color: #413e3e;
+  font-size: 50px;
+}
+
+.count-down-parent .count-down .clock-down {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.count-down-parent .count-down .clock-down .time-dots {
+  opacity: 0.3;
+  color: #413e3e;
+  font-size: 45px;
+  padding-right: 10px;
 }
 
 .count-down-parent .count-down .count-start {
+  bottom: -30px;
+  position: absolute;
   width: 60px;
   height: 60px;
-  background-color: royalblue;
+  background-color: #027EC3;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -200,18 +245,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-parent {
-  background-color: #fff;
   height: 300px;
-  min-width: 320px;
-  border-radius: 10px;
-  margin: 1rem 0 1rem 0;
+  background-color: #fff;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  overflow: hidden;
-}
-
-.panel-parent:hover {
-  height: 250px;
+  margin: 1rem 0 1rem 0;
+  min-width: 260px;
+  border-radius: 10px;
 }
 
 .panel-parent i {
@@ -220,7 +260,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-parent h6 {
+  opacity: 1;
   color: #a1a1a1;
+  font-size: inherit;
   margin-bottom: .2rem;
 }
 
@@ -310,5 +352,64 @@ h1, h2, h3, h4, h5, h6 {
 
 .panel-parent .panel-bottom .panel-goal {
   width: 72px;
+}
+
+.task-parent {
+  height: 350px;
+  background-color: #0295a8;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 260px;
+  border-radius: 10px;
+}
+
+.task-parent .task-container {
+  padding: 1rem;
+}
+
+.task-parent .task-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.task-parent .activity-mid {
+  height: 150px;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 260px;
+  border-radius: 10px;
+  margin: 0 -30px 0 -30px;
+}
+
+.task-parent .activity-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task-parent .activity-end .panel-time {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.task-parent h6 {
+  opacity: 0.5;
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: .2rem;
+}
+
+.task-parent span {
+  opacity: 1;
+  color: #fff;
+  font-size: 30px;
 }
 /*# sourceMappingURL=main.css.map */

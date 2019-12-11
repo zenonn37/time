@@ -4,22 +4,28 @@
       <template v-if="!active">No Task</template>
 
       <template v-else>
-        <div class="panel-parent">
-          <div class="panel-container">
-            <div class="panel-top">
+        <div class="task-parent">
+          <div class="task-container">
+            <div class="task-top">
               <div class="activity-name">
                 <h6>Active Task</h6>
                 <span>{{task.task}}</span>
               </div>
+            </div>
+            <div class="activity-mid">
+              <CountDown :seconds="task.seconds" />
+            </div>
+
+            <div class="activity-end">
               <div class="panel-time">
                 <h6>Total Hours</h6>
                 <span class="hours">{{task.seconds}}</span>
               </div>
+
+              <div>
+                <div @click="onComplete()">Complete</div>
+              </div>
             </div>
-            <div class="activity-bottom">
-              <CountDown :seconds="task.seconds" />
-            </div>
-            <div @click="onComplete()">Complete</div>
           </div>
         </div>
       </template>

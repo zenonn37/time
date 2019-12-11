@@ -1,10 +1,16 @@
 <template>
   <div class="count-down-parent">
     <div class="count-down">
-      <div>
-        <span>{{d_hours}}0:</span>
-        <span>{{d_minutes}}0:</span>
-        <span>{{d_seconds}}0</span>
+      <div class="clock-down">
+        <span>
+          {{d_hours}}
+          <span class="time-dots">:</span>
+        </span>
+        <span>
+          {{d_minutes}}
+          <span class="time-dots">:</span>
+        </span>
+        <span>{{ d_seconds}}</span>
       </div>
 
       <div class="count-start" @click="timer()">
@@ -73,7 +79,8 @@ export default {
     },
 
     bosTimer() {
-      let seconds = this.save === true ? this.pause : this.entry;
+      const sec = this.seconds;
+      let seconds = this.save === true ? this.pause : sec;
       this.stopCountDown = false;
       const now = Date.now();
       const then = now + seconds * 1000;
@@ -107,20 +114,17 @@ export default {
       return `${hour} : ${minute} : 00`;
     },
 
-    setTime() {
-      let min = parseInt(this.count.d_minutes);
-      let hour = parseInt(this.count.d_hours);
-      let hours = hour > 0 ? hour * 3600 : 0;
-      let minutes = min > 0 ? min * 60 : 0;
+    // setTime() {
+    //   // let min = parseInt(this.count.d_minutes);
+    //   // let hour = parseInt(this.count.d_hours);
+    //   let hours = hour > 0 ? hour * 3600 : 0;
+    //   let minutes = min > 0 ? min * 60 : 0;
 
-      this.sec_h = hours;
-      this.sec_m = minutes;
+    //   let total = hours + minutes;
+    //   console.log(total);
 
-      let total = hours + minutes;
-      console.log(total);
-
-      this.entry = total;
-    },
+    //   this.entry = total;
+    // },
 
     onStopTimer() {
       this.stopCountDown = true;
