@@ -1,24 +1,8 @@
 //state
-import moment from 'moment'
+
 const state = {
     time: [
-        {
-            name: 'Home Page',
-            date: "Thu Dec 05 2019 15:16:19 GMT-0500 (Eastern Standard Time)",
-            id: 9,
 
-            time: 1000,
-            project_id: 697
-        },
-        {
-            name: 'Chart Scss',
-            date: "Thu Dec 06 2019 11:16:19 GMT-0500 (Eastern Standard Time)",
-            id: 11,
-
-            time: 7200,
-            project_id: 699
-
-        }
     ]
 
 }
@@ -58,14 +42,8 @@ const actions = {
     },
     new_time({ commit }, payload) {
 
-        const data = {
-            id: Math.round(Math.random() + 9),
-            time: payload,
-            date: moment().format(),
-            project: "Timer",
 
-        }
-        commit('new_time', data)
+        commit('new_time', payload)
     }
 }
 

@@ -50,7 +50,12 @@ export default {
   computed: {},
   methods: {
     saveMoment() {
-      this.$emit("new", this.entry);
+      let id = this.$route.params.id;
+      const data = {
+        time: this.entry,
+        project_id: id
+      };
+      this.$store.dispatch("time/new_time", data);
     },
     bosTimer() {
       //let seconds = this.save === true ? this.pause : this.entry;

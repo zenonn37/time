@@ -1,3 +1,15 @@
+.sub-header{
+    .clock-header{
+        display: flex;
+        justify-content: flex-end;
+        .project-timer{
+            max-width: 180px;
+            @include panels(inherit,$white,true,150px)
+        }
+    }
+}
+
+
 .project-parent{
    
     .project-header{
@@ -10,12 +22,5 @@
 
        
     }
-    .clock-header{
-        display: flex;
-        justify-content: flex-end;
-        .project-timer{
-            max-width: 180px;
-            @include panels(inherit,$white,true,150px)
-        }
-    }
+   
 }

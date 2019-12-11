@@ -9,10 +9,15 @@ const state = {
     seconds: 0,
     //global state of active task
     active: false,
+    //stop clock if user saves without stopping clock
+    stop: false,
 
 }
 //mutations
 const mutations = {
+    set_stop(state, payload) {
+        state.stop = payload
+    },
     set_tasks(state, payload) {
         state.tasks = payload
     },
@@ -22,9 +27,8 @@ const mutations = {
     active_tasks(state, payload) {
         state.active_task = payload
     },
-    delete_active_task(state, id) {
-        const task = state.tasks.filter(task => task.id !== id)
-        state.active_task = task
+    delete_active_task(state) {
+        state.active_tasks = ""
     },
     delete_tasks(state, id) {
         const task = state.tasks.filter(task => task.id !== id)
@@ -35,6 +39,9 @@ const mutations = {
     },
     set_active_status(state, payload) {
         state.active = payload
+    },
+    count_seconds(state) {
+        state.seconds--
     }
 
 
@@ -57,13 +64,43 @@ const getters = {
     get_seconds(state) {
         return state.seconds
     },
-    active_status() {
+
+    active_status(state) {
         return state.active
+    },
+    get_stop(state) {
+        return state.stop
     }
 }
 
 //actions
 const actions = {
+
+    delete_active_task({ commit, dispatch }) {
+        dispatch('set_active_task', false)
+        commit('delete_active_task')
+    },
+    set_stop({ commit }, payload) {
+        commit('set_stop', payload)
+    },
+
+    save_active_task({ dispatch, getters }) {
+        dispatch('set_active_task', false)
+        dispatch('set_stop', true)
+
+
+        let active = getters['get_active_tasks']
+        let seconds = getters['get_seconds']
+
+        const data = {
+            ...active,
+            actual: seconds
+
+        }
+        console.log(data);
+
+
+    },
 
     set_active_task({ commit }, payload) {
         commit('set_active_status', payload)
@@ -71,9 +108,13 @@ const actions = {
     set_seconds({ commit }, payload) {
         commit('set_seconds', payload)
     },
-    active_task({ commit }, payload) {
+    count_seconds({ commit }) {
+        commit('count_seconds')
+    },
+    active_task({ commit, dispatch }, payload) {
         commit('active_tasks', payload)
         commit('set_active_status', true)
+        dispatch('set_stop', false)
     },
     get_tasks({ commit }) {
         commit('set_projects')

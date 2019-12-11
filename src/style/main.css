@@ -23,9 +23,6 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -33,6 +30,10 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.cursor {
+  cursor: pointer;
 }
 
 .from-now {
@@ -113,6 +114,9 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header-parent .header-content .new-time {
@@ -161,6 +165,7 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .header-parent .header-content .task {
@@ -195,12 +200,12 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   outline: none;
 }
@@ -268,6 +273,7 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .count-down-parent .count-down .count-start img {
@@ -315,6 +321,7 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .count-down-parent .count-down .button-group .resume {
@@ -336,6 +343,7 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .count-down-parent .count-down .button-group .stop {
@@ -357,6 +365,7 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .count-up-parent {
@@ -571,6 +580,29 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 20px;
 }
 
+.sub-header .clock-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.sub-header .clock-header .project-timer {
+  max-width: 180px;
+  height: inherit;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 150px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: .5rem;
+}
+
 .project-parent .project-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -587,26 +619,27 @@ h1, h2, h3, h4, h5, h6 {
           flex: 1;
 }
 
-.project-parent .clock-header {
+.home-head-parent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
 }
 
-.project-parent .clock-header .project-timer {
-  max-width: 180px;
-  height: inherit;
-  background-color: #fff;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-  margin: 1rem 0 1rem 0;
-  min-width: 150px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: .5rem;
+.home-head-parent .logo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 75px;
+}
+
+.home-head-parent nav li {
+  display: inline;
+  padding: 0 .7rem 0 .7rem;
+  color: #555353;
+  font-size: 15px;
 }
 /*# sourceMappingURL=main.css.map */

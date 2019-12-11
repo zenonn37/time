@@ -1,28 +1,31 @@
 <template>
-  <div class="project-parent" :class="[tasks.length < 1  ? 'full-screen': '']">
-    <div class="project-header">
-      <div class="project-title">
-        <h3 class="title">{{project.name}}</h3>
+  <div>
+    <div class="sub-header">
+      <div class="project-header">
+        <div class="project-title">
+          <h3 class="title">{{project.name}}</h3>
+        </div>
+      </div>
+      <div class="clock-header">
+        <div class="project-timer">
+          <CountUp />
+        </div>
       </div>
     </div>
-    <div class="clock-header">
-      <div class="project-timer">
-        <CountUp />
-      </div>
-    </div>
-
-    <template v-if="tasks.length < 1">
-      <div class="no-task">
-        <h3 class="title">No Tasks yet, you should create one.</h3>
-      </div>
-    </template>
-
-    <template v-else>
+    <div class="project-parent" :class="[tasks.length < 1  ? 'full-screen': '']">
       <ActiveTask />
-      <div class="tasks">
-        <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
-      </div>
-    </template>
+      <template v-if="tasks.length < 1">
+        <div class="no-task">
+          <h3 class="title">No Tasks yet, complete a task to create one.</h3>
+        </div>
+      </template>
+
+      <template v-else>
+        <div class="tasks">
+          <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 

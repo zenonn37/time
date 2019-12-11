@@ -20,7 +20,7 @@
               <div @click="onDelete()">Delete</div>
 
               <div>
-                <div @click="onComplete()">Complete</div>
+                <div @click="onComplete()">Save</div>
               </div>
             </div>
           </div>
@@ -48,9 +48,12 @@ export default {
   },
   methods: {
     onComplete() {
-      this.$store.dispatch("task/set_active_task", false);
+      //this.$store.dispatch("task/set_active_task", false);
+      this.$store.dispatch("task/save_active_task");
     },
-    onDelete() {}
+    onDelete() {
+      this.$store.dispatch("task/delete_active_task");
+    }
   }
 };
 </script>

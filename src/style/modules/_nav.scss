@@ -1,0 +1,18 @@
+.home-head-parent{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    .logo{
+        flex:1;
+       max-width:75px
+    }
+    nav{ 
+       
+        li{
+            display: inline;
+            padding: 0 .7rem 0 .7rem;
+            color: $nav;
+            font-size:15px;
+        }
+    }
+}

@@ -18,28 +18,19 @@
       </div>
 
       <div class="button-group">
-        <div class="pause">
+        <div class="pause" @click="onPause">
           <i class="fas fa-pause"></i>
         </div>
-        <div class="resume">
+        <div class="resume" @click="onResume">
           <img src="/images/play.png" alt="Play Icon" />
         </div>
-        <div class="stop">
+        <div class="stop" @click="onStopTimer">
           <i class="fas fa-stop"></i>
         </div>
       </div>
 
       <div class="time">
-        <form @submit.prevent="onCountDown()">
-          <!-- 
-          <input type="submit" value="Set Time" />
-          <input type="button" value="Start" @click="timer()" />
-          <input type="button" value="Stop" @click="onStopTimer()" />
-          <input type="button" value="Reset" @click="onResetTimer()" />
-          <input type="button" value="Pause" @click="onPause()" />
-          <input type="button" value="Resume" @click="onResume()" />-->
-        </form>
-        <!-- <div>{{userTime}}</div> -->
+        <form @submit.prevent="onCountDown()"></form>
       </div>
     </div>
   </div>
@@ -83,6 +74,12 @@ export default {
   computed: {
     userTime() {
       return this.displayTimer(this.entry);
+    },
+    store_time() {
+      return this.$store.getters["task/get_seconds"];
+    },
+    store_stop() {
+      return this.$store.getters["task/get_stop"];
     }
   },
   methods: {
@@ -103,11 +100,17 @@ export default {
       this.interval = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         --this.entry;
+        this.$store.dispatch("task/count_seconds");
+        // --this.store_time;
 
         console.log(this.entry);
 
         //check to stop
-        if (secondsLeft < 1 || this.stopCountDown === true) {
+        if (
+          secondsLeft < 1 ||
+          this.stopCountDown === true ||
+          this.store_stop === true
+        ) {
           clearInterval(this.interval);
         }
 
@@ -168,6 +171,7 @@ export default {
       this.on = true;
       this.onResetTimer();
       this.bosTimer();
+      this.$store.dispatch("task/set_seconds", this.seconds);
     }
   }
 };

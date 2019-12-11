@@ -1,9 +1,7 @@
 .count-down-parent{
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  @include flex_center;
+   position: relative;
   outline: none;
   .count-down{
       display: flex;
