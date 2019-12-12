@@ -1,0 +1,36 @@
+
+//all forms
+
+.mini-forms{
+    .form-btns{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .form-input{
+        margin-bottom: 1rem;
+    }
+}
+
+input[type="text"],input[type="email"],input[type="password"]{
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 12px 8px;
+    border-radius: 4px;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    font-size:100%;
+    background-color: rgb(235, 235, 235);       
+    transition: all 0.4s ease-in-out;
+}
+
+input[type="submit"]{
+  @include button($white,35px,90%,$button-main,15px,3px);
+  margin-right:1rem;
+ 
+}
+input[type="button"]{
+    @include button($white,35px,90%,$danger,15px,3px);
+  }

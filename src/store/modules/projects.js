@@ -1,31 +1,32 @@
+import Axios from "axios"
 
 
 const state = {
     projects: [
-        {
-            name: 'Timer App',
-            total: 28800,
-            tasks: 100,
-            completed: false,
-            goal: 30000,
-            id: 697,
-        },
-        {
-            name: 'Money-Tracker',
-            total: 70000,
-            tasks: 1500,
-            completed: true,
-            goal: 162000,
-            id: 698,
-        },
-        {
-            name: 'Toka Weather',
-            total: 700000,
-            tasks: 1500,
-            completed: true,
-            goal: 162000,
-            id: 699,
-        }
+        // {
+        //     name: 'Timer App',
+        //     total: 28800,
+        //     tasks: 100,
+        //     completed: false,
+        //     goal: 30000,
+        //     id: 697,
+        // },
+        // {
+        //     name: 'Money-Tracker',
+        //     total: 70000,
+        //     tasks: 1500,
+        //     completed: true,
+        //     goal: 162000,
+        //     id: 698,
+        // },
+        // {
+        //     name: 'Toka Weather',
+        //     total: 700000,
+        //     tasks: 1500,
+        //     completed: true,
+        //     goal: 162000,
+        //     id: 699,
+        // }
     ]
 
 }
@@ -61,15 +62,42 @@ const getters = {
 //actions
 const actions = {
     get_projects({ commit }) {
-        commit('set_projects')
+
+        return new Promise((resolve, reject) => {
+            Axios.get('timer-projects')
+                .then(res => {
+                    console.log(res);
+
+                    resolve()
+                    commit('set_projects', res.data.data)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+
     },
     new_projects({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            Axios.post('/timer-projects-new', payload)
+                .then(res => {
+                    console.log(res);
 
-        const data = {
-            name: payload.name
+                    resolve()
+                    if (res.status === 200) {
+                        commit('new_projects', {
+                            ...payload,
+                            id: res.data,
 
-        }
-        commit('new_project', data)
+                        })
+                    }
+
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+
     },
     delete_project({ commit }) {
         commit(' delete_projects')

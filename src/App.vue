@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import Header from "@/components/header/Header";
 const default_layout = "no-user";
 export default {
-  components: {
-    Header
-  },
+  name: "App",
+  components: {},
   computed: {
     layout() {
       return this.$route.meta.layout || default_layout;

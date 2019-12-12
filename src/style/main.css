@@ -642,4 +642,187 @@ h1, h2, h3, h4, h5, h6 {
   color: #555353;
   font-size: 15px;
 }
+
+.home-subheader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+  margin-bottom: 8rem;
+}
+
+.home-subheader .new-project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 60px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: .5rem;
+  transition: all 0.3s ease-in;
+}
+
+.home-subheader .new-project .new-button {
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  background-color: #027EC3;
+  border-radius: 50%;
+  border: none;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.home-subheader .new-project-full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 250px;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 250px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: .5rem;
+  transition: all 0.3s ease-in;
+}
+
+.home-subheader .new-project-full .new-button {
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  background-color: #027EC3;
+  border-radius: 50%;
+  border: none;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: none;
+}
+
+.mini-forms .form-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mini-forms .form-input {
+  margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 12px 8px;
+  border-radius: 4px;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  font-size: 100%;
+  background-color: #ebebeb;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+input[type="submit"] {
+  height: 35px;
+  width: 90%;
+  color: #fff;
+  background-color: #027EC3;
+  border-radius: 3px;
+  border: none;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-right: 1rem;
+}
+
+input[type="button"] {
+  height: 35px;
+  width: 90%;
+  color: #fff;
+  background-color: #b42a2a;
+  border-radius: 3px;
+  border: none;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
 /*# sourceMappingURL=main.css.map */
