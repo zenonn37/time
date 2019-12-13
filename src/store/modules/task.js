@@ -1,4 +1,4 @@
-
+import Axios from 'axios'
 
 const state = {
     //finished tasks from DB
@@ -84,20 +84,54 @@ const actions = {
         commit('set_stop', payload)
     },
 
-    save_active_task({ dispatch, getters }) {
-        dispatch('set_active_task', false)
-        dispatch('set_stop', true)
+    set_tasks({ commit }, id) {
+        return new Promise((resolve, reject) => {
+            Axios.get(`timer-task/${id}`)
+                .then(res => {
+                    resolve(res)
+                    console.log(res);
+
+                    commit('set_tasks', res.data.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
+
+    save_active_task({ commit, dispatch, getters }) {
+        return new Promise((resolve, reject) => {
+
+            dispatch('set_active_task', false)
+            dispatch('set_stop', true)
 
 
-        let active = getters['get_active_tasks']
-        let seconds = getters['get_seconds']
+            let active = getters['get_active_tasks']
+            let seconds = getters['get_seconds']
 
-        const data = {
-            ...active,
-            actual: seconds
+            const data = {
+                timer_project_id: active.project_id,
+                name: active.name,
+                time: seconds,
+                completed: true
 
-        }
-        console.log(data);
+            }
+
+
+            console.log(data);
+            Axios.post('timer-task-new', data)
+                .then(res => {
+                    console.log(res);
+
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
 
 
     },

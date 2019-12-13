@@ -3,30 +3,7 @@ import Axios from "axios"
 
 const state = {
     projects: [
-        // {
-        //     name: 'Timer App',
-        //     total: 28800,
-        //     tasks: 100,
-        //     completed: false,
-        //     goal: 30000,
-        //     id: 697,
-        // },
-        // {
-        //     name: 'Money-Tracker',
-        //     total: 70000,
-        //     tasks: 1500,
-        //     completed: true,
-        //     goal: 162000,
-        //     id: 698,
-        // },
-        // {
-        //     name: 'Toka Weather',
-        //     total: 700000,
-        //     tasks: 1500,
-        //     completed: true,
-        //     goal: 162000,
-        //     id: 699,
-        // }
+
     ]
 
 }
@@ -84,13 +61,12 @@ const actions = {
                     console.log(res);
 
                     resolve()
-                    if (res.status === 200) {
-                        commit('new_projects', {
-                            ...payload,
-                            id: res.data,
 
-                        })
-                    }
+                    commit('new_projects', res.data.data)
+
+
+
+
 
                 }).catch(err => {
                     reject()

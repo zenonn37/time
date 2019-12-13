@@ -6,7 +6,7 @@
           <i class="fas fa-chevron-left"></i>
         </div>
         <div class="task">
-          <input type="text" v-model.trim="task" placeholder="Enter Task" />
+          <input type="text" v-model.trim="name" placeholder="Enter Task" />
         </div>
         <div class="new-time">
           <input type="text" v-model.trim="hour" placeholder="Hours" />
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      task: "",
+      name: "",
       hour: "",
       min: ""
     };
@@ -61,7 +61,7 @@ export default {
       console.log(hour);
 
       const data = {
-        task: this.task,
+        name: this.name,
         seconds: hour + min,
         project_id: this.$route.params.id
       };

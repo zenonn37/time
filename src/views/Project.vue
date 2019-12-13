@@ -12,9 +12,12 @@
         </div>
       </div>
     </div>
-    <div class="project-parent" :class="[tasks.length < 1  ? 'full-screen': '']">
+    <!-- <div class="tasks">
+      <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
+    </div>-->
+    <div class="project-parent" :class="[tasks === null  ? 'full-screen': '']">
       <ActiveTask />
-      <template v-if="tasks.length < 1">
+      <template v-if="tasks === null">
         <div class="no-task">
           <h3 class="title">No Tasks yet, complete a task to create one.</h3>
         </div>
@@ -41,16 +44,32 @@ export default {
     ActiveTask,
     CountUp
   },
+  data() {
+    return {
+      loading: false
+    };
+  },
   computed: {
     project() {
       const id = parseInt(this.$route.params.id);
       const data = this.$store.getters["projects/show_projects"](id);
-      return data;
+      console.log(data);
+
+      if (data !== null || data !== undefined) {
+        return data;
+      } else {
+        return "";
+      }
     },
     tasks() {
-      const data = this.$store.getters["time/get_time"];
-      return data !== null ? data : [];
+      return this.$store.getters["task/get_tasks"];
     }
+  },
+  created() {
+    this.loading = true;
+    this.$store.dispatch("task/set_tasks", this.$route.params.id).then(() => {
+      this.loading = false;
+    });
   }
 };
 </script>

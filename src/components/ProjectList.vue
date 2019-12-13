@@ -25,7 +25,7 @@
           <div class="panel-task">
             <h6>Project Tasks</h6>
             <div class="box-task">
-              <span class="hours">{{project.tasks}}</span>
+              <span class="hours">{{task_count}}</span>
             </div>
           </div>
           <div class="panel-goal">
@@ -40,7 +40,13 @@
 
 <script>
 export default {
-  props: ["project"]
+  props: ["project"],
+
+  computed: {
+    task_count() {
+      return this.project !== undefined ? this.project.tasks.length : 0;
+    }
+  }
 };
 </script>
 

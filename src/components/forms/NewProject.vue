@@ -30,7 +30,11 @@ export default {
 
   methods: {
     onSubmit() {
-      this.$store.dispatch("projects/new_projects", this.projects);
+      this.$store.dispatch("projects/new_projects", this.projects).then(() => {
+        this.$emit("cancel", false);
+        this.name = "";
+        this.goal = "";
+      });
     },
     onCancel() {
       this.$emit("cancel", false);
