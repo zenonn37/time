@@ -5,10 +5,23 @@
 
   .edit-task{
    position: absolute;
-   @include panels(120px,$white,true,150px);
+   @include panels(150px,$white,true,150px);
    left:0;
    top:18px;
    z-index: 1000;
+   transition: all 0.5s ease;
+   .task{
+     margin: .4rem 0 1rem 0 ;
+   }
+   .new-time{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       input[type="submit"]{
+           width: 100%;
+           margin-right: 0;
+       }
+   }
   
 
   } 

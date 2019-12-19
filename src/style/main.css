@@ -75,6 +75,15 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
 }
 
+.slide-enter-active, .slide-leave-active {
+  -webkit-transition: margin-left 3s ease-in-out;
+  transition: margin-left 3s ease-in-out;
+}
+
+.slide-enter, .slide-leave-to {
+  margin-left: -30px;
+}
+
 .fadeIn {
   -webkit-animation-duration: .5s;
           animation-duration: .5s;
@@ -856,7 +865,7 @@ input[type="button"] {
 
 .task-list-parent .edit-task {
   position: absolute;
-  height: 120px;
+  height: 150px;
   background-color: #fff;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
@@ -869,6 +878,27 @@ input[type="button"] {
   left: 0;
   top: 18px;
   z-index: 1000;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.task-list-parent .edit-task .task {
+  margin: .4rem 0 1rem 0;
+}
+
+.task-list-parent .edit-task .new-time {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.task-list-parent .edit-task .new-time input[type="submit"] {
+  width: 100%;
+  margin-right: 0;
 }
 
 .task-list-parent span {

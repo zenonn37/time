@@ -1,8 +1,10 @@
 <template>
   <div class="task-list-parent">
-    <div v-if="edit" class="edit-task">
-      <EditTask :task="hour.name" />
-    </div>
+    <transition name="fade" mode="out-in">
+      <div v-if="edit" class="edit-task">
+        <EditTask :task="hour" @close="close" @save="save" />
+      </div>
+    </transition>
 
     <div class="task-top">
       <div class="task-title">
@@ -53,6 +55,18 @@ export default {
     return {
       edit: false
     };
+  },
+  methods: {
+    close() {
+      this.edit = false;
+    },
+    save(value) {
+      console.log(value);
+      this.$store.dispatch("task/edit_task", value).then(() => {
+        this.edit = false;
+        this.$store.dispatch("task/set_tasks", this.$route.params.id);
+      });
+    }
   }
 };
 </script>

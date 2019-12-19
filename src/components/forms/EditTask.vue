@@ -1,13 +1,13 @@
 <template>
-  <form @submit.prevent="editTask()">
-    <!-- <div class="back-btn cursor" @click="onBack()">
-      <i class="fas fa-chevron-left"></i>
-    </div>-->
+  <form @submit.prevent="editName()">
+    <div class="back-btn cursor" @click="closeTask()">
+      <i class="fas fa-times-circle"></i>
+    </div>
     <div class="task">
-      <input type="text" v-model.trim="name" placeholder="Enter Task" />
+      <input type="text" v-model.trim="edit.name" placeholder="Edit Task" />
     </div>
     <div class="new-time">
-      <input type="submit" value="GO" />
+      <input type="submit" value="Complete" />
     </div>
   </form>
 </template>
@@ -17,11 +17,20 @@ export default {
   props: ["task"],
   data() {
     return {
-      name: this.task
+      edit: {
+        name: this.task.name,
+        id: this.task.id
+      }
     };
+  },
+  methods: {
+    closeTask() {
+      this.$emit("close", false);
+    },
+    editName() {
+      this.$emit("save", this.edit);
+    }
   }
 };
 </script>
 
-<style scoped>
-</style>

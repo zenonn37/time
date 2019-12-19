@@ -76,6 +76,23 @@ const getters = {
 //actions
 const actions = {
 
+    edit_task({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            Axios.patch(`timer-task-update/${payload.id}`, {
+                name: payload.name
+            })
+                .then(res => {
+                    resolve(res)
+                    console.log(res);
+
+                    //commit('set_tasks', res.data.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
+
     delete_active_task({ commit, dispatch }) {
         dispatch('set_active_task', false)
         commit('delete_active_task')
