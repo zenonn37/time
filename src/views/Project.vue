@@ -24,7 +24,7 @@
       </template>
 
       <template v-else>
-        <div class="tasks">
+        <div class="tasks" v-if="!active">
           <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
         </div>
       </template>
@@ -63,6 +63,9 @@ export default {
     },
     tasks() {
       return this.$store.getters["task/get_tasks"];
+    },
+    active() {
+      return this.$store.getters["task/active_status"];
     }
   },
   created() {

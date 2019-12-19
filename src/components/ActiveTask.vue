@@ -17,10 +17,10 @@
             </div>
 
             <div class="activity-end">
-              <div @click="onDelete()">Delete</div>
+              <div class="cursor" @click="onDelete()">Delete</div>
 
               <div>
-                <div @click="onComplete()">Save</div>
+                <div class="cursor" @click="onSave()">Save</div>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default {
     }
   },
   methods: {
-    onComplete() {
+    onSave() {
       //this.$store.dispatch("task/set_active_task", false);
       this.$store.dispatch("task/save_active_task");
     },

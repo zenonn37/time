@@ -1,0 +1,72 @@
+.task-list-parent{
+   position: relative;
+  @include panels(185px,$white,true);
+  transition: all 0.5s ease;
+
+  .edit-task{
+   position: absolute;
+   @include panels(120px,$white,true,150px);
+   left:0;
+   top:18px;
+   z-index: 1000;
+  
+
+  } 
+
+  span{
+      text-transform: capitalize;
+     
+    
+  }
+  h6{
+    @include text($grey,.4,12px);
+ // color: $grey;
+  margin-bottom: .2rem;
+}
+
+  .task-top{
+     
+    
+      display: flex;
+      height:50px;
+      .task-title{
+          flex:1;
+          i{
+           @include text($grey,.8,12px)
+          }
+      }
+  .task-dates{
+      span{
+        @include text($grey,.6,12px);
+      }
+  
+  }
+  }
+  .task-mid{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .complete{
+        @include text($panel,1,50px);
+      }
+      .not-complete{
+        @include text($warning,1,50px);
+      }
+  }
+
+  .task-bottom{
+      display: flex;
+      justify-content: space-around;
+      .task-details{
+          
+          flex:1;
+          text-align: center;
+          .complete{
+            @include text($panel,1,16px);
+          }
+          .not-complete{
+            @include text($warning,1,16px);
+          }
+      }
+  }
+}

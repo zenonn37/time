@@ -112,8 +112,9 @@ const actions = {
             const data = {
                 timer_project_id: active.project_id,
                 name: active.name,
-                time: seconds,
-                completed: true
+                actual: seconds,
+                goal: active.seconds,
+                completed: seconds > 0 ? false : true
 
             }
 
@@ -121,8 +122,8 @@ const actions = {
             console.log(data);
             Axios.post('timer-task-new', data)
                 .then(res => {
-                    console.log(res);
-
+                    console.log(res.data.data);
+                    commit('new_tasks', res.data.data)
                     resolve(res)
                 }).catch(err => {
                     reject()

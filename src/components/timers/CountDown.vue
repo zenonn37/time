@@ -13,18 +13,18 @@
         <span>{{ d_seconds}}</span>
       </div>
 
-      <div class="count-start" @click="timer()">
+      <div class="count-start cursor" @click="timer()">
         <img src="/images/play.png" alt="Play Icon" />
       </div>
 
       <div class="button-group">
-        <div class="pause" @click="onPause">
+        <div class="pause cursor" @click="onPause">
           <i class="fas fa-pause"></i>
         </div>
-        <div class="resume" @click="onResume">
+        <div class="resume cursor" @click="onResume">
           <img src="/images/play.png" alt="Play Icon" />
         </div>
-        <div class="stop" @click="onStopTimer">
+        <div class="stop cursor" @click="onStopTimer">
           <i class="fas fa-stop"></i>
         </div>
       </div>
@@ -173,6 +173,12 @@ export default {
       this.bosTimer();
       this.$store.dispatch("task/set_seconds", this.seconds);
     }
+  },
+  created() {
+    this.timer();
+  },
+  beforeDestroy() {
+    this.stopCountDown = true;
   }
 };
 </script>

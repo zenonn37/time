@@ -47,9 +47,6 @@ export default {
       this.$router.push("/home");
     },
     saveCurrentCount(value) {
-      console.log("called");
-
-      console.log(value);
       this.$store.dispatch("time/new_time", value);
     },
     setTask() {
@@ -58,7 +55,6 @@ export default {
       }
       const hour = this.hour !== "" || this.hour !== 0 ? this.hour * 3600 : 0;
       const min = this.min !== "" || this.min !== 0 ? this.min * 60 : 0;
-      console.log(hour);
 
       const data = {
         name: this.name,
@@ -66,17 +62,16 @@ export default {
         project_id: this.$route.params.id
       };
 
-      if (data.seconds < 300) {
+      if (data.seconds < 120) {
         //console.log("Task requires at least five minutes to start tracking");
         this.$toast.open({
-          message: "Task requires at least five minutes to start tracking",
+          message:
+            "Task's require at least a two minute duration to start tracking",
           type: "warning",
           position: "top"
         });
         return false;
       }
-
-      console.log(data);
 
       this.$store.dispatch("task/active_task", data);
       this.task = "";

@@ -15,8 +15,8 @@ Vue.filter('date', function (value) {
 Vue.filter('current', function (value) {
 
 
-    //return moment(value).format('D MMM')
-    return moment(value).fromNow()
+
+    return moment(value).fromNow(true)
 })
 
 

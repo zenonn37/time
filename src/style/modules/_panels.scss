@@ -1,8 +1,8 @@
+
+
 .panel-parent{ 
  @include panels(300px,$white,false);
-  &:hover{
-      //height: 250px;
-  }
+  
 
   i{
       font-size:small;
