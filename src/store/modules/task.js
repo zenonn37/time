@@ -75,7 +75,23 @@ const getters = {
 
 //actions
 const actions = {
+    //delete task
+    delete_task({ commit }, id) {
+        return new Promise((resolve, reject) => {
+            Axios.delete(`timer-task-delete/${id}`)
 
+                .then(res => {
+                    resolve(res)
+                    console.log(res);
+
+                    commit('delete_tasks', id)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
+    //edit task function
     edit_task({ commit }, payload) {
         return new Promise((resolve, reject) => {
             Axios.patch(`timer-task-update/${payload.id}`, {

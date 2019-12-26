@@ -2,7 +2,7 @@
   <div>
     <div class="sub-header">
       <div class="project-header">
-        <div class="project-title">
+        <div class="project-title" v-if="!loading">
           <h3 class="title">{{project.name}}</h3>
         </div>
       </div>
@@ -70,9 +70,22 @@ export default {
   },
   created() {
     this.loading = true;
-    this.$store.dispatch("task/set_tasks", this.$route.params.id).then(() => {
-      this.loading = false;
-    });
+    const id = parseInt(this.$route.params.id);
+    if (this.$store.getters["projects/show_projects"](id) === undefined) {
+      console.log("no data");
+      this.$store.dispatch("projects/get_projects").then(() => {
+        console.log("reload");
+        this.$store
+          .dispatch("task/set_tasks", this.$route.params.id)
+          .then(() => {
+            this.loading = false;
+          });
+      });
+    } else {
+      this.$store.dispatch("task/set_tasks", this.$route.params.id).then(() => {
+        this.loading = false;
+      });
+    }
   }
 };
 </script>

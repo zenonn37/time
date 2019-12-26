@@ -8,8 +8,12 @@
 
     <div class="task-top">
       <div class="task-title">
-        <h6>Completed Task</h6>
-        <span @click="edit = !edit">
+        <div class="task-title-sub cursor" @click="onDelete(hour.id)">
+          <h6>Task</h6>
+          <i class="fas fa-trash"></i>
+        </div>
+
+        <span @click="edit = !edit" class="cursor">
           {{hour.name}}
           <i class="fas fa-edit"></i>
         </span>
@@ -59,6 +63,13 @@ export default {
   methods: {
     close() {
       this.edit = false;
+    },
+    onDelete(id) {
+      console.log("delete");
+      const ids = parseInt(id);
+      this.$store.dispatch("task/delete_task", ids).then(() => {
+        console.log("deleted");
+      });
     },
     save(value) {
       console.log(value);
