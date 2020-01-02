@@ -11,6 +11,14 @@
           <CountUp />
         </div>
       </div>
+
+      <div class="filter-bar">
+        <div @click="onFilterDays(0)">Today</div>
+        <div @click="onFilterDays(7)">7</div>
+        <div @click="onFilterDays(14)">14</div>
+        <div @click="onFilterDays(30)">30</div>
+        <div @click="onAll()">All</div>
+      </div>
     </div>
     <!-- <div class="tasks">
       <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
@@ -66,6 +74,25 @@ export default {
     },
     active() {
       return this.$store.getters["task/active_status"];
+    }
+  },
+  methods: {
+    onFilterDays(days) {
+      this.loading = true;
+      const payload = {
+        days: days,
+        id: this.$route.params.id
+      };
+      this.$store.dispatch("task/filter_day_range", payload).then(() => {
+        this.loading = false;
+      });
+    },
+    onAll() {
+      this.loading = true;
+
+      this.$store.dispatch("task/all_tasks", this.$route.params.id).then(() => {
+        this.loading = false;
+      });
     }
   },
   created() {

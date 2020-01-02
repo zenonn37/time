@@ -44,5 +44,20 @@
     outline: none;
 
 }
+//advanced btn
+@mixin a_button($color,$height,$background,$font-size,$radius) {
+    color:$white;
+    background-color: $button-main;
+    border-radius: $radius;
+    height:$height;
+    padding: 0 1rem 0 1rem;
+    border: none;
+    font-size:$font-size;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $shadow;
+    outline: none;
+}
 
 //basic flex

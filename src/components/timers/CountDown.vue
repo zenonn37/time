@@ -107,7 +107,7 @@ export default {
 
         //check to stop
         if (
-          secondsLeft < 1 ||
+          secondsLeft <= 0 ||
           this.stopCountDown === true ||
           this.store_stop === true
         ) {

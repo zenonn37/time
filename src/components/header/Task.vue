@@ -74,7 +74,7 @@ export default {
       }
 
       this.$store.dispatch("task/active_task", data);
-      this.task = "";
+      this.name = "";
       this.hour = "";
       this.min = "";
     }

@@ -75,6 +75,37 @@ const getters = {
 
 //actions
 const actions = {
+    //all task for current project
+    all_tasks({ commit }, id) {
+        return new Promise((resolve, reject) => {
+            Axios.get(`timer-tasks-all/${id}`)
+                .then(res => {
+                    resolve(res)
+                    console.log(res);
+
+                    commit('set_tasks', res.data.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
+    //filter saved tasks by date
+
+    filter_day_range({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            Axios.get(`filter-range/${payload.id}/${payload.days}`)
+                .then(res => {
+                    resolve(res)
+                    console.log(res);
+
+                    commit('set_tasks', res.data.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
     //delete task
     delete_task({ commit }, id) {
         return new Promise((resolve, reject) => {
