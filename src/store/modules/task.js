@@ -139,7 +139,7 @@ const actions = {
                 })
         })
     },
-
+    //clear active task
     delete_active_task({ commit, dispatch }) {
         dispatch('set_active_task', false)
         commit('delete_active_task')
@@ -162,7 +162,7 @@ const actions = {
                 })
         })
     },
-
+    //create new task
     save_active_task({ commit, dispatch, getters }) {
         return new Promise((resolve, reject) => {
 

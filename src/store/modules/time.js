@@ -42,6 +42,8 @@ const actions = {
     },
     new_time({ commit }, payload) {
 
+        console.log(payload);
+
 
         commit('new_time', payload)
     }

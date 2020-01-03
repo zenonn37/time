@@ -58,19 +58,10 @@ export default {
       this.$store.dispatch("time/new_time", data);
     },
     bosTimer() {
-      //let seconds = this.save === true ? this.pause : this.entry;
-
-      //const now = Date.now();
-      //const then = now + seconds * 1000;
-      //console.log({ now, then });
       this.displayTimer();
       this.interval = setInterval(() => {
-        //const secondsLeft = Math.round((then - Date.now()) / 1000);
         ++this.entry;
 
-        //console.log(this.entry);
-
-        //check to stop
         if (this.stopCountDown === true) {
           clearInterval(this.interval);
         }
@@ -92,23 +83,7 @@ export default {
       return `${hour} : ${minute} : 00`;
     },
 
-    // setTime() {
-    //   let min = parseInt(this.count.d_minutes);
-    //   let hour = parseInt(this.count.d_hours);
-    //   let hours = hour > 0 ? hour * 3600 : 0;
-    //   let minutes = min > 0 ? min * 60 : 0;
-
-    //   this.sec_h = hours;
-    //   this.sec_m = minutes;
-
-    //   let total = hours + minutes;
-    //   // console.log(total);
-
-    //   this.entry = total;
-    // },
-
     onStopTimer() {
-      //this.stopCountDown = true;
       console.log("stop");
       this.saveMoment();
 
@@ -116,27 +91,12 @@ export default {
       this.stopCountDown = true;
     },
     onResetTimer() {
-      //this.stopCountDown = true;
-
       this.d_seconds = 0;
       this.d_minutes = 0;
       this.d_hours = 0;
-      // this.save = false;
-      // this.pause = 0;
     },
-    // onPause() {
-    //   let current = this.entry;
-    //   this.pause = current;
-    //   this.save = false;
-    //   this.stopCountDown = true;
-    // },
-    // onResume() {
-    //   this.save = true;
-    //   this.bosTimer();
-    // },
 
     timer() {
-      //this.onResetTimer();
       this.entry = 0;
       this.bosTimer();
       this.status = true;

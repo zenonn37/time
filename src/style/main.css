@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #B7EDF6;
+  background-color: #eeeeee;
   font-family: 'Poppins',sans-serif;
 }
 
@@ -92,6 +92,17 @@ h1, h2, h3, h4, h5, h6 {
 .fadeOut {
   -webkit-animation-duration: .5s;
           animation-duration: .5s;
+}
+
+.list-enter-active, .list-leave-active {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.list-enter, .list-leave-to {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 
 .header-parent {
@@ -600,6 +611,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 20px;
 }
 
+.sub-header .project-header {
+  margin-top: 1rem;
+}
+
 .sub-header .clock-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -630,6 +645,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  margin-top: 1.5rem;
 }
 
 .filter-bar div {
@@ -668,6 +684,23 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.project-parent .no-task {
+  margin-top: 1.5rem;
+}
+
+.project-parent .loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70vh;
 }
 
 .home-head-parent {

@@ -14,26 +14,34 @@
 
       <div class="filter-bar">
         <div @click="onFilterDays(0)">Today</div>
-        <div @click="onFilterDays(7)">7</div>
-        <div @click="onFilterDays(14)">14</div>
-        <div @click="onFilterDays(30)">30</div>
+        <div @click="onFilterDays(7)">7d</div>
+        <div @click="onFilterDays(14)">14d</div>
+        <div @click="onFilterDays(30)">30d</div>
         <div @click="onAll()">All</div>
       </div>
     </div>
     <!-- <div class="tasks">
       <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
     </div>-->
-    <div class="project-parent" :class="[tasks === null  ? 'full-screen': '']">
+    <div class="project-parent" :class="[tasks.length <= 0  ? 'full-screen': '']">
       <ActiveTask />
-      <template v-if="tasks === null">
+      <template v-if="tasks.length <= 0">
         <div class="no-task">
-          <h3 class="title">No Tasks yet, complete a task to create one.</h3>
+          <h3 class="title">No Tasks yet, Start and save a task to create one.</h3>
+        </div>
+      </template>
+
+      <template v-if="!loading">
+        <div class="tasks" v-if="!active">
+          <transition-group name="list">
+            <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
+          </transition-group>
         </div>
       </template>
 
       <template v-else>
-        <div class="tasks" v-if="!active">
-          <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
+        <div class="loader">
+          <half-circle-spinner :animation-duration="1000" :size="50" color="#000000" />
         </div>
       </template>
     </div>
@@ -44,13 +52,15 @@
 import TimeList from "@/components/TimeList";
 import ActiveTask from "@/components/ActiveTask";
 import CountUp from "@/components/timers/CountUp";
+import { HalfCircleSpinner } from "epic-spinners";
 export default {
   name: "Project",
   props: ["id"],
   components: {
     TimeList,
     ActiveTask,
-    CountUp
+    CountUp,
+    HalfCircleSpinner
   },
   data() {
     return {
