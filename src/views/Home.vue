@@ -1,12 +1,18 @@
 <template>
   <div>
     <div class="home-subheader">
-      <div :class="[!active ? 'new-project' : 'new-project-full' ]">
-        <div class="new-button" @click="onToggleActive()">
-          <i class="fas fa-project-diagram"></i>
-        </div>
+      <div :class="[!active ? 'hide-form' : 'show-form' ]">
+        <transition name="slide-fade">
+          <div class="project-btn cursor" v-if="!active">
+            <div class="new-button" @click="onToggleActive()">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+          </div>
+        </transition>
         <div class="forms">
-          <NewProject v-if="active" @cancel="onToggleActive" />
+          <transition name="slide-fade">
+            <NewProject v-if="active" @cancel="onToggleActive" />
+          </transition>
         </div>
       </div>
     </div>
@@ -17,7 +23,9 @@
       </template>
       <template v-else>
         <div>
-          <ProjectList :project="proj" v-for="proj in projects" :key="proj.id" />
+          <transition-group name="fade" mode="in-out">
+            <ProjectList :project="proj" v-for="proj in projects" :key="proj.id" />
+          </transition-group>
         </div>
       </template>
     </div>
@@ -54,18 +62,6 @@ export default {
     onToggleActive() {
       this.active = !this.active;
     }
-    //timer function starts clock countup
-    // saveTime() {
-    //   this.end = moment();
-    //   this.result = this.end.diff(this.start, "minutes");
-    //   let time = [];
-    //   const save = this.total;
-    //   time.push(save);
-    //   this.current.push({
-    //     entry: this.entry,
-    //     time: save
-    //   });
-    // }
   },
   created() {
     this.loading = true;

@@ -75,8 +75,49 @@ const actions = {
         })
 
     },
-    delete_project({ commit }) {
-        commit(' delete_projects')
+    edit_projects({ commit, dispatch }, payload) {
+        console.log(payload);
+
+        return new Promise((resolve, reject) => {
+            Axios.patch(`/timer-projects-update/${payload.id}`, {
+                name: payload.name,
+                goal: payload.goal
+            })
+                .then(res => {
+                    console.log(res);
+
+                    resolve();
+
+                    dispatch('get_projects')
+
+
+
+
+
+
+
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+
+    },
+    delete_project({ commit }, id) {
+        return new Promise((resolve, reject) => {
+            Axios.delete(`timer-projects-delete/${id}`)
+                .then(() => {
+                    commit('delete_projects', id)
+                    resolve()
+
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
     }
 }
 

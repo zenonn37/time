@@ -3,41 +3,18 @@
    justify-content: flex-end;
    position: relative;
    margin-bottom:8rem;
-    .new-project{
-        display: flex;
-        align-items: center;
-        position: absolute;
-        top:0;
-        right:0;
-        
-        @include panels(50px,$white,true,60px);
-        transition: all 0.3s ease-in;
-        // &:hover{
-        //     @include panels(200px,$white,true,200px);
-        // }
-        .new-button{
-            @include button($white,40px,40px,$button-main,15px);
-           transition: all 0.3s;
-        }
-    }
-    .new-project-full{
-        position: absolute;
-        top:0;
-        right:0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       
-        
-        @include panels(250px,$white,true,250px);
-        transition: all 0.3s ease-in;
-        // &:hover{
-        //     @include panels(200px,$white,true,200px);
-        // }
-        .new-button{
-            @include button($white,30px,30px,$button-main,12px);
-            transition: all 0.3s;
-            display: none;
-        }
-    }
+   .project-btn{
+       position:absolute;
+       right:20px;
+       top:20px;
+       @include circle_button($white,$button-main,15px);
+   }
+
+   .forms{
+       position: absolute;
+       right:30px;
+       z-index: 9999;
+   }
+  
+ 
 }

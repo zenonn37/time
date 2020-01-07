@@ -1,7 +1,16 @@
 
 
 .panel-parent{ 
- @include panels(300px,$white,false);
+   
+ @include panels(200px,$white,false);
+ position: relative;
+ .edit-project{
+     position: absolute;
+     z-index: 9999;
+     top:0;
+     left:0;
+    // @include panels(50px,$white,false);
+ }
   
 
   i{
@@ -32,6 +41,22 @@
 
      .panel-date{
       flex:1;
+      h6{
+          display: flex;
+          align-items: center;
+        i{
+            margin: 0 0 0 .5rem;
+        }
+      }
+      .title{
+          display: flex;
+          align-items: center;
+       
+           
+          i{
+              margin: 0 .5rem 0 0;
+          }
+      }
      
      }
      .panel-time{

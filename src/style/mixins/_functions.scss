@@ -10,7 +10,9 @@
  // overflow: hidden;
 
    @if $padding{
-       padding: .5rem;
+       padding: 1rem;
+   } @else {
+       padding: $padding;
    }
     
 }
@@ -46,11 +48,27 @@
 }
 //advanced btn
 @mixin a_button($color,$height,$background,$font-size,$radius) {
-    color:$white;
-    background-color: $button-main;
+    color:$color;
+    background-color: $background;
     border-radius: $radius;
     height:$height;
     padding: 0 1rem 0 1rem;
+    border: none;
+    font-size:$font-size;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $shadow;
+    outline: none;
+}
+
+@mixin circle_button($color,$background,$font-size) {
+    color:$color;
+    background-color: $background;
+    border-radius: 50%;
+    height:40px;
+    width: 40px;
+  
     border: none;
     font-size:$font-size;
     display:flex;

@@ -75,6 +75,7 @@ export default {
       console.log(value);
       this.$store.dispatch("task/edit_task", value).then(() => {
         this.edit = false;
+        //refactor to call this function within module!!
         this.$store.dispatch("task/set_tasks", this.$route.params.id);
       });
     }

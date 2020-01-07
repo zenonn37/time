@@ -2,11 +2,11 @@
   <div class="mini-forms">
     <form @submit.prevent="onSubmit()">
       <div class="form-input">
-        <input type="text" v-model.trim="projects.name" placeholder="Project Title" />
+        <input type="text" v-model.trim="edit.name" placeholder="Project Title" />
       </div>
 
       <div class="form-input">
-        <input type="text" v-model.trim="projects.goal" placeholder="Duration Goal" />
+        <input type="text" v-model.trim="edit.goal" placeholder="Duration Goal" />
       </div>
 
       <div class="form-btns form-input">
@@ -19,11 +19,12 @@
 
 <script>
 export default {
+  props: ["data"],
   data() {
     return {
-      projects: {
-        name: "",
-        goal: ""
+      edit: {
+        name: this.data.name,
+        goal: this.data.goal / 3600
       }
     };
   },
@@ -31,7 +32,7 @@ export default {
   methods: {
     onSubmit() {
       //set conditions for goal, needs to be in seconds
-      const userSeconds = this.projects.goal;
+      const userSeconds = this.edit.goal;
       if (userSeconds < 1) {
         this.$toast.open({
           message: "Project Goal require's at least a one hour duration.",
@@ -45,15 +46,13 @@ export default {
       const seconds = userSeconds * 3600;
 
       const data = {
-        name: this.projects.name,
-        goal: seconds
+        name: this.edit.name,
+        goal: seconds,
+        id: this.data.id
       };
 
-      this.$store.dispatch("projects/new_projects", data).then(() => {
+      this.$store.dispatch("projects/edit_projects", data).then(() => {
         this.$emit("cancel", false);
-
-        this.name = "";
-        this.goal = "";
       });
     },
     onCancel() {
@@ -63,5 +62,3 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>

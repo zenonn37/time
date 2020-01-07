@@ -2,6 +2,8 @@
 //all forms
 
 .mini-forms{
+
+    @include panels(200px,$white,1rem,250px);
     .form-btns{
         display: flex;
         justify-content: space-between;
