@@ -12,11 +12,11 @@
     </div>
     <div class="clock-controls">
       <transition name="fade" mode="out-in">
-        <div v-if="!status" class="play">
+        <div v-if="!status" class="play cursor">
           <i class="far fa-play-circle play" @click="timer()"></i>
         </div>
 
-        <div v-else class="stop">
+        <div v-else class="stop cursor">
           <i class="far fa-stop-circle" @click="onStopTimer()"></i>
         </div>
       </transition>

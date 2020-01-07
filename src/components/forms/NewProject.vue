@@ -30,8 +30,28 @@ export default {
 
   methods: {
     onSubmit() {
-      this.$store.dispatch("projects/new_projects", this.projects).then(() => {
+      //set conditions for goal, needs to be in seconds
+      const userSeconds = this.projects.goal;
+      if (userSeconds < 1) {
+        this.$toast.open({
+          message: "Project Goal require's at least a one hour duration.",
+          type: "warning",
+          position: "top"
+        });
+
+        return false;
+      }
+
+      const seconds = userSeconds * 3600;
+
+      const data = {
+        name: this.projects.name,
+        goal: seconds
+      };
+
+      this.$store.dispatch("projects/new_projects", data).then(() => {
         this.$emit("cancel", false);
+
         this.name = "";
         this.goal = "";
       });

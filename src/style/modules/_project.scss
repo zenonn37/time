@@ -20,7 +20,7 @@
     justify-content: space-evenly;
     margin-top: 1.5rem;
     div{
-        @include a_button($white,40px,$button-main,14px,3px);
+        @include a_button($white,40px,$panel,14px,3px);
   
     }
 }

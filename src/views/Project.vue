@@ -12,12 +12,12 @@
         </div>
       </div>
 
-      <div class="filter-bar">
-        <div @click="onFilterDays(0)">Today</div>
-        <div @click="onFilterDays(7)">7d</div>
-        <div @click="onFilterDays(14)">14d</div>
-        <div @click="onFilterDays(30)">30d</div>
-        <div @click="onAll()">All</div>
+      <div class="filter-bar" v-if="!tasks.length <= 0">
+        <div class="cursor" @click="onFilterDays(0)">Today</div>
+        <div class="cursor" @click="onFilterDays(7)">7d</div>
+        <div class="cursor" @click="onFilterDays(14)">14d</div>
+        <div class="cursor" @click="onFilterDays(30)">30d</div>
+        <div class="cursor" @click="onAll()">All</div>
       </div>
     </div>
     <!-- <div class="tasks">
@@ -25,9 +25,14 @@
     </div>-->
     <div class="project-parent" :class="[tasks.length <= 0  ? 'full-screen': '']">
       <ActiveTask />
-      <template v-if="tasks.length <= 0">
+      <template v-if="tasks.length <= 0 && !active">
         <div class="no-task">
-          <h3 class="title">No Tasks yet, Start and save a task to create one.</h3>
+          <h3 class="title">No Tasks for today, Start and save a task to create one.</h3>
+        </div>
+      </template>
+      <template v-if="project.tasks >= 1 && tasks.length <= 0">
+        <div class="no-task">
+          <h3 class="title cursor" @click="onAll()">You have older task's, click to load.</h3>
         </div>
       </template>
 

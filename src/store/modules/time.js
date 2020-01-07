@@ -1,5 +1,5 @@
 //state
-
+import Axios from 'axios'
 const state = {
     time: [
 
@@ -42,10 +42,26 @@ const actions = {
     },
     new_time({ commit }, payload) {
 
-        console.log(payload);
+        return new Promise((resolve, reject) => {
 
 
-        commit('new_time', payload)
+            Axios.post('clock-new', payload)
+                .then(res => {
+                    console.log(res.data.data);
+                    commit('new_time', res.data.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+        // console.log(payload);
+
+
+        // commit('new_time', payload)
     }
 }
 
