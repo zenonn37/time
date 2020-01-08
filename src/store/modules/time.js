@@ -37,9 +37,7 @@ const getters = {
 
 //actions
 const actions = {
-    get_time({ commit }) {
-        commit('set_time')
-    },
+
     new_time({ commit }, payload) {
 
         return new Promise((resolve, reject) => {
@@ -49,6 +47,29 @@ const actions = {
                 .then(res => {
                     console.log(res.data.data);
                     commit('new_time', res.data.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+        // console.log(payload);
+
+
+        // commit('new_time', payload)
+    },
+    get_time({ commit }, id) {
+
+        return new Promise((resolve, reject) => {
+
+
+            Axios.get(`clock/${id}`)
+                .then(res => {
+                    console.log(res.data.data);
+                    commit('set_time', res.data.data)
                     resolve(res)
                 }).catch(err => {
                     reject()

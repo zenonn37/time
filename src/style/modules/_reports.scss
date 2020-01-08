@@ -1,0 +1,15 @@
+.reports-parent{
+  
+     .clock-panel{
+         @include panels(100px,$white,false);
+         padding: .8rem;
+         .clock-header{
+             display: flex;
+             .date{
+                 flex:1
+             }
+         }
+     }
+
+
+}

@@ -1069,4 +1069,30 @@ input[type="button"] {
           transform: translateX(50px);
   opacity: 0;
 }
+
+.reports-parent .clock-panel {
+  height: 100px;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 260px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: false;
+  padding: .8rem;
+}
+
+.reports-parent .clock-panel .clock-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.reports-parent .clock-panel .clock-header .date {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 /*# sourceMappingURL=main.css.map */

@@ -102,6 +102,18 @@ export default {
       this.status = true;
       this.stopCountDown = false;
       console.log("start");
+    },
+
+    beforeDestroy() {
+      this.$emit("save", this.entry);
+      console.log("called");
+
+      if (this.entry > 0) {
+        console.log("save time " + this.entry);
+        this.saveMoment();
+      } else {
+        console.log("clock not running " + this.entry);
+      }
     }
   }
 };

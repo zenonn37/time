@@ -4,6 +4,11 @@ import Home from "../views/Home.vue";
 import Project from '../views/Project.vue';
 import Reports from '../views/Reports.vue';
 import Auth from '../views/Auth.vue';
+//project children
+
+import Report from '@/views/projects/Report';
+import Task from '@/views/projects/Task';
+
 
 Vue.use(VueRouter);
 
@@ -46,7 +51,29 @@ const routes = [
       requiresAuth: true
 
     },
-    component: Project
+    component: Project,
+    children: [
+      {
+        path: 'task',
+        name: 'task',
+        meta: {
+          layout: "user",
+          requiresAuth: true
+
+        },
+        component: Task
+      },
+      {
+        path: 'report',
+        name: 'report',
+        meta: {
+          layout: "user",
+          requiresAuth: true
+
+        },
+        component: Report
+      }
+    ]
   },
   {
     path: "/reports",

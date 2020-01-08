@@ -1,7 +1,8 @@
 <template>
   <header class="header-parent">
     <div class="header-container">
-      <template
+      <Home />
+      <!-- <template
         v-if="$route.name === 'home' || 
       $route.name === 'reports' || $route.name === 'about'"
       >
@@ -12,17 +13,17 @@
         <div class="header-content">
           <Task />
         </div>
-      </template>
+      </template>-->
     </div>
   </header>
 </template>
 
 <script>
-import Task from "@/components/header/Task";
+//import Task from "@/components/header/Task";
 import Home from "@/components/header/Home";
 export default {
   components: {
-    Task,
+    // Task,
     Home
   },
   data() {

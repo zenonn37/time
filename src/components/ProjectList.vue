@@ -62,7 +62,7 @@ export default {
   computed: {},
   methods: {
     onProject(id) {
-      this.$router.push(`/projects/${id}`);
+      this.$router.push(`/projects/${id}/task`);
     },
     onEdit() {
       this.edit = !this.edit;
