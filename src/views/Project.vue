@@ -54,6 +54,7 @@
 </template>
 
 <script>
+//const sound = new Audio("audio/bells-tibetan-daniel_simon.mp3");
 import TimeList from "@/components/TimeList";
 import ActiveTask from "@/components/ActiveTask";
 import CountUp from "@/components/timers/CountUp";
@@ -92,7 +93,14 @@ export default {
     }
   },
   methods: {
+    audio() {
+      var audio = new Audio(
+        require("../assets/bells-tibetan-daniel_simon.mp3")
+      );
+      audio.play();
+    },
     onFilterDays(days) {
+      this.audio();
       this.loading = true;
       const payload = {
         days: days,

@@ -62,7 +62,7 @@ export default {
         project_id: this.$route.params.id
       };
 
-      if (data.seconds < 120) {
+      if (data.seconds < 60) {
         //console.log("Task requires at least five minutes to start tracking");
         this.$toast.open({
           message:

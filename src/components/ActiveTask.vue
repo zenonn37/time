@@ -13,7 +13,7 @@
               </div>
             </div>
             <div class="activity-mid">
-              <CountDown :seconds="task.seconds" />
+              <CountDown @save="onSave()" :seconds="task.seconds" />
             </div>
 
             <div class="activity-end">

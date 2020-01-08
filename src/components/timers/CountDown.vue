@@ -107,7 +107,7 @@ export default {
 
         //check to stop
         if (
-          secondsLeft <= 0 ||
+          secondsLeft === 0 ||
           this.stopCountDown === true ||
           this.store_stop === true
         ) {
@@ -172,6 +172,20 @@ export default {
       this.onResetTimer();
       this.bosTimer();
       this.$store.dispatch("task/set_seconds", this.seconds);
+    },
+    audio() {
+      var audio = new Audio(
+        require("../../assets/bells-tibetan-daniel_simon.mp3")
+      );
+      audio.play();
+    }
+  },
+  watch: {
+    store_time(value) {
+      if (value <= 0) {
+        this.$emit("save");
+        this.audio();
+      }
     }
   },
   created() {
