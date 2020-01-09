@@ -1,13 +1,21 @@
 <template>
   <div class="home-head-parent">
-    <div class="logo">TP</div>
-    <nav>
-      <ul>
-        <router-link to="/home" tag="li">Home</router-link>
-        <router-link to="/reports" tag="li">Reports</router-link>
-        <router-link to="/about" tag="li">About</router-link>
-        <li @click="onLogout()">Logout</li>
-      </ul>
+    <div class="logo">
+      <img src="@/assets/logo.png" alt="Task Zero Logo" />
+    </div>
+    <nav class="navigation">
+      <router-link to="/home" tag="div">
+        <i class="fas fa-project-diagram"></i>
+      </router-link>
+      <router-link to="/reports" tag="div">
+        <i class="far fa-chart-bar"></i>
+      </router-link>
+      <router-link to="/about" tag="div">
+        <i class="fas fa-info-circle"></i>
+      </router-link>
+      <div @click="onLogout()">
+        <i class="fas fa-sign-out-alt"></i>
+      </div>
     </nav>
   </div>
 </template>

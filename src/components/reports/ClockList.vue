@@ -6,15 +6,42 @@
 
         <div class="time">{{clocks.entries_sum | hours}}</div>
       </div>
+      <div class="clock-footer">
+        <div class="clock-entries">
+          <div class="clock-btn cursor" @click="onShowEntry()">{{clocks.entries_count}}</div>
+          <p>Clock Entries</p>
+        </div>
+
+        <div class="clock-icon"></div>
+      </div>
+      <div class="entry-container">
+        <div :class="[entry ?  'expands': 'entries']">
+          <transition name="fade">
+            <div class="grouped-entries" v-if="entry">
+              <EntryList :entrys="clocks.entries" />
+            </div>
+          </transition>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import moment from "moment";
+//import GSAP from "gsap";
+import EntryList from "@/components/reports/EntryList";
 export default {
   props: ["clocks"],
-  components: {},
+  name: "ClockList",
+  components: {
+    EntryList
+  },
+  data() {
+    return {
+      entry: false
+    };
+  },
   computed: {
     today() {
       //slice off time of date
@@ -31,6 +58,15 @@ export default {
       } else {
         return "Today";
       }
+    }
+  },
+  methods: {
+    onShowEntry() {
+      this.entry = !this.entry;
+      // GSAP.to(".clock-panel", {
+      //   height: 100,
+      //   duration: 1
+      // });
     }
   }
 };

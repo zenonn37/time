@@ -1,11 +1,11 @@
 //panel mixin for all project panels aka boxes
 @mixin panels($height,$color,$padding,$min-width:260px) {
-    height: $height;  
+    min-height: $height;  
     background-color: $color;
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0; 
   min-width: $min-width;
-  border-radius: 8px; 
+  border-radius: 6px; 
   box-shadow: $shadow;
  // overflow: hidden;
 

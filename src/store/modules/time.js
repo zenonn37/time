@@ -39,19 +39,17 @@ const getters = {
 //actions
 const actions = {
 
-    entry({ commit }, payload) {
-        console.log('sending entry');
-        return new Promise((resolve, reject) => {
+    entry({ commit, dispatch }, payload) {
 
+        return new Promise((resolve, reject) => {
 
             //check if clock parent exist for current day!
 
 
-
             Axios.post('entries-new', payload)
                 .then(res => {
-                    console.log(res.data.data);
-
+                    // console.log(res.data.data);
+                    dispatch("get_time", payload.project_id)
                     resolve(res)
                 }).catch(err => {
                     reject()
@@ -74,12 +72,11 @@ const actions = {
             Axios.get(`clock/${id}`, id)
                 .then(res => {
 
-                    console.log(res.data.data);
+
                     const test = res.data.data
                     const today = moment().format().slice(0, 10)
-                    console.log(today);
+                    // console.log(today);
 
-                    console.log(test + 'empty');
 
                     if (test.length === 0) {
 
@@ -89,12 +86,11 @@ const actions = {
 
                     test.every(function (el) {
                         const date = el.date.slice(0, 10)
-                        console.log('test');
-                        console.log(today + '' + date);
+
 
                         if (date === today) {
                             const id = el.id
-                            console.log('Dup warning');
+
                             resolve(
                                 {
                                     bool: false,
@@ -118,9 +114,6 @@ const actions = {
                     });
 
 
-                    //commit('new_time', res.data.data)
-
-                    //resolve(res)
                 }).catch(err => {
                     reject()
                     commit('base/set_errors', err.response.data.message, { root: true })
@@ -131,7 +124,7 @@ const actions = {
 
     },
 
-    new_time({ commit }, payload) {
+    new_time({ commit, dispatch }, payload) {
 
         return new Promise((resolve, reject) => {
 
@@ -142,7 +135,8 @@ const actions = {
 
             Axios.post('clock-new', payload)
                 .then(res => {
-                    console.log(res.data.data);
+                    //console.log(res.data.data);
+                    dispatch("get_time", payload.project_id)
                     commit('new_time', res.data.data)
                     resolve(res)
                 }).catch(err => {
@@ -165,7 +159,7 @@ const actions = {
 
             Axios.get(`clock/${id}`)
                 .then(res => {
-                    console.log(res.data.data);
+
                     commit('set_time', res.data.data)
                     resolve(res)
                 }).catch(err => {

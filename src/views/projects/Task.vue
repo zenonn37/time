@@ -8,11 +8,11 @@
           <router-link :to="`/projects/${$route.params.id}/report`" tag="div">Reports</router-link>
         </div>
       </div>
-      <div class="clock-header">
+      <!-- <div class="clock-header">
         <div class="project-timer">
-          <CountUp @hook:beforeDestroy="checkClock()" @save="saveTime()" />
+          <CountUp />
         </div>
-      </div>
+      </div>-->
 
       <div class="filter-bar" v-if="!tasks.length <= 0">
         <div class="cursor" @click="onFilterDays(0)">Today</div>
@@ -58,7 +58,7 @@
 <script>
 import TimeList from "@/components/TimeList";
 import ActiveTask from "@/components/ActiveTask";
-import CountUp from "@/components/timers/CountUp";
+
 import { HalfCircleSpinner } from "epic-spinners";
 export default {
   name: "Project",
@@ -66,7 +66,7 @@ export default {
   components: {
     TimeList,
     ActiveTask,
-    CountUp,
+    //CountUp,
     HalfCircleSpinner
   },
   data() {

@@ -3,12 +3,79 @@
      .clock-panel{
          @include panels(100px,$white,false);
          padding: .8rem;
+         overflow: hidden;
+         //header
          .clock-header{
              display: flex;
              .date{
                  flex:1
              }
          }
+         //footer
+         .clock-footer{
+             display: flex;
+             .clock-entries{
+              margin-top: 1rem;
+              display: flex;
+              align-items: center;
+                 .clock-btn{
+                     @include a_button($title,40px,$white,16px,4px);
+                     margin-right:1rem;
+                 }
+                 p{
+                     color: $grey;
+                     font-size:13px;
+                 }
+             }
+         }
+         //entries
+         .entry-container{
+            overflow: hidden;
+         .entries{
+            margin-top: -100%;
+            transition: all 0.5s ease-out;
+            overflow: hidden;
+          
+             .grouped-entries{
+                 li{
+                     padding: .5rem;
+                     &:hover{
+                         background-color:$hover-light;
+                     }
+                 }
+                 .entry-line{
+                     display: flex;
+                     color: $grey;
+                     font-size:14px;
+                     .start-end{
+                         flex:1;
+                     }
+                 }
+             }
+         }
+         .expands{
+            margin-top: 1rem;
+            transition: all 0.5s ease-out;
+           // color: grey;
+            overflow: hidden;
+            .grouped-entries{
+                li{
+                    padding: .5rem;
+                    &:hover{
+                        background-color:$hover-light;
+                    }
+                }
+                .entry-line{
+                    display: flex;
+                    color: $grey;
+                    font-size:14px;
+                    .start-end{
+                        flex:1;
+                    }
+                }
+            }
+        }
+        }
      }
 
 

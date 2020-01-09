@@ -55,10 +55,8 @@ export default {
     saveMoment() {
       let id = this.$route.params.id;
       //we will check if a daily clock is setup for the project_id and for one per 24hrs
-
+      //refactor move to server
       this.$store.dispatch("time/check_clock_parent", id).then(res => {
-        console.log(res);
-
         if (!res.bool) {
           const data = {
             time: this.entry,
@@ -68,8 +66,6 @@ export default {
             clock_id: res.id
           };
           this.$store.dispatch("time/entry", data);
-          console.log("entries no new parent");
-          console.log(data);
         } else {
           const data = {
             time: this.entry,
@@ -77,8 +73,6 @@ export default {
             start: this.start,
             end: this.end
           };
-          console.log("create new parent");
-          console.log(data);
 
           this.$store.dispatch("time/new_time", data);
         }

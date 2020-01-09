@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Clock Reports</h1>
+    <!-- <h1>Clock Reports</h1> -->
 
     <div v-if="!loading">
       <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
