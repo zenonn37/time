@@ -4,7 +4,7 @@
       <div class="clock-header">
         <div class="date">{{ today }}</div>
 
-        <div class="time">{{clocks.seconds | hours}}</div>
+        <div class="time">{{clocks.entries_sum | hours}}</div>
       </div>
     </div>
   </div>

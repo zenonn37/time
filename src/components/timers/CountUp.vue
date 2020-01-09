@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import moment from "moment";
 export default {
   components: {},
 
@@ -43,7 +44,9 @@ export default {
       pause: 0,
       save: false,
       interval: "",
-      today: ""
+      today: "",
+      start: "",
+      end: ""
     };
   },
 
@@ -51,11 +54,35 @@ export default {
   methods: {
     saveMoment() {
       let id = this.$route.params.id;
-      const data = {
-        time: this.entry,
-        project_id: id
-      };
-      this.$store.dispatch("time/new_time", data);
+      //we will check if a daily clock is setup for the project_id and for one per 24hrs
+
+      this.$store.dispatch("time/check_clock_parent", id).then(res => {
+        console.log(res);
+
+        if (!res.bool) {
+          const data = {
+            time: this.entry,
+            project_id: id,
+            start: this.start,
+            end: this.end,
+            clock_id: res.id
+          };
+          this.$store.dispatch("time/entry", data);
+          console.log("entries no new parent");
+          console.log(data);
+        } else {
+          const data = {
+            time: this.entry,
+            project_id: id,
+            start: this.start,
+            end: this.end
+          };
+          console.log("create new parent");
+          console.log(data);
+
+          this.$store.dispatch("time/new_time", data);
+        }
+      });
     },
     bosTimer() {
       this.displayTimer();
@@ -85,6 +112,7 @@ export default {
 
     onStopTimer() {
       console.log("stop");
+      this.setEnd();
       this.saveMoment();
 
       this.status = false;
@@ -96,12 +124,19 @@ export default {
       this.d_hours = 0;
     },
 
+    setStart() {
+      this.start = moment().format("h:mm a");
+    },
+    setEnd() {
+      this.end = moment().format("h:mm a");
+    },
     timer() {
       this.entry = 0;
       this.bosTimer();
       this.status = true;
       this.stopCountDown = false;
       console.log("start");
+      this.setStart();
     },
 
     beforeDestroy() {

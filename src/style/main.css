@@ -438,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 260px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: false;
@@ -585,7 +585,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 260px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: false;
@@ -609,7 +609,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 260px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: false;
@@ -669,7 +669,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 150px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -813,7 +813,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 250px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -901,7 +901,7 @@ input[type="button"] {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 260px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -917,7 +917,7 @@ input[type="button"] {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 150px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -1077,7 +1077,7 @@ input[type="button"] {
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
   min-width: 260px;
-  border-radius: 10px;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: false;
