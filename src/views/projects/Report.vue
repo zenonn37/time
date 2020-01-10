@@ -36,18 +36,18 @@
     </div>
 
     <transition name="fade" mode="in-out">
-      <ClockReport v-if="!reports" :nav="timer" />
+      <ClockReports v-if="!reports" :nav="timer" />
     </transition>
     <transition name="fade" mode="out-in">
-      <TaskReport v-if="reports" />
+      <TaskReports v-if="reports" />
     </transition>
   </div>
 </template>
     
 
 <script>
-import TaskReport from "@/components/reports/TaskReports";
-import ClockReport from "@/components/reports/ClockReports";
+import TaskReports from "@/components/reports/TaskReports";
+import ClockReports from "@/components/reports/ClockReports";
 export default {
   name: "Reports",
   data() {
@@ -58,8 +58,8 @@ export default {
     };
   },
   components: {
-    TaskReport,
-    ClockReport
+    TaskReports,
+    ClockReports
   },
   methods: {
     toggleReports() {

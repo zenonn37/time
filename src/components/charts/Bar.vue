@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import bar from "@/charts/bar/bar.vue";
+import bar from "@/components/charts/bar/bar.vue";
 
-import moment from "moment";
+//import moment from "moment";
 export default {
   name: "BarChart",
   props: ["chart"],
@@ -15,13 +15,13 @@ export default {
 
   data: () => ({
     chartdata: {
-      labels: [],
+      labels: ["1/5", "1/6", "1/7", "1/8", "1/9", "1/10"],
       datasets: [
         {
-          label: "Last 30 Days",
+          label: "Hours Per Day",
           backgroundColor: "#393857",
           borderColor: "rgb(168, 165, 235)",
-          data: []
+          data: [1, 7, 8, 4, 7, 8]
         }
       ]
     },
@@ -32,16 +32,8 @@ export default {
   }),
   computed: {},
   created() {
-    const lab = this.chart.map(label => {
-      return moment(label.date).format("D MMM");
-    });
-    const data = this.chart.map(trans => {
-      return trans.amount;
-    });
-
-    this.chartdata.datasets[0].data = data;
-
-    this.chartdata.labels = lab;
+    this.chartdata.datasets[0].data = this.chart.time;
+    this.chartdata.labels = this.chart.dates;
   }
 };
 </script>

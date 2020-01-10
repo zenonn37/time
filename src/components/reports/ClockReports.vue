@@ -3,11 +3,13 @@
     <!-- <h1>Clock Reports</h1> -->
 
     <div v-if="!loading">
-      <transition mode="fade">
+      <transition name="fade">
         <div v-if="!toggle">
           <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
         </div>
-        <div v-else>Charts</div>
+        <div v-else>
+          <Bar :chart="charts" />
+        </div>
       </transition>
     </div>
   </div>
@@ -15,10 +17,12 @@
 
 <script>
 import ClockList from "@/components/reports/ClockList";
+import Bar from "@/components/charts/Bar";
 export default {
   props: ["nav"],
   components: {
-    ClockList
+    ClockList,
+    Bar
   },
 
   data() {
@@ -30,6 +34,25 @@ export default {
   computed: {
     clocks() {
       return this.$store.getters["time/get_time"];
+    },
+    charts() {
+      const charts = this.clocks;
+
+      let time = [];
+      let dates = [];
+
+      charts.forEach(el => {
+        time.push(el.entries_sum / 3600);
+        dates.push(el.date.slice(0, 10));
+      });
+
+      console.log(time);
+      console.log(dates);
+
+      return {
+        time,
+        dates
+      };
     },
     toggle() {
       return this.nav;
