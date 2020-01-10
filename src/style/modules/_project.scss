@@ -14,6 +14,11 @@
 
     .project-header{
         margin-top: 1rem;
+
+        .task-sub-nav{
+            display: flex;
+            justify-content: space-evenly;
+        }
     }
 
   
@@ -24,8 +29,10 @@
     justify-content: space-evenly;
     margin-top: 1.5rem;
     div{
-        @include a_button($white,40px,$panel,14px,3px);
-  
+        @include a_button($white,40px,$panel,14px,3px,0.8);
+        &:hover{
+            background-color: $button-main;
+        }
     }
 }
 

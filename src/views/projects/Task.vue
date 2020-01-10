@@ -2,20 +2,20 @@
   <div>
     <div class="sub-header">
       <div class="project-header">
-        <div class="project-title" v-if="!loading">
+        <!-- <div class="project-title" v-if="!loading">
           <h3 class="title">{{project.name}}</h3>
+        </div>-->
 
-          <ul>
-            <li class="cursor" @click="onActivity()">
-              <i class="fas fa-stopwatch"></i>
-              Start Task
-            </li>
-            <router-link :to="`/projects/${$route.params.id}/report`" tag="li" class="cursor">
-              <i class="far fa-chart-bar"></i>
-              Reports
-            </router-link>
-          </ul>
-        </div>
+        <ul class="task-sub-nav">
+          <li class="cursor" @click="onActivity()">
+            <i class="fas fa-stopwatch"></i>
+            Start Task
+          </li>
+          <router-link :to="`/projects/${$route.params.id}/report`" tag="li" class="cursor">
+            <i class="far fa-chart-bar"></i>
+            Reports
+          </router-link>
+        </ul>
       </div>
 
       <div class="filter-bar" v-if="!active">
@@ -152,9 +152,6 @@ export default {
         this.loading = false;
       });
     }
-  },
-  beforeDestroy() {
-    console.log("destroy");
   }
 };
 </script>

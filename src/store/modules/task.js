@@ -81,7 +81,7 @@ const actions = {
             Axios.get(`timer-tasks-all/${id}`)
                 .then(res => {
                     resolve(res)
-                    console.log(res);
+
 
                     commit('set_tasks', res.data.data)
                 }).catch(err => {
@@ -97,7 +97,7 @@ const actions = {
             Axios.get(`filter-range/${payload.id}/${payload.days}`)
                 .then(res => {
                     resolve(res)
-                    console.log(res);
+
 
                     commit('set_tasks', res.data.data)
                 }).catch(err => {
@@ -113,7 +113,7 @@ const actions = {
 
                 .then(res => {
                     resolve(res)
-                    console.log(res);
+
 
                     commit('delete_tasks', id)
                 }).catch(err => {
@@ -130,7 +130,7 @@ const actions = {
             })
                 .then(res => {
                     resolve(res)
-                    console.log(res);
+
 
                     //commit('set_tasks', res.data.data)
                 }).catch(err => {
@@ -153,7 +153,7 @@ const actions = {
             Axios.get(`timer-task/${id}`)
                 .then(res => {
                     resolve(res)
-                    console.log(res);
+
 
                     commit('set_tasks', res.data.data)
                 }).catch(err => {
@@ -185,10 +185,10 @@ const actions = {
             }
 
 
-            console.log(data);
+
             Axios.post('timer-task-new', data)
                 .then(res => {
-                    console.log(res.data.data);
+
                     commit('new_tasks', res.data.data)
                     resolve(res)
                 }).catch(err => {

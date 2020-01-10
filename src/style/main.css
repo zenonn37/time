@@ -201,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .count-down-parent {
-  height: 100%;
+  min-height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .count-down-parent .count-down .count-start {
-  bottom: -30px;
+  bottom: -15px;
   position: absolute;
   height: 60px;
   width: 60px;
@@ -415,7 +415,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: false;
   position: relative;
 }
 
@@ -562,7 +561,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: false;
 }
 
 .task-parent .task-container {
@@ -605,7 +603,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: false;
   margin: 0 -30px 0 -30px;
 }
 
@@ -619,7 +616,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: .5rem;
+  margin-top: 1rem;
 }
 
 .task-parent .activity-end > :first-child {
@@ -668,6 +665,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 1rem;
 }
 
+.sub-header .project-header .task-sub-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 .filter-bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -679,7 +685,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .filter-bar div {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
   background-color: #0295a8;
   border-radius: 3px;
   height: 40px;
@@ -698,6 +704,10 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   outline: none;
+}
+
+.filter-bar div:hover {
+  background-color: #027EC3;
 }
 
 .project-parent .project-header {
@@ -838,7 +848,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: false;
   padding: 1rem .1rem 1rem .1rem;
   max-width: 450px;
   -webkit-box-flex: 1;
@@ -1216,7 +1225,6 @@ input[type="button"] {
   border-radius: 6px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: false;
   padding: .8rem;
   overflow: hidden;
 }
@@ -1250,7 +1258,7 @@ input[type="button"] {
 }
 
 .reports-parent .clock-panel .clock-footer .clock-entries .clock-btn {
-  color: #3d3d3d;
+  color: rgba(61, 61, 61, 0.5);
   background-color: #fff;
   border-radius: 4px;
   height: 40px;
@@ -1275,7 +1283,7 @@ input[type="button"] {
 }
 
 .reports-parent .clock-panel .clock-footer .clock-entries .clock-btn:hover {
-  color: #6da16d;
+  color: rgba(109, 161, 109, 0.5);
   background-color: #fff;
   border-radius: 4px;
   height: 40px;
@@ -1297,7 +1305,7 @@ input[type="button"] {
 }
 
 .reports-parent .clock-panel .clock-footer .clock-entries .clock-btn-active {
-  color: #6da16d;
+  color: rgba(109, 161, 109, 0.5);
   background-color: #fff;
   border-radius: 4px;
   height: 40px;

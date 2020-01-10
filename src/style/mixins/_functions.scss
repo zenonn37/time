@@ -11,9 +11,9 @@
 
    @if $padding{
        padding: 1rem;
-   } @else {
-       padding: $padding;
-   }
+   } 
+     
+   
     
 }
 
@@ -47,8 +47,8 @@
 
 }
 //advanced btn
-@mixin a_button($color,$height,$background,$font-size,$radius) {
-    color:$color;
+@mixin a_button($color,$height,$background,$font-size,$radius,$opacity) {
+    color:rgba($color: $color, $alpha: $opacity); 
     background-color: $background;
     border-radius: $radius;
     height:$height;
@@ -60,6 +60,7 @@
     align-items: center;
     box-shadow: $shadow;
     outline: none;
+    
 }
 
 @mixin circle_button($color,$background,$font-size) {

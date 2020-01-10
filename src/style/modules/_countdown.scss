@@ -1,5 +1,5 @@
 .count-down-parent{
-  height: 100%;
+  min-height: 150px;
   @include flex_center;
    position: relative;
   outline: none;
@@ -29,7 +29,7 @@
       }
       
       .count-start{
-           bottom: -30px;
+           bottom: -15px;
            position:absolute;
            img{
              width: 20px;

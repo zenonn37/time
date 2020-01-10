@@ -42,7 +42,12 @@ export default {
       let dates = [];
 
       charts.forEach(el => {
-        time.push(el.entries_sum / 3600);
+        if (el.entries_sum < 3600) {
+          time.push(0);
+        } else {
+          time.push(Math.round(el.entries_sum / 3600));
+        }
+
         dates.push(el.date.slice(0, 10));
       });
 

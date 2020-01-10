@@ -32,16 +32,16 @@
               display: flex;
               align-items: center;
                  .clock-btn{
-                     @include a_button($title,40px,$white,16px,4px);
+                     @include a_button($title,40px,$white,16px,4px,0.5);
                      transition: all .4s;
                      margin-right:1rem;
                      &:hover{
-                        @include a_button($success,40px,$white,20px,4px);
+                        @include a_button($success,40px,$white,20px,4px,0.5);
                      }
                     
                  }
                  .clock-btn-active{
-                    @include a_button($success,40px,$white,16px,4px);
+                    @include a_button($success,40px,$white,16px,4px,0.5);
                     transition: all .4s;
                     margin-right:1rem;
                    
