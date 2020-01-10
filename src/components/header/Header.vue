@@ -19,11 +19,9 @@
 </template>
 
 <script>
-//import Task from "@/components/header/Task";
 import Home from "@/components/header/Home";
 export default {
   components: {
-    // Task,
     Home
   },
   data() {

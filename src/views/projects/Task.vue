@@ -4,17 +4,21 @@
       <div class="project-header">
         <div class="project-title" v-if="!loading">
           <h3 class="title">{{project.name}}</h3>
-          <span>Reports</span>
-          <router-link :to="`/projects/${$route.params.id}/report`" tag="div">Reports</router-link>
+
+          <ul>
+            <li class="cursor" @click="onActivity()">
+              <i class="fas fa-stopwatch"></i>
+              Start Task
+            </li>
+            <router-link :to="`/projects/${$route.params.id}/report`" tag="li" class="cursor">
+              <i class="far fa-chart-bar"></i>
+              Reports
+            </router-link>
+          </ul>
         </div>
       </div>
-      <!-- <div class="clock-header">
-        <div class="project-timer">
-          <CountUp />
-        </div>
-      </div>-->
 
-      <div class="filter-bar" v-if="!tasks.length <= 0">
+      <div class="filter-bar" v-if="active">
         <div class="cursor" @click="onFilterDays(0)">Today</div>
         <div class="cursor" @click="onFilterDays(7)">7d</div>
         <div class="cursor" @click="onFilterDays(14)">14d</div>
@@ -22,6 +26,11 @@
         <div class="cursor" @click="onAll()">All</div>
       </div>
     </div>
+    <transition name="fade">
+      <div v-if="newTask" class="new-task">
+        <TaskNew @cancel="onActivity" />
+      </div>
+    </transition>
     <!-- <div class="tasks">
       <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
     </div>-->
@@ -58,20 +67,23 @@
 <script>
 import TimeList from "@/components/TimeList";
 import ActiveTask from "@/components/ActiveTask";
+import TaskNew from "@/components/forms/TaskNew";
 
 import { HalfCircleSpinner } from "epic-spinners";
 export default {
-  name: "Project",
+  name: "Task",
   props: ["id"],
   components: {
     TimeList,
     ActiveTask,
-    //CountUp,
+    TaskNew,
+
     HalfCircleSpinner
   },
   data() {
     return {
-      loading: false
+      loading: false,
+      newTask: false
     };
   },
   computed: {
@@ -94,20 +106,17 @@ export default {
     }
   },
   methods: {
-    saveTime(value) {
+    onActivity() {
       console.log("called");
 
-      console.log(value);
+      this.newTask = !this.newTask;
     },
-    checkClock(value) {
-      console.log("child destroyed " + value);
-    },
+
     audio() {
       var audio = new Audio(require("@/assets/bells-tibetan-daniel_simon.mp3"));
       audio.play();
     },
     onFilterDays(days) {
-      this.audio();
       this.loading = true;
       const payload = {
         days: days,

@@ -1,11 +1,28 @@
 .task-parent{
     @include panels(270px,$panel,false);
+    
+
+   
     .task-container{
         padding: 1rem;
+        
     }
     .task-top{
         display: flex;
         margin-bottom:.8rem;
+        align-items: center;
+        .activity-name{
+            span{
+                @include text($white,.8,14px);
+            }
+        }
+
+        .activity-delete{
+            flex:1;
+            text-align: right;
+            @include text($white,.5,13px);
+        }
+
     }
     .activity-mid{
         @include panels(150px,$white,false);
@@ -13,8 +30,9 @@
     }
     .activity-end{
         display: flex;
+        @include text($white,.5,13px);
         align-items: center;
-        @include text($white,.5,15px);
+      
         margin-top: .5rem;
          >:first-child{
              flex:1

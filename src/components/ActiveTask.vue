@@ -9,7 +9,11 @@
             <div class="task-top">
               <div class="activity-name">
                 <h6>Active Task</h6>
-                <span>{{task.task}}</span>
+                <span>{{task.name}}</span>
+              </div>
+              <div class="activity-delete cursor" @click="onDelete()">
+                <i class="fas fa-trash"></i>
+                Cancel
               </div>
             </div>
             <div class="activity-mid">
@@ -17,10 +21,18 @@
             </div>
 
             <div class="activity-end">
-              <div class="cursor" @click="onDelete()">Delete</div>
+              <div>
+                <div class="cursor" @click="onSave()">
+                  <i class="far fa-times-circle"></i>
+                  Task Incomplete
+                </div>
+              </div>
 
               <div>
-                <div class="cursor" @click="onSave()">Save</div>
+                <div class="cursor" @click="onSave()">
+                  <i class="fas fa-check"></i>
+                  Task Complete
+                </div>
               </div>
             </div>
           </div>
