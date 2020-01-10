@@ -36,6 +36,10 @@ h1, h2, h3, h4, h5, h6 {
           flex-direction: column;
 }
 
+.back-btn {
+  font-size: 25px;
+}
+
 .cursor {
   cursor: pointer;
 }
@@ -1093,6 +1097,19 @@ input[type="button"] {
           transform: translateY(30px);
 }
 
+.report-sub-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.report-sub-nav ul li {
+  cursor: pointer;
+}
+
 .reports-parent .clock-panel {
   min-height: 100px;
   background-color: #fff;
@@ -1156,6 +1173,55 @@ input[type="button"] {
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   outline: none;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  margin-right: 1rem;
+}
+
+.reports-parent .clock-panel .clock-footer .clock-entries .clock-btn:hover {
+  color: #6da16d;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.reports-parent .clock-panel .clock-footer .clock-entries .clock-btn-active {
+  color: #6da16d;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all .4s;
+  transition: all .4s;
   margin-right: 1rem;
 }
 

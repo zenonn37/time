@@ -8,7 +8,11 @@
       </div>
       <div class="clock-footer">
         <div class="clock-entries">
-          <div class="clock-btn cursor" @click="onShowEntry()">{{clocks.entries_count}}</div>
+          <div
+            :class="[!entry ?  'clock-btn':'clock-btn-active']"
+            class="cursor"
+            @click="onShowEntry()"
+          >{{clocks.entries_count}}</div>
           <p>Clock Entries</p>
         </div>
 
