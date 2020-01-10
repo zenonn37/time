@@ -22,14 +22,14 @@
 
             <div class="activity-end">
               <div>
-                <div class="cursor" @click="onSave()">
+                <div class="cursor" @click="onIncomplete()">
                   <i class="far fa-times-circle"></i>
                   Task Incomplete
                 </div>
               </div>
 
               <div>
-                <div class="cursor" @click="onSave()">
+                <div class="cursor" @click="onComplete()">
                   <i class="fas fa-check"></i>
                   Task Complete
                 </div>
@@ -60,8 +60,20 @@ export default {
   },
   methods: {
     onSave() {
+      this.$store.dispatch("task/save_active_task", true).then(() => {
+        console.log("Complete");
+      });
+    },
+    onIncomplete() {
+      this.$store.dispatch("task/save_active_task", false).then(() => {
+        console.log("Task Not Complete");
+      });
+    },
+    onComplete() {
       //this.$store.dispatch("task/set_active_task", false);
-      this.$store.dispatch("task/save_active_task");
+      this.$store.dispatch("task/save_active_task", true).then(() => {
+        console.log("Task Completed Early!!");
+      });
     },
     onDelete() {
       this.$store.dispatch("task/delete_active_task");

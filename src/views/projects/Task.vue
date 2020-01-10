@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div class="filter-bar" v-if="active">
+      <div class="filter-bar" v-if="!active">
         <div class="cursor" @click="onFilterDays(0)">Today</div>
         <div class="cursor" @click="onFilterDays(7)">7d</div>
         <div class="cursor" @click="onFilterDays(14)">14d</div>

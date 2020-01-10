@@ -76,6 +76,12 @@
       .not-complete{
         @include text($warning,1,50px);
       }
+      .complete-early{
+        @include text($success,1,50px);
+        i{
+          margin-right: 1rem;
+        }
+      }
   }
 
   .task-bottom{

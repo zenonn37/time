@@ -24,7 +24,15 @@
       </div>
     </div>
     <div class="task-mid">
-      <div class="not-complete" v-if="hour.actual !== 0">{{hour.actual | hours}}</div>
+      <div class="not-complete" v-if="!hour.completed">
+        <i class="far fa-sad-tear"></i>
+      </div>
+
+      <div v-else-if="hour.completed && hour.actual > 0" class="complete-early">
+        <i class="fas fa-running"></i>
+
+        <i class="far fa-check-circle"></i>
+      </div>
 
       <div v-else class="complete">
         <i class="far fa-check-circle"></i>
@@ -37,7 +45,8 @@
       </div>
       <div class="task-details">
         <h6>Status</h6>
-        <span v-if="hour.completed" class="success">Complete</span>
+        <span v-if="hour.completed && hour.actual < 1" class="success">Complete</span>
+        <span v-else-if="hour.completed && hour.actual > 0" class="success">Early</span>
         <span v-else class="warning">Incomplete</span>
       </div>
       <div class="task-details">

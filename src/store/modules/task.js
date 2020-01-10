@@ -163,7 +163,7 @@ const actions = {
         })
     },
     //create new task
-    save_active_task({ commit, dispatch, getters }) {
+    save_active_task({ commit, dispatch, getters }, bool) {
         return new Promise((resolve, reject) => {
 
             dispatch('set_active_task', false)
@@ -173,12 +173,14 @@ const actions = {
             let active = getters['get_active_tasks']
             let seconds = getters['get_seconds']
 
+
+
             const data = {
                 timer_project_id: active.project_id,
                 name: active.name,
                 actual: seconds,
                 goal: active.seconds,
-                completed: seconds > 0 ? false : true
+                completed: !bool ? false : true
 
             }
 

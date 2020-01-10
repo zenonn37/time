@@ -1101,6 +1101,16 @@ input[type="button"] {
   font-size: 50px;
 }
 
+.task-list-parent .task-mid .complete-early {
+  opacity: 1;
+  color: #6da16d;
+  font-size: 50px;
+}
+
+.task-list-parent .task-mid .complete-early i {
+  margin-right: 1rem;
+}
+
 .task-list-parent .task-bottom {
   display: -webkit-box;
   display: -ms-flexbox;
