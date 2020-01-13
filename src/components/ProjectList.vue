@@ -12,6 +12,10 @@
             Project
             <i @click="onEdit()" class="fas fa-edit cursor"></i>
             <i @click="onDelete(project.id)" class="fas fa-trash cursor"></i>
+            <i
+              @click="onComplete(project)"
+              :class="[!project.completed ?  'far fa-check-circle':'fas fa-check-circle']"
+            ></i>
           </h6>
 
           <h3 class="title cursor" @click="onProject(project.id)">
@@ -36,6 +40,7 @@
             <span class="hours">{{project.tasks}}</span>
           </div>
         </div>
+
         <div class="panel-goal">
           <h6>Time Goal</h6>
           <span class="hours">{{project.goal | hours}}</span>
@@ -72,6 +77,18 @@ export default {
       this.$store.dispatch("projects/delete_project", ids).then(() => {
         console.log("deleted");
       });
+    },
+    onComplete(p) {
+      this.$store
+        .dispatch("projects/edit_projects", {
+          name: p.name,
+          goal: p.goal,
+          completed: (p.completed = !p.completed),
+          id: p.id
+        })
+        .then(() => {
+          console.log("updated");
+        });
     }
   }
 };

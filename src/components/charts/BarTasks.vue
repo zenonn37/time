@@ -7,7 +7,6 @@
 <script>
 import bar from "@/components/charts/bar/bar.vue";
 
-//import moment from "moment";
 export default {
   name: "BarChart",
   props: ["chart"],
@@ -18,7 +17,7 @@ export default {
       labels: [],
       datasets: [
         {
-          label: "Hours Per Day",
+          label: "Completed Tasks",
           backgroundColor: "#393857",
           borderColor: "rgb(168, 165, 235)",
           data: []
@@ -30,7 +29,7 @@ export default {
         yAxes: [
           {
             ticks: {
-              max: 12,
+              max: 30,
               min: 0,
               stepSize: 1
             }
@@ -43,7 +42,7 @@ export default {
   }),
   computed: {},
   created() {
-    this.chartdata.datasets[0].data = this.chart.time;
+    this.chartdata.datasets[0].data = this.chart.tasks;
     this.chartdata.labels = this.chart.dates;
   }
 };

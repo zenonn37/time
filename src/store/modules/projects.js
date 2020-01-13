@@ -13,7 +13,7 @@ const mutations = {
         state.projects = payload
     },
     new_projects(state, payload) {
-        state.projects.push(payload)
+        state.projects.unshift(payload)
     },
     delete_projects(state, id) {
         const project = state.projects.filter(project => project.id !== id)
@@ -56,7 +56,7 @@ const actions = {
     },
     new_projects({ commit }, payload) {
         return new Promise((resolve, reject) => {
-            Axios.post('/timer-projects-new', payload)
+            Axios.post('/timer-projects-new', { ...payload, completed: false })
                 .then(res => {
                     console.log(res);
 
@@ -79,10 +79,22 @@ const actions = {
         console.log(payload);
 
         return new Promise((resolve, reject) => {
-            Axios.patch(`/timer-projects-update/${payload.id}`, {
+
+
+
+
+
+
+            Axios.patch(`/timer-projects-update/${payload.id}`, payload.completed === true ? {
                 name: payload.name,
-                goal: payload.goal
-            })
+                goal: payload.goal,
+                completed: true
+            } : {
+                    name: payload.name,
+                    goal: payload.goal,
+                    completed: false
+                })
+
                 .then(res => {
                     console.log(res);
 

@@ -406,7 +406,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-parent {
-  min-height: 200px;
+  min-height: 150px;
   background-color: #fff;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
@@ -431,9 +431,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-parent h6 {
-  opacity: 1;
+  opacity: 0.9;
   color: #b4b4b4;
-  font-size: inherit;
+  font-size: 12px;
   margin-bottom: .2rem;
 }
 
@@ -472,6 +472,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .panel-parent .panel-top .panel-date h6 i {
   margin: 0 0 0 .5rem;
+  color: #0295a8;
 }
 
 .panel-parent .panel-top .panel-date .title {
@@ -481,10 +482,14 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 1;
+  color: #3d3d3d;
+  font-size: 15px;
 }
 
 .panel-parent .panel-top .panel-date .title i {
   margin: 0 .5rem 0 0;
+  color: #0295a8;
 }
 
 .panel-parent .panel-top .panel-time {
@@ -515,6 +520,9 @@ h1, h2, h3, h4, h5, h6 {
   display: -ms-flexbox;
   display: flex;
   margin: .1rem 0 0 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .panel-parent .panel-bottom .panel-task {
@@ -802,7 +810,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 20px;
   top: 20px;
   color: #fff;
-  background-color: #027EC3;
+  background-color: #0295a8;
   border-radius: 50%;
   height: 40px;
   width: 40px;

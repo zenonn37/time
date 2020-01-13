@@ -8,7 +8,7 @@
        position:absolute;
        right:20px;
        top:20px;
-       @include circle_button($white,$button-main,15px);
+       @include circle_button($white,$panel,15px);
    }
 
    .forms{

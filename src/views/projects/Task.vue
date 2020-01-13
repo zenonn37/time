@@ -34,7 +34,7 @@
     <!-- <div class="tasks">
       <TimeList :hour="task" v-for="task in tasks" :key="task.id" />
     </div>-->
-    <div class="project-parent" :class="[tasks.length <= 0  ? 'full-screen': '']">
+    <div class="project-parent" :class="[tasks.length <= 0  ? '': '']">
       <ActiveTask />
       <template v-if="tasks.length <= 0 && !active">
         <div class="no-task">

@@ -2,7 +2,7 @@
 
 .panel-parent{ 
    
- @include panels(200px,$white,false);
+ @include panels(150px,$white,false);
  position: relative;
  .edit-project{
      position: absolute;
@@ -19,7 +19,9 @@
   }
 
   h6{
-      @include text($grey,1,inherit);
+  
+      @include text($grey,.9,12px);
+     
    // color: $grey;
     margin-bottom: .2rem;
 }
@@ -46,15 +48,18 @@
           align-items: center;
         i{
             margin: 0 0 0 .5rem;
+            color: $panel;
         }
       }
       .title{
           display: flex;
           align-items: center;
+          @include text($title,1,15px);
        
            
           i{
               margin: 0 .5rem 0 0;
+              color: $panel;
           }
       }
      
@@ -79,6 +84,8 @@
   .panel-bottom{
       display: flex;
       margin: .1rem 0 0 0;
+      align-items: center;
+    
       .panel-task{
          display: flex;
          flex-direction: column;

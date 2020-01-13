@@ -22,7 +22,7 @@ const mutations = {
         state.tasks = payload
     },
     new_tasks(state, payload) {
-        state.tasks.push(payload)
+        state.tasks.unshift(payload)
     },
     active_tasks(state, payload) {
         state.active_task = payload
@@ -75,6 +75,21 @@ const getters = {
 
 //actions
 const actions = {
+
+    //all task for last 6 days
+    past_week({ commit }, id) {
+        return new Promise((resolve, reject) => {
+            Axios.get(`past-week/${id}`)
+                .then(res => {
+                    resolve(res)
+
+                    commit('set_tasks', res.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
     //all task for current project
     all_tasks({ commit }, id) {
         return new Promise((resolve, reject) => {
