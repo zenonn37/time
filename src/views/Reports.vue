@@ -1,52 +1,53 @@
 <template>
   <div class="main-report-parent">
-    <div v-if="!loading">
-      <div class="report-filter-parent">
-        <i @click="onSetRange()" class="fas fa-search"></i>
-        <div>
-          <datetime
-            placeholder="Start Date"
-            v-model="start_clock"
-            value-zone="America/New_York"
-            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
-          ></datetime>
-        </div>
-        <div>
-          <datetime
-            placeholder="End Date"
-            v-model="end_clock"
-            value-zone="America/New_York"
-            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
-          ></datetime>
-        </div>
-      </div>
-      <div class="main-clock-chart">
-        <BarClockReports :chart="clock" />
-      </div>
+    <div class="report-filter-parent" v-if="!loading">
+      <i class="fas fa-sync" @click="onResetClock()"></i>
+      <i @click="onSetRange()" class="fas fa-search"></i>
 
-      <div class="report-filter-parent">
-        <i @click="onSetRangeTask()" class="fas fa-search"></i>
-        <div>
-          <datetime
-            placeholder="Start Date"
-            v-model="start_task"
-            value-zone="America/New_York"
-            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
-          ></datetime>
-        </div>
-        <div>
-          <datetime
-            placeholder="End Date"
-            v-model="end_task"
-            value-zone="America/New_York"
-            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
-          ></datetime>
-        </div>
+      <div>
+        <datetime
+          placeholder="Start Date"
+          v-model="start_clock"
+          value-zone="America/New_York"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+        ></datetime>
       </div>
+      <div>
+        <datetime
+          placeholder="End Date"
+          v-model="end_clock"
+          value-zone="America/New_York"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+        ></datetime>
+      </div>
+    </div>
+    <div class="main-clock-chart" v-if="!loading">
+      <BarClockReports :chart="clock" />
+    </div>
 
-      <div class="main-task-chart">
-        <BarTaskReports :chart="task" />
+    <div class="report-filter-parent" v-if="!loading2">
+      <i class="fas fa-sync" @click="onResetTask()"></i>
+      <i @click="onSetRangeTask()" class="fas fa-search"></i>
+      <div>
+        <datetime
+          placeholder="Start Date"
+          v-model="start_task"
+          value-zone="America/New_York"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+        ></datetime>
       </div>
+      <div>
+        <datetime
+          placeholder="End Date"
+          v-model="end_task"
+          value-zone="America/New_York"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+        ></datetime>
+      </div>
+    </div>
+
+    <div class="main-task-chart" v-if="!loading2">
+      <BarTaskReports :chart="task" />
     </div>
   </div>
 </template>
@@ -65,6 +66,7 @@ export default {
   data() {
     return {
       loading: false,
+      loading2: false,
       start_clock: "",
       end_clock: "",
       start_task: "",
@@ -80,7 +82,7 @@ export default {
 
       //use foreach to clean up dates and push result
       data.forEach(el => {
-        dates.push(el.date.slice(0, 10));
+        dates.push(el.date.slice(5, 10));
       });
       //use foreach to convert seconds to hours and push result
       data.forEach(el => {
@@ -104,7 +106,7 @@ export default {
 
       //use foreach to clean up dates and push result
       data.forEach(el => {
-        dates.push(el.date.slice(0, 10));
+        dates.push(el.date.slice(5, 10));
       });
       //use foreach to convert seconds to hours and push result
       data.forEach(el => {
@@ -125,12 +127,18 @@ export default {
         position: "top"
       });
     },
+    onResetClock() {
+      this.loadChartDataClock();
+    },
+    onResetTask() {
+      this.loadChartDataTask();
+    },
     onSetRangeTask() {
       if (this.start_task === "" || this.end_task === "") {
         this.warningToast();
         return;
       }
-      this.loading = true;
+      this.loading2 = true;
       this.$store
         .dispatch("task/filter_task_chart", {
           start: this.start_task.slice(0, 19).replace("T", " "),
@@ -138,7 +146,7 @@ export default {
         })
         .then(() => {
           console.log("done");
-          this.loading = false;
+          this.loading2 = false;
         });
     },
     onSetRange() {
@@ -148,26 +156,35 @@ export default {
       }
 
       this.loading = true;
+
       this.$store
         .dispatch("time/filter_clock_chart", {
           start: this.start_clock.slice(0, 19).replace("T", " "),
           end: this.end_clock.slice(0, 19).replace("T", " ")
         })
         .then(() => {
-          console.log("done");
           this.loading = false;
         });
+    },
+    loadChartDataClock() {
+      this.loading = true;
+
+      this.$store.dispatch("time/clock_chart").then(() => {
+        this.loading = false;
+      });
+    },
+    loadChartDataTask() {
+      this.loading2 = true;
+
+      this.$store.dispatch("task/global_task_chart").then(() => {
+        this.loading2 = false;
+      });
     }
   },
-  created() {
-    this.loading = true;
-    this.$store.dispatch("time/clock_chart").then(() => {
-      this.$store.dispatch("task/global_task_chart").then(() => {
-        console.log("loaded");
-      });
 
-      this.loading = false;
-    });
+  created() {
+    this.loadChartDataClock();
+    this.loadChartDataTask();
   }
 };
 </script>
