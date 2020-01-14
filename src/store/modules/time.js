@@ -170,10 +170,50 @@ const actions = {
 
         })
 
-        // console.log(payload);
+
+    },
+    clock_chart({ commit }) {
+
+        return new Promise((resolve, reject) => {
 
 
-        // commit('new_time', payload)
+            Axios.get('clock-chart')
+                .then(res => {
+
+                    commit('set_time', res.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+
+    },
+    filter_clock_chart({ commit }, payload) {
+
+        return new Promise((resolve, reject) => {
+            console.log(payload);
+
+
+            Axios.post('clock-chart-filter',
+                payload
+            )
+                .then(res => {
+
+                    commit('set_time', res.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+
     }
 }
 

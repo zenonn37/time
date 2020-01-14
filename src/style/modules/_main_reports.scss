@@ -1,0 +1,36 @@
+
+.main-report-parent{
+   position: relative;
+   margin-top: 2rem;
+      .report-filter-parent{
+         margin-bottom: 1.5rem;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         i{
+             @include a_button($white,
+             40px,$panel,16px,3px,.8
+           
+             );
+             padding: 0 .8rem 0 .8rem !important;
+             margin-right:1rem;
+         }
+         div{
+            &:first-child{
+                margin-right:.6rem;
+            } 
+         }
+      }
+ 
+    .main-clock-chart{
+      position: relative;
+    }
+    
+
+    .main-task-chart{
+      position: relative;
+    }
+
+
+
+}

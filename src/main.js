@@ -10,6 +10,7 @@ import "./filters/dates"
 import "./plugs/vee-validate";
 import "./plugs/vue-filters";
 import "./plugs/toast";
+import "./plugs/vue-datetime";
 
 import interceptor from './interceptors/interceptors'
 
