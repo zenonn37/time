@@ -46,6 +46,7 @@
 <script>
 import CountDown from "@/components/timers/CountDown";
 export default {
+  name: "ActiveTask",
   components: {
     CountDown
   },

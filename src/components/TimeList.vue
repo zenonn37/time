@@ -61,6 +61,7 @@
 import EditTask from "@/components/forms/EditTask";
 export default {
   props: ["hour"],
+  name: "TimeList",
   components: {
     EditTask
   },

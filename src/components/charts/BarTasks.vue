@@ -17,7 +17,7 @@ export default {
       labels: [],
       datasets: [
         {
-          label: "Completed Tasks",
+          label: "Completed Tasks for Six Days",
           backgroundColor: "#393857",
           borderColor: "rgb(168, 165, 235)",
           data: []
@@ -43,6 +43,7 @@ export default {
   computed: {},
   created() {
     this.chartdata.datasets[0].data = this.chart.tasks;
+    this.chartdata.datasets[0].label = this.chart.label;
     this.chartdata.labels = this.chart.dates;
   }
 };

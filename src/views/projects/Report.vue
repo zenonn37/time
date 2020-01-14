@@ -36,10 +36,10 @@
     </div>
 
     <transition name="fade" mode="in-out">
-      <ClockReports v-if="!reports" :nav="timer" />
+      <ClockReports v-if="!reports" :nav="timer" :proj_name="this.$attrs" />
     </transition>
     <transition name="fade" mode="out-in">
-      <TaskReports v-if="reports" />
+      <TaskReports v-if="reports" :proj_name="this.$attrs" />
     </transition>
   </div>
 </template>
