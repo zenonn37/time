@@ -29,9 +29,9 @@ export default {
         yAxes: [
           {
             ticks: {
-              max: 30,
+              max: 50,
               min: 0,
-              stepSize: 1
+              stepSize: 5
             }
           }
         ]
@@ -42,9 +42,9 @@ export default {
   }),
   computed: {},
   created() {
-    // this.chartdata.datasets[0].data = this.chart.tasks;
+    this.chartdata.datasets[0].data = this.chart.tasks;
     // this.chartdata.datasets[0].label = this.chart.label;
-    // this.chartdata.labels = this.chart.dates;
+    this.chartdata.labels = this.chart.dates;
   }
 };
 </script>

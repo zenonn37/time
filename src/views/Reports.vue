@@ -25,7 +25,7 @@
       </div>
 
       <div class="report-filter-parent">
-        <i class="fas fa-search"></i>
+        <i @click="onSetRangeTask()" class="fas fa-search"></i>
         <div>
           <datetime
             placeholder="Start Date"
@@ -45,7 +45,7 @@
       </div>
 
       <div class="main-task-chart">
-        <BarTaskReports />
+        <BarTaskReports :chart="task" />
       </div>
     </div>
   </div>
@@ -97,18 +97,53 @@ export default {
       };
     },
     task() {
-      return [];
+      const data = this.$store.getters["task/get_tasks"];
+      //int arrrays to split data from DB
+      const dates = [];
+      const tasks = [];
+
+      //use foreach to clean up dates and push result
+      data.forEach(el => {
+        dates.push(el.date.slice(0, 10));
+      });
+      //use foreach to convert seconds to hours and push result
+      data.forEach(el => {
+        tasks.push(el.tasks);
+      });
+
+      return {
+        dates,
+        tasks
+      };
     }
   },
   methods: {
+    warningToast() {
+      this.$toast.open({
+        message: "Date Range fields cannot be empty.",
+        type: "info",
+        position: "top"
+      });
+    },
+    onSetRangeTask() {
+      if (this.start_task === "" || this.end_task === "") {
+        this.warningToast();
+        return;
+      }
+      this.loading = true;
+      this.$store
+        .dispatch("task/filter_task_chart", {
+          start: this.start_task.slice(0, 19).replace("T", " "),
+          end: this.end_task.slice(0, 19).replace("T", " ")
+        })
+        .then(() => {
+          console.log("done");
+          this.loading = false;
+        });
+    },
     onSetRange() {
       if (this.start_clock === "" || this.end_clock === "") {
-        this.$toast.open({
-          message: "Date Range fields cannot be empty.",
-          type: "info",
-          position: "top"
-        });
-
+        this.warningToast();
         return;
       }
 
@@ -127,6 +162,10 @@ export default {
   created() {
     this.loading = true;
     this.$store.dispatch("time/clock_chart").then(() => {
+      this.$store.dispatch("task/global_task_chart").then(() => {
+        console.log("loaded");
+      });
+
       this.loading = false;
     });
   }

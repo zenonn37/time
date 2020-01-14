@@ -1406,7 +1406,7 @@ input[type="button"] {
 
 .main-report-parent {
   position: relative;
-  margin-top: 2rem;
+  margin: 2rem 0 2rem 0;
 }
 
 .main-report-parent .report-filter-parent {
@@ -1452,6 +1452,7 @@ input[type="button"] {
 
 .main-report-parent .main-clock-chart {
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .main-report-parent .main-task-chart {

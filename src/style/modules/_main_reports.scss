@@ -1,7 +1,7 @@
 
 .main-report-parent{
    position: relative;
-   margin-top: 2rem;
+   margin: 2rem 0 2rem 0;
       .report-filter-parent{
          margin-bottom: 1.5rem;
          display: flex;
@@ -14,6 +14,7 @@
              );
              padding: 0 .8rem 0 .8rem !important;
              margin-right:1rem;
+            
          }
          div{
             &:first-child{
@@ -24,6 +25,7 @@
  
     .main-clock-chart{
       position: relative;
+      margin-bottom: 1rem;
     }
     
 

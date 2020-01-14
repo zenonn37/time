@@ -75,6 +75,42 @@ const getters = {
 
 //actions
 const actions = {
+    filter_task_chart({ commit }, payload) {
+
+        return new Promise((resolve, reject) => {
+            console.log(payload);
+
+
+            Axios.post('filter_task_chart',
+                payload
+            )
+                .then(res => {
+
+                    commit('set_tasks', res.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+
+    },
+    global_task_chart({ commit }) {
+        return new Promise((resolve, reject) => {
+            Axios.get('global_task_chart')
+                .then(res => {
+                    resolve(res)
+
+                    commit('set_tasks', res.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
 
     //all task for last 6 days
     past_week({ commit }, id) {
