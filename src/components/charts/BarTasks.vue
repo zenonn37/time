@@ -18,7 +18,7 @@ export default {
       datasets: [
         {
           label: "Completed Tasks for Six Days",
-          backgroundColor: "#393857",
+          backgroundColor: "rgb(2, 149, 168)",
           borderColor: "rgb(168, 165, 235)",
           data: []
         }

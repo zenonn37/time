@@ -1,6 +1,6 @@
 <template>
   <div v-if="!loading">
-    <div class="report-filter-parent" v-if="!loading">
+    <div class="report-filter-parent" v-if="!loading && charts.tasks.length >= 1">
       <i class="fas fa-sync" @click="onResetTask()"></i>
       <i @click="onSetRange()" class="fas fa-search"></i>
 
@@ -21,7 +21,15 @@
         ></datetime>
       </div>
     </div>
-    <Bar :chart="charts" />
+    <div v-if="charts.tasks.length >= 1">
+      <Bar :chart="charts" />
+    </div>
+    <div class="time-entry-empty" v-else>
+      <div>
+        <div>No Chart Data Yet.</div>
+        <img src="@/assets/images/charts.svg" alt />
+      </div>
+    </div>
   </div>
 </template>
 

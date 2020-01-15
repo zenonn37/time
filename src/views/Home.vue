@@ -28,7 +28,7 @@
       </template>
       <template v-else>
         <div>
-          <transition-group name="fade" mode="in-out">
+          <transition-group name="fade" mode="out-in">
             <ProjectList :project="proj" v-for="proj in projects" :key="proj.id" />
           </transition-group>
         </div>

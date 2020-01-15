@@ -19,7 +19,7 @@ export default {
       datasets: [
         {
           label: "Hours Per Day",
-          backgroundColor: "#393857",
+          backgroundColor: "rgb(2, 149, 168)",
           borderColor: "rgb(168, 165, 235)",
           data: []
         }

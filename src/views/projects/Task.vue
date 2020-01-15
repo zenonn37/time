@@ -36,7 +36,13 @@
       <ActiveTask />
       <template v-if="tasks.length <= 0 && !active">
         <div class="no-task">
-          <h3 class="title">No Tasks for today, Start and save a task to create one.</h3>
+          <span class="title">
+            No Tasks for today,
+            Start and save a task to create one.
+          </span>
+          <div>
+            <img src="@/assets/images/cover_timer.svg" alt="Cover Image Task" />
+          </div>
         </div>
       </template>
       <template v-if="project.tasks >= 1 && tasks.length <= 0">

@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     clock() {
-      const data = this.$store.getters["time/get_time"];
+      const data = this.$store.getters["time/get_chart"];
       //int arrrays to split data from DB
       const dates = [];
       const time = [];
@@ -89,7 +89,7 @@ export default {
         if (parseInt(el.seconds) < 3600) {
           time.push(0);
         } else {
-          time.push(parseInt(el.seconds) / 3600);
+          time.push(Math.round(parseInt(el.seconds) / 3600));
         }
       });
 

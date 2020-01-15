@@ -5,10 +5,18 @@
     <div v-if="!loading">
       <transition name="fade">
         <div v-if="!toggle">
-          <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
+          <div v-if="clocks.length >= 1">
+            <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
+          </div>
+          <div class="time-entry-empty" v-else>
+            <div>
+              <div>No Time Entries Yet</div>
+              <img src="@/assets/images/empty.svg" alt />
+            </div>
+          </div>
         </div>
         <div v-else>
-          <div class="report-filter-parent" v-if="!loading">
+          <div class="report-filter-parent" v-if="!loading && charts.time.length >= 1 ">
             <i class="fas fa-sync cursor" @click="onResetTask()"></i>
             <i @click="onSetRange()" class="fas fa-search cursor"></i>
 
@@ -31,6 +39,12 @@
           </div>
           <div v-if="charts.time.length >= 1">
             <Bar :chart="charts" />
+          </div>
+          <div class="time-entry-empty" v-else>
+            <div>
+              <div>No Chart Data Yet.</div>
+              <img src="@/assets/images/charts.svg" alt />
+            </div>
           </div>
         </div>
       </transition>
