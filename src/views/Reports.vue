@@ -1,6 +1,6 @@
 <template>
   <div class="main-report-parent">
-    <div class="report-filter-parent" v-if="!loading">
+    <div class="report-filter-parent" v-if="!loading && clock.dates.length >= 1">
       <i class="fas fa-sync" @click="onResetClock()"></i>
       <i @click="onSetRange()" class="fas fa-search"></i>
 
@@ -21,11 +21,15 @@
         ></datetime>
       </div>
     </div>
-    <div class="main-clock-chart" v-if="!loading">
+    <div class="main-clock-chart" v-if="!loading && clock.dates.length >= 1">
       <BarClockReports :chart="clock" />
     </div>
+    <div class="empty-chart" v-else>
+      <div>No Clock Data</div>
+      <img src="@/assets/images/charts.svg" alt="Charts" />
+    </div>
 
-    <div class="report-filter-parent" v-if="!loading2">
+    <div class="report-filter-parent" v-if="!loading2 && task.dates.length >= 1">
       <i class="fas fa-sync" @click="onResetTask()"></i>
       <i @click="onSetRangeTask()" class="fas fa-search"></i>
       <div>
@@ -46,8 +50,12 @@
       </div>
     </div>
 
-    <div class="main-task-chart" v-if="!loading2">
+    <div class="main-task-chart" v-if="!loading2 && task.dates.length >= 1">
       <BarTaskReports :chart="task" />
+    </div>
+    <div class="empty-chart" v-else>
+      <div>No Task Data</div>
+      <img src="@/assets/images/charts.svg" alt="Charts" />
     </div>
   </div>
 </template>
