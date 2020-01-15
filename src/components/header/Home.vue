@@ -3,25 +3,34 @@
     <div class="logo">
       <img src="@/assets/logo.png" alt="Task Zero Logo" />
     </div>
-    <nav class="navigation">
-      <router-link to="/home" tag="div">
-        <i class="fas fa-project-diagram"></i>
-      </router-link>
-      <router-link to="/reports" tag="div">
-        <i class="far fa-chart-bar"></i>
-      </router-link>
-      <router-link to="/about" tag="div">
-        <i class="fas fa-info-circle"></i>
-      </router-link>
-      <div @click="onLogout()">
-        <i class="fas fa-sign-out-alt"></i>
-      </div>
-    </nav>
+    <transition name="slide-fade" mode="out-in">
+      <nav class="navigation" v-if="!check">
+        <router-link to="/home" tag="div">
+          <i class="fas fa-project-diagram"></i>
+        </router-link>
+        <router-link to="/reports" tag="div">
+          <i class="far fa-chart-bar"></i>
+        </router-link>
+        <router-link to="/about" tag="div">
+          <i class="fas fa-info-circle"></i>
+        </router-link>
+        <div @click="onLogout()">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+      </nav>
+      <div class="task-active" v-else>Task Active</div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    //get clock active state
+    check() {
+      return this.$store.getters["time/get_clock_active"];
+    }
+  },
   methods: {
     onLogout() {
       this.$store.dispatch("LOGOUT").then(() => {

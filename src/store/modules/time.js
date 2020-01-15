@@ -4,13 +4,17 @@ import moment from 'moment'
 const state = {
     time: [
 
-    ]
+    ],
+    clockActive: false
 
 }
 //mutations
 const mutations = {
     set_time(state, time) {
         state.time = time
+    },
+    set_clock_active(state, bool) {
+        state.clockActive = bool
     },
     new_time(state, time) {
         state.time.push(time)
@@ -25,6 +29,9 @@ const mutations = {
 }
 //getters
 const getters = {
+    get_clock_active(state) {
+        return state.clockActive
+    },
     get_time(state) {
         return state.time
     },
@@ -38,6 +45,10 @@ const getters = {
 
 //actions
 const actions = {
+
+    clock_active({ commit }, bool) {
+        commit('set_clock_active', bool)
+    },
 
     entry({ commit, dispatch }, payload) {
 

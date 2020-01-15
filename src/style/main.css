@@ -650,9 +650,27 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.clock-header .cancel {
+  padding-left: .5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.clock-header .cancel i {
+  font-size: 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.clock-header .cancel i:hover {
+  font-size: 25px;
+  color: #b4b4b4;
 }
 
 .clock-header .project-timer {
@@ -770,6 +788,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .home-head-parent .logo img {
   width: 100%;
+}
+
+.home-head-parent .task-active {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
 }
 
 .home-head-parent .navigation {

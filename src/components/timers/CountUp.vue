@@ -50,7 +50,12 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+    check() {
+      //get clock state
+      return this.$store.getters["time/get_clock_active"];
+    }
+  },
   methods: {
     saveMoment() {
       let id = this.$route.params.id;
@@ -108,6 +113,9 @@ export default {
       console.log("stop");
       this.setEnd();
       this.saveMoment();
+      if (this.check) {
+        this.$store.dispatch("time/clock_active", false);
+      }
 
       this.status = false;
       this.stopCountDown = true;
@@ -130,20 +138,29 @@ export default {
       this.status = true;
       this.stopCountDown = false;
       console.log("start");
-      this.setStart();
-    },
-
-    beforeDestroy() {
-      this.$emit("save", this.entry);
-      console.log("called");
-
-      if (this.entry > 0) {
-        console.log("save time " + this.entry);
-        this.saveMoment();
-      } else {
-        console.log("clock not running " + this.entry);
+      if (!this.check) {
+        this.$store.dispatch("time/clock_active", true);
       }
+
+      this.setStart();
     }
+  },
+  created() {
+    this.$store.dispatch("time/clock_active", true);
+  },
+  beforeCreate() {},
+  mounted() {
+    this.timer();
+  },
+  beforeDestroy() {
+    // this.$emit("save", this.entry);
+    // console.log("called");
+    // if (this.entry > 0) {
+    //   console.log("save time " + this.entry);
+    //   this.saveMoment();
+    // } else {
+    //   console.log("clock not running " + this.entry);
+    // }
   }
 };
 </script>

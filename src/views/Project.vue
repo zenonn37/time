@@ -1,6 +1,12 @@
 <template>
   <div>
     <div class="clock-header">
+      <transition name="slide-fade" mode="out-in">
+        <div class="cancel cursor" v-if="!check" @click="onCancel()">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="cancel" v-else>To Exit Cancel Timer</div>
+      </transition>
       <div class="project-timer">
         <CountUp />
       </div>
@@ -30,11 +36,21 @@ export default {
     };
   },
   computed: {
+    //get clock active state
+    check() {
+      return this.$store.getters["time/get_clock_active"];
+    },
     project() {
       const ids = parseInt(this.$route.params.id);
       return this.$store.getters["projects/show_projects"](ids);
     }
   },
+  methods: {
+    onCancel() {
+      this.$router.push("/home");
+    }
+  },
+
   created() {
     this.loading = true;
     this.$store.dispatch("projects/get_projects").then(() => {
