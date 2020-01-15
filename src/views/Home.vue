@@ -17,9 +17,14 @@
       </div>
     </div>
 
-    <div class="home-parent" :class="[projects.length < 1 ?  'full-screen': '']">
+    <div class="home-parent">
       <template v-if="projects.length < 1">
-        <div class="no-projects">Please Create a Project</div>
+        <div class="no-projects">
+          Please Create a Project
+          <div class="empty">
+            <img src="@/assets/images/empty.svg" alt="Empty Project" />
+          </div>
+        </div>
       </template>
       <template v-else>
         <div>
@@ -53,9 +58,7 @@ export default {
 
   computed: {
     projects() {
-      const data = this.$store.getters["projects/get_projects"];
-
-      return data !== null ? data : [];
+      return this.$store.getters["projects/get_projects"];
     }
   },
   methods: {

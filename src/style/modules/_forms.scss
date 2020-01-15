@@ -75,10 +75,18 @@ input[type="text"],input[type="email"],input[type="password"]{
 }
 
 input[type="submit"]{
-  @include button($white,35px,90%,$panel,15px,3px);
+  @include button($white,35px,100%,$panel,15px,3px);
+  cursor: pointer;
   margin-right:1rem;
+  &:hover{
+      background-color: $button-main;
+  }
  
 }
 input[type="button"]{
     @include button($white,35px,90%,$danger,15px,3px);
+  }
+
+  .form-field{
+      margin-bottom: .8rem;
   }

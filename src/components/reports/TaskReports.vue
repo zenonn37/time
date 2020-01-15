@@ -1,5 +1,26 @@
 <template>
   <div v-if="!loading">
+    <div class="report-filter-parent" v-if="!loading">
+      <i class="fas fa-sync" @click="onResetTask()"></i>
+      <i @click="onSetRange()" class="fas fa-search"></i>
+
+      <div>
+        <datetime
+          placeholder="Start Date"
+          v-model="start_clock"
+          value-zone="America/New_York"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+        ></datetime>
+      </div>
+      <div>
+        <datetime
+          placeholder="End Date"
+          v-model="end_clock"
+          value-zone="America/New_York"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+        ></datetime>
+      </div>
+    </div>
     <Bar :chart="charts" />
   </div>
 </template>
@@ -13,7 +34,9 @@ export default {
   },
   data() {
     return {
-      loading: false
+      loading: false,
+      start_clock: "",
+      end_clock: ""
     };
   },
 
@@ -32,7 +55,7 @@ export default {
         tasks.push(el.tasks);
       });
 
-      const label = `${this.proj_name.project.name} Project Six Days Task's`;
+      const label = `${this.proj_name.project.name} Six Days Task's`;
       return {
         tasks,
         dates,
@@ -40,12 +63,43 @@ export default {
       };
     }
   },
+  methods: {
+    warningToast() {
+      this.$toast.open({
+        message: "Date Range fields cannot be empty.",
+        type: "info",
+        position: "top"
+      });
+    },
+    onSetRange() {
+      if (this.start_clock === "" || this.end_clock === "") {
+        this.warningToast();
+        return;
+      }
+      this.loading = true;
+      this.$store
+        .dispatch("task/filter_task_chart_project", {
+          id: this.$route.params.id,
+          start: this.start_clock.slice(0, 19).replace(" T ", " "),
+          end: this.end_clock.slice(0, 19).replace(" T ", " ")
+        })
+        .then(() => {
+          this.loading = false;
+        });
+    },
+    onResetTask() {
+      this.taskCall();
+    },
+    taskCall() {
+      this.loading = true;
+      this.$store.dispatch("task/past_week", this.$route.params.id).then(() => {
+        this.loading = false;
+      });
+    }
+  },
   created() {
     //get all project tasks from server
-    this.loading = true;
-    this.$store.dispatch("task/past_week", this.$route.params.id).then(() => {
-      this.loading = false;
-    });
+    this.taskCall();
   }
 };
 </script>

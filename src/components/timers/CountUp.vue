@@ -1,7 +1,7 @@
 <template>
   <div class="count-up-parent">
     <div class="edit">
-      <i class="far fa-edit"></i>
+      <i class="far fa-clock"></i>
     </div>
     <div class="count-down">
       <div>
@@ -110,7 +110,7 @@ export default {
     },
 
     onStopTimer() {
-      console.log("stop");
+      //console.log("stop");
       this.setEnd();
       this.saveMoment();
       if (this.check) {
@@ -137,7 +137,7 @@ export default {
       this.bosTimer();
       this.status = true;
       this.stopCountDown = false;
-      console.log("start");
+      // console.log("start");
       if (!this.check) {
         this.$store.dispatch("time/clock_active", true);
       }

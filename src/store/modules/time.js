@@ -5,6 +5,9 @@ const state = {
     time: [
 
     ],
+    chart: [
+
+    ],
     clockActive: false
 
 }
@@ -12,6 +15,9 @@ const state = {
 const mutations = {
     set_time(state, time) {
         state.time = time
+    },
+    set_chart(state, chart) {
+        state.chart = chart
     },
     set_clock_active(state, bool) {
         state.clockActive = bool
@@ -34,6 +40,9 @@ const getters = {
     },
     get_time(state) {
         return state.time
+    },
+    get_chart(state) {
+        return state.chart
     },
     show_time: (state) => (id) => {
         return state.time.find(time => time.id === id)
@@ -191,7 +200,27 @@ const actions = {
             Axios.get('clock-chart')
                 .then(res => {
 
-                    commit('set_time', res.data)
+                    commit('set_chart', res.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+
+    },
+    clock_chart_project({ commit }, id) {
+
+        return new Promise((resolve, reject) => {
+
+
+            Axios.get(`clock-chart/${id}`)
+                .then(res => {
+
+                    commit('set_chart', res.data)
                     resolve(res)
                 }).catch(err => {
                     reject()
@@ -214,7 +243,33 @@ const actions = {
             )
                 .then(res => {
 
-                    commit('set_time', res.data)
+                    commit('set_chart', res.data)
+                    resolve(res)
+                }).catch(err => {
+                    reject()
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+
+
+        })
+
+
+    },
+    filter_clock_chart_project({ commit }, payload) {
+
+        return new Promise((resolve, reject) => {
+            console.log(payload);
+
+
+            Axios.post(`clock-chart-filter-project/${payload.id}`,
+                {
+                    start: payload.start,
+                    end: payload.end
+                }
+            )
+                .then(res => {
+
+                    commit('set_chart', res.data)
                     resolve(res)
                 }).catch(err => {
                     reject()

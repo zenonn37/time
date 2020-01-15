@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="626px" height="695px" viewBox="0 0 626 695" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>undraw_no_data_qbuo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="49.9988159%" y1="100%" x2="49.9988159%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="60.2978048%" y1="98.8803643%" x2="39.7592206%" y2="1.02948481%" id="linearGradient-3">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="99.9144422%" x2="50%" y2="-0.0855578371%" id="linearGradient-4">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="undraw_no_data_qbuo" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#E0E0E0" transform="translate(277.104889, 353.840153) rotate(-12.110000) translate(-277.104889, -353.840153) " x="58.5948892" y="51.9301529" width="437.02" height="603.82"></rect>
+            <g id="Group" opacity="0.5" transform="translate(9.000000, 24.000000)" fill="url(#linearGradient-1)">
+                <rect id="Rectangle" transform="translate(268.110827, 329.843993) rotate(-12.110000) translate(-268.110827, -329.843993) " x="56.9858269" y="38.1389927" width="422.25" height="583.41"></rect>
+            </g>
+            <rect id="Rectangle" fill="#FAFAFA" transform="translate(276.654346, 351.741290) rotate(-12.110000) translate(-276.654346, -351.741290) " x="70.9043458" y="66.4812901" width="411.5" height="570.52"></rect>
+            <rect id="Rectangle" fill="url(#linearGradient-2)" transform="translate(217.335659, 72.708356) rotate(-12.110000) translate(-217.335659, -72.708356) " x="115.265659" y="47.9833557" width="204.14" height="49.45"></rect>
+            <path d="M202.01,1.31 C186.6,4.62 176.85,20.09 180.24,35.86 C183.63,51.63 198.86,61.75 214.24,58.44 C229.62,55.13 239.4,39.66 236.01,23.89 C232.62,8.12 217.42,-2 202.01,1.31 Z M211.68,46.41 C205.018519,47.9986712 198.05788,45.4000803 194.067205,39.8346772 C190.076529,34.2692741 189.848749,26.8428828 193.490844,21.0433697 C197.132938,15.2438566 203.921236,12.2235626 210.667558,13.4009937 C217.41388,14.5784249 222.777757,19.7196303 224.24,26.41 C225.237608,30.728519 224.473264,35.2665514 222.116085,39.0200212 C219.758906,42.7734909 216.003219,45.4329601 211.68,46.41 Z" id="Shape" fill="url(#linearGradient-3)"></path>
+            <rect id="Rectangle" fill="#2D95A7" transform="translate(216.661831, 69.568790) rotate(-12.110000) translate(-216.661831, -69.568790) " x="116.741831" y="45.9337901" width="199.84" height="47.27"></rect>
+            <path d="M202.01,1.31 C186.928583,4.54698924 177.326547,19.3967162 180.562951,34.4782584 C183.799355,49.5598006 198.64871,59.162413 213.730378,55.9265941 C228.812045,52.6907751 238.415234,37.8417933 235.18,22.76 C233.626225,15.516718 229.258499,9.18742974 223.037806,5.16470264 C216.817113,1.14197555 209.253101,-0.244617903 202.01,1.31 L202.01,1.31 Z M211.25,44.41 C204.874881,45.7779251 198.303502,43.1706938 194.600322,37.8041473 C190.897142,32.4376008 190.791509,25.368689 194.332681,19.8938869 C197.873854,14.4190849 204.364394,11.6166637 210.777541,12.7934882 C217.190687,13.9703126 222.263361,18.8946052 223.63,25.27 C225.495767,33.9738323 219.953456,42.542478 211.25,44.41 L211.25,44.41 Z" id="Shape" fill="#2D95A7"></path>
+            <rect id="Rectangle" fill="#E0E0E0" x="188.89" y="85.91" width="437.02" height="603.82"></rect>
+            <g id="Group" opacity="0.5" transform="translate(196.000000, 96.000000)" fill="url(#linearGradient-1)">
+                <rect id="Rectangle" x="0.28" y="0.12" width="422.25" height="583.41"></rect>
+            </g>
+            <rect id="Rectangle" fill="#FFFFFF" x="201.65" y="100.42" width="411.5" height="570.52"></rect>
+            <rect id="Rectangle" fill="url(#linearGradient-2)" x="305.87" y="75.68" width="204.14" height="49.45"></rect>
+            <path d="M407.94,27.41 C392.18,27.41 379.4,40.49 379.4,56.63 C379.4,72.77 392.18,85.85 407.94,85.85 C423.7,85.85 436.48,72.77 436.48,56.63 C436.48,40.49 423.7,27.41 407.94,27.41 Z M407.94,73.49 C401.086708,73.6526384 394.817246,69.6495518 392.081141,63.3640293 C389.345036,57.0785069 390.687094,49.762105 395.475931,44.856893 C400.264767,39.951681 407.546843,38.4343715 413.896237,41.0187969 C420.245632,43.6032223 424.39807,49.7747787 424.4,56.63 C424.466712,65.8002317 417.109816,73.3001529 407.94,73.41 L407.94,73.49 Z" id="Shape" fill="url(#linearGradient-4)"></path>
+            <rect id="Rectangle" fill="#2D95A7" x="308.02" y="73.56" width="199.84" height="47.27"></rect>
+            <path d="M407.94,27.41 C396.64337,27.41 386.459078,34.214926 382.136045,44.6516517 C377.813011,55.0883774 380.202584,67.1015684 388.190508,75.0894924 C396.178432,83.0774164 408.191623,85.4669887 418.628348,81.1439553 C429.065074,76.820922 435.87,66.6366305 435.87,55.34 C435.87,39.9146869 423.365313,27.41 407.94,27.41 L407.94,27.41 Z M407.94,71.46 C399.044994,71.4489366 391.84005,64.2349961 391.84005,55.3399835 C391.84005,46.4449709 399.045052,39.2310563 407.940058,39.2200122 C416.835064,39.2089934 424.057921,46.4050148 424.08,55.3 C424.07735,59.5770243 422.375082,63.6776732 419.347956,66.6991721 C416.320831,69.720671 412.217022,71.4153073 407.94,71.41 L407.94,71.46 Z" id="Shape" fill="#2D95A7"></path>
+        </g>
+    </g>
+</svg>

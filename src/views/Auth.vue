@@ -3,11 +3,17 @@
     <div class="form-container">
       <div class="container">
         <div class="auth">
-          <div class="auth-parent">
+          <div class="logo ani">
+            <img src="@/assets/logo.png" alt="Logo" />
+          </div>
+          <div class="cover ani">
+            <img src="@/assets/images/cover_timer.svg" alt="time management" />
+          </div>
+          <div class="auth-parent ani">
             <transition name="fade" mode="out-in">
-              <h1 v-if="!auth" key="login">Login</h1>
+              <h3 v-if="!auth" key="login">Login</h3>
 
-              <h1 v-else key="register">Register</h1>
+              <h3 v-else key="register">Register</h3>
             </transition>
             <span class="errors">{{errors !== null ? errors : ""}}</span>
             <transition name="fade" mode="out-in">
@@ -17,9 +23,9 @@
           </div>
 
           <button
-            class="toggle-btn"
+            class="toggle-btn ani"
             @click="toggleAuth()"
-          >{{auth ? 'I already have an Account':'I need an Account!' }}</button>
+          >{{auth ? 'I already have an Account.':'I need an Account.' }}</button>
         </div>
       </div>
     </div>
@@ -29,6 +35,7 @@
 <script>
 import Register from "@/components/auth/Register";
 import Login from "@/components/auth/Login";
+import GSAP from "gsap";
 export default {
   name: "Auth",
   components: {
@@ -70,6 +77,14 @@ export default {
         this.$store.dispatch("base/set_auth_login");
       });
     }
+  },
+  mounted() {
+    GSAP.from(".ani", {
+      opacity: 0,
+      duration: 0.3,
+      y: -70,
+      stagger: 0.5
+    });
   }
 };
 </script>

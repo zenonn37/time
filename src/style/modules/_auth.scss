@@ -1,0 +1,27 @@
+.auth-container{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form-container{
+        flex:1;
+        max-width: 450px;
+        min-width:320px;
+    }
+    .logo{
+        margin-bottom: 2rem;
+        text-align: center;
+        img{
+            width: 50%;
+        }
+    }
+
+    img{
+        width: 100%;
+    }
+
+    .toggle-btn{
+
+        @include a_button($white,40px,$panel,14px,3px,.8)
+    }
+}

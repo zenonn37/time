@@ -75,6 +75,23 @@ const getters = {
 
 //actions
 const actions = {
+
+    filter_task_chart_project({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            Axios.post(`filter-task-chart-project/${payload.id}`, {
+                start: payload.start,
+                end: payload.end
+            })
+                .then(res => {
+                    resolve(res)
+
+                    commit('set_tasks', res.data)
+                }).catch(err => {
+                    reject(err)
+                    commit('base/set_errors', err.response.data.message, { root: true })
+                })
+        })
+    },
     filter_task_chart({ commit }, payload) {
 
         return new Promise((resolve, reject) => {

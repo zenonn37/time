@@ -17,17 +17,17 @@
         <img src="/images/play.png" alt="Play Icon" />
       </div>
 
-      <div class="button-group">
-        <div class="pause cursor" @click="onPause">
+      <!-- <div class="button-group"> -->
+      <!-- <div class="pause cursor" @click="onPause">
           <i class="fas fa-pause"></i>
-        </div>
-        <div class="resume cursor" @click="onResume">
+      </div>-->
+      <!-- <div class="resume cursor" @click="onResume">
           <img src="/images/play.png" alt="Play Icon" />
-        </div>
-        <div class="stop cursor" @click="onStopTimer">
+      </div>-->
+      <!-- <div class="stop cursor" @click="onStopTimer">
           <i class="fas fa-stop"></i>
-        </div>
-      </div>
+      </div>-->
+      <!-- </div> -->
 
       <div class="time">
         <form @submit.prevent="onCountDown()"></form>
@@ -90,20 +90,22 @@ export default {
     },
 
     bosTimer() {
+      //needs refactor to use pause functions, next release
       const sec = this.seconds;
       let seconds = this.save === true ? this.pause : sec;
       this.stopCountDown = false;
       const now = Date.now();
       const then = now + seconds * 1000;
-      console.log({ now, then });
+      //console.log({ now, then });
       this.displayTimer();
       this.interval = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
-        --this.entry;
+        this.entry--;
         this.$store.dispatch("task/count_seconds");
         // --this.store_time;
 
-        console.log(this.entry);
+        // console.log(this.entry + " state entry");
+        // console.log(secondsLeft + " seconds left");
 
         //check to stop
         if (
@@ -130,18 +132,6 @@ export default {
 
       return `${hour} : ${minute} : 00`;
     },
-
-    // setTime() {
-    //   // let min = parseInt(this.count.d_minutes);
-    //   // let hour = parseInt(this.count.d_hours);
-    //   let hours = hour > 0 ? hour * 3600 : 0;
-    //   let minutes = min > 0 ? min * 60 : 0;
-
-    //   let total = hours + minutes;
-    //   console.log(total);
-
-    //   this.entry = total;
-    // },
 
     onStopTimer() {
       this.stopCountDown = true;

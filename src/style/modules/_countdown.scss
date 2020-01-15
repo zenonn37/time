@@ -34,16 +34,19 @@
            img{
              width: 20px;
            }
-           @include button($white,60px,60px,$button-main,20px);
+           @include button($white,60px,60px,$panel,20px);
+           &:hover{
+            background-color: $button-main
+          }
           
       }
       .button-group{
         
-        width: 120px;
+        // width: 120px;
         display: flex;
         justify-content: space-evenly;
         bottom: 10px;
-        right: 10px;
+        right: 145px;
         position:absolute;
          
       i{
@@ -54,13 +57,16 @@
           width: 15px;
         }
         .pause{
-          @include button($white,30px,30px,$warning,20px);
+          @include button($white,30px,30px,$panel,15px);
+          &:hover{
+            background-color: $button-main
+          }
         }
         .resume{
-          @include button($white,30px,30px,$success,20px);
+          @include button($white,30px,30px,$success,15px);
         }
         .stop{
-          @include button($white,30px,30px,$danger,20px);
+          @include button($white,30px,30px,$panel,15px);
         }
       }
   }

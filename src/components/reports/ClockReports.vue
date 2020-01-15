@@ -8,7 +8,30 @@
           <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
         </div>
         <div v-else>
-          <Bar :chart="charts" />
+          <div class="report-filter-parent" v-if="!loading">
+            <i class="fas fa-sync cursor" @click="onResetTask()"></i>
+            <i @click="onSetRange()" class="fas fa-search cursor"></i>
+
+            <div>
+              <datetime
+                placeholder="Start Date"
+                v-model="start_clock"
+                value-zone="America/New_York"
+                :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+              ></datetime>
+            </div>
+            <div>
+              <datetime
+                placeholder="End Date"
+                v-model="end_clock"
+                value-zone="America/New_York"
+                :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+              ></datetime>
+            </div>
+          </div>
+          <div v-if="charts.time.length >= 1">
+            <Bar :chart="charts" />
+          </div>
         </div>
       </transition>
     </div>
@@ -27,7 +50,9 @@ export default {
 
   data() {
     return {
-      loading: false
+      loading: false,
+      start_clock: "",
+      end_clock: ""
       //toggle: this.nav
     };
   },
@@ -35,21 +60,24 @@ export default {
     clocks() {
       return this.$store.getters["time/get_time"];
     },
+
     charts() {
-      const charts = this.clocks;
+      const charts = this.$store.getters["time/get_chart"];
 
       let time = [];
       let dates = [];
 
       charts.forEach(el => {
-        if (el.entries_sum < 3600) {
+        if (el.seconds < 3600) {
           time.push(0);
         } else {
-          time.push(Math.round(el.entries_sum / 3600));
+          time.push(Math.round(el.seconds / 3600));
         }
 
         dates.push(el.date.slice(0, 10));
       });
+
+      console.log(time);
 
       return {
         time,
@@ -60,11 +88,47 @@ export default {
       return this.nav;
     }
   },
+  methods: {
+    warningToast() {
+      this.$toast.open({
+        message: "Date Range fields cannot be empty.",
+        type: "info",
+        position: "top"
+      });
+    },
+
+    onSetRange() {
+      if (this.start_clock === "" || this.end_clock === "") {
+        this.warningToast();
+        return;
+      }
+      this.loading = true;
+      this.$store
+        .dispatch("time/filter_clock_chart_project", {
+          id: this.$route.params.id,
+          start: this.start_clock.slice(0, 19).replace(" T ", " "),
+          end: this.end_clock.slice(0, 19).replace(" T ", " ")
+        })
+        .then(() => {
+          this.loading = false;
+        });
+    },
+    onResetTask() {
+      this.taskCall();
+    },
+    taskCall() {
+      this.loading = true;
+      this.$store
+        .dispatch("time/clock_chart_project", this.$route.params.id)
+        .then(() => {
+          this.loading = false;
+        });
+    }
+  },
   created() {
-    this.loading = true;
+    this.taskCall();
     this.$store.dispatch("time/get_time", this.$route.params.id).then(() => {
       this.loading = false;
-      console.log("loaded");
     });
   }
 };

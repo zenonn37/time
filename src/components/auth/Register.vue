@@ -7,7 +7,7 @@
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <ValidationProvider name="Email" rules="email|min:5|max:40" v-slot="{errors}">
+      <ValidationProvider name="Email" rules="required|email|min:5|max:40" v-slot="{errors}">
         <input type="email" v-model=" reg.email" placeholder="Email" />
         <span class="errors">{{errors[0]}}</span>
       </ValidationProvider>
@@ -19,7 +19,7 @@
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <input type="submit" value="Register" />
+      <input :disabled="!valid" type="submit" :value="!valid ? 'Disabled' : 'Register'" />
     </div>
   </ValidationObserver>
 </template>
@@ -36,8 +36,16 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
+      const isValid = await this.$refs.observer.validate();
+      if (!isValid) {
+        console.log("error on form");
+        return;
+      }
       this.$emit("register", this.reg);
+      requestAnimationFrame(() => {
+        this.$refs.observer.reset();
+      });
     }
   }
 };

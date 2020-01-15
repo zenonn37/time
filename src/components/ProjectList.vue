@@ -14,6 +14,7 @@
             <i @click="onDelete(project.id)" class="fas fa-trash cursor"></i>
             <i
               @click="onComplete(project)"
+              class="cursor"
               :class="[!project.completed ?  'far fa-check-circle':'fas fa-check-circle']"
             ></i>
           </h6>

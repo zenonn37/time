@@ -12,11 +12,13 @@
       </div>
     </div>
     <div v-if="!loading">
-      <div>Project: {{project.name}}</div>
-      <div>
-        Status:
-        <span v-if="project.completed">Completed</span>
-        <span v-else>On Going</span>
+      <div class="project-head">
+        <div>Project: {{project.name}}</div>
+        <div>
+          Status:
+          <span v-if="project.completed">Completed</span>
+          <span v-else>On Going</span>
+        </div>
       </div>
       <router-view :project="project"></router-view>
     </div>
