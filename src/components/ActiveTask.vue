@@ -62,18 +62,18 @@ export default {
   methods: {
     onSave() {
       this.$store.dispatch("task/save_active_task", true).then(() => {
-        console.log("Complete");
+        // console.log("Complete");
       });
     },
     onIncomplete() {
       this.$store.dispatch("task/save_active_task", false).then(() => {
-        console.log("Task Not Complete");
+        // console.log("Task Not Complete");
       });
     },
     onComplete() {
       //this.$store.dispatch("task/set_active_task", false);
       this.$store.dispatch("task/save_active_task", true).then(() => {
-        console.log("Task Completed Early!!");
+        //  console.log("Task Completed Early!!");
       });
     },
     onDelete() {

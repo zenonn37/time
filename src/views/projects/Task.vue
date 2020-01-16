@@ -111,7 +111,7 @@ export default {
   },
   methods: {
     onActivity() {
-      console.log("called");
+      // console.log("called");
 
       this.newTask = !this.newTask;
     },
@@ -142,9 +142,9 @@ export default {
     this.loading = true;
     const id = parseInt(this.$route.params.id);
     if (this.$store.getters["projects/show_projects"](id) === undefined) {
-      console.log("no data");
+      // console.log("no data");
       this.$store.dispatch("projects/get_projects").then(() => {
-        console.log("reload");
+        //  console.log("reload");
         this.$store
           .dispatch("task/set_tasks", this.$route.params.id)
           .then(() => {

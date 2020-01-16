@@ -75,14 +75,10 @@ export default {
       this.edit = false;
     },
     onDelete(id) {
-      console.log("delete");
       const ids = parseInt(id);
-      this.$store.dispatch("task/delete_task", ids).then(() => {
-        console.log("deleted");
-      });
+      this.$store.dispatch("task/delete_task", ids).then(() => {});
     },
     save(value) {
-      console.log(value);
       this.$store.dispatch("task/edit_task", value).then(() => {
         this.edit = false;
         //refactor to call this function within module!!

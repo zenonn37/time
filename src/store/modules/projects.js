@@ -43,7 +43,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             Axios.get('timer-projects')
                 .then(res => {
-                    console.log(res);
+                    //console.log(res);
 
                     resolve()
                     commit('set_projects', res.data.data)
@@ -58,7 +58,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             Axios.post('/timer-projects-new', { ...payload, completed: false })
                 .then(res => {
-                    console.log(res);
+                    //console.log(res);
 
                     resolve()
 
@@ -96,9 +96,9 @@ const actions = {
                 })
 
                 .then(res => {
-                    console.log(res);
+                    // console.log(res);
 
-                    resolve();
+                    resolve(res);
 
                     dispatch('get_projects')
 
