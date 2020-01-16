@@ -91,7 +91,7 @@ export default {
         dates.push(el.date.slice(0, 10));
       });
 
-      console.log(time);
+      //console.log(time);
 
       return {
         time,
