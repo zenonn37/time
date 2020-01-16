@@ -17,8 +17,9 @@
             </transition>
             <span class="errors">{{errors !== null ? errors : ""}}</span>
             <transition name="fade" mode="out-in">
-              <Register @register="register" v-if="auth" :error="errors" />
-              <Login @login="login" v-else :error="errors" />
+              <Register v-if="auth" @register="register" :error="errors" />
+
+              <Login v-else @login="login" :error="errors" />
             </transition>
           </div>
 

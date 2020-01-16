@@ -1224,13 +1224,13 @@ input[type="button"] {
 }
 
 .slide-fade-enter-active {
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .slide-fade-leave-active {
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .slide-fade-enter, .slide-fade-leave-to {
@@ -1240,8 +1240,8 @@ input[type="button"] {
 }
 
 .fade-enter-active, .fade-leave-active {
-  -webkit-transition: opacity 3s ease-in-out;
-  transition: opacity 3s ease-in-out;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 
 .fade-enter, .fade-leave-to {
@@ -1249,8 +1249,8 @@ input[type="button"] {
 }
 
 .slide-enter-active, .slide-leave-active {
-  -webkit-transition: margin-left 3s ease-in-out;
-  transition: margin-left 3s ease-in-out;
+  -webkit-transition: margin-left 0.4s ease-in-out;
+  transition: margin-left 0.4s ease-in-out;
 }
 
 .slide-enter, .slide-leave-to {

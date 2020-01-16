@@ -1,11 +1,11 @@
 //slide fade
 
 .slide-fade-enter-active{
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .slide-fade-leave-active{
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .slide-fade-enter, .slide-fade-leave-to{
@@ -14,13 +14,13 @@
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 3s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
   }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
   }
   .slide-enter-active, .slide-leave-active {
-    transition: margin-left 3s ease-in-out;
+    transition: margin-left 0.4s ease-in-out;
   }
 .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
     margin-left: -30px;

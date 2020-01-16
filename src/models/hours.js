@@ -1,36 +1,23 @@
 //hours
 
-
 let hcount = 0;
-const hour = 23
-let hcapture = []
-
+const hour = 23;
+let hcapture = [];
 
 while (hcount < hour) {
-    hcount++
-    hcapture.push(hcount)
-
+  hcount++;
+  hcapture.push(hcount);
 }
 
-
-export const hours = hcapture
-
-
-
-
-
+export const hours = hcapture;
 
 let count = 0;
-const min = 59
-let capture = []
-
+const min = 59;
+let capture = [];
 
 while (count < min) {
-    count++
-    capture.push(count)
-
+  count++;
+  capture.push(count);
 }
 
-
-export const minutes = capture
-
+export const minutes = capture;

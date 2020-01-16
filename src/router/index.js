@@ -1,14 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Project from '../views/Project.vue';
-import Reports from '../views/Reports.vue';
-import Auth from '../views/Auth.vue';
+import Project from "../views/Project.vue";
+import Reports from "../views/Reports.vue";
+import Auth from "../views/Auth.vue";
 //project children
 
-import Report from '@/views/projects/Report';
-import Task from '@/views/projects/Task';
-
+import Report from "@/views/projects/Report";
+import Task from "@/views/projects/Task";
 
 Vue.use(VueRouter);
 
@@ -19,7 +18,6 @@ const routes = [
     meta: {
       layout: "user",
       requiresAuth: true
-
     },
     component: Home
   },
@@ -29,7 +27,6 @@ const routes = [
     meta: {
       layout: "no-user",
       requireVisitor: true
-
     },
     component: Auth
   },
@@ -39,7 +36,6 @@ const routes = [
     meta: {
       layout: "no-user",
       requireVisitor: true
-
     },
     component: Auth
   },
@@ -49,27 +45,24 @@ const routes = [
     meta: {
       layout: "user",
       requiresAuth: true
-
     },
     component: Project,
     children: [
       {
-        path: 'task',
-        name: 'task',
+        path: "task",
+        name: "task",
         meta: {
           layout: "user",
           requiresAuth: true
-
         },
         component: Task
       },
       {
-        path: 'report',
-        name: 'report',
+        path: "report",
+        name: "report",
         meta: {
           layout: "user",
           requiresAuth: true
-
         },
         component: Report
       }
@@ -81,7 +74,6 @@ const routes = [
     meta: {
       layout: "user",
       requiresAuth: true
-
     },
     component: Reports
   },
@@ -91,7 +83,6 @@ const routes = [
     meta: {
       layout: "user",
       requiresAuth: true
-
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
