@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="home-subheader">
-      <div :class="[!active ? 'hide-form' : 'show-form' ]">
+      <div :class="[!active ? 'hide-form' : 'show-form']">
         <transition name="slide-fade">
           <div class="project-btn cursor" v-if="!active">
             <div class="new-button" @click="onToggleActive()">
@@ -29,7 +29,11 @@
       <template v-else>
         <div>
           <transition-group name="fade" mode="out-in">
-            <ProjectList :project="proj" v-for="proj in projects" :key="proj.id" />
+            <ProjectList
+              :project="proj"
+              v-for="proj in projects"
+              :key="proj.id"
+            />
           </transition-group>
         </div>
       </template>

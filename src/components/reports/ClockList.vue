@@ -4,22 +4,24 @@
       <div class="clock-header">
         <div class="date">{{ today }}</div>
 
-        <div class="time">{{clocks.entries_sum | hours}}</div>
+        <div class="time">{{ clocks.entries_sum | hours }}</div>
       </div>
       <div class="clock-footer">
         <div class="clock-entries">
           <div
-            :class="[!entry ?  'clock-btn':'clock-btn-active']"
+            :class="[!entry ? 'clock-btn' : 'clock-btn-active']"
             class="cursor"
             @click="onShowEntry()"
-          >{{clocks.entries_count}}</div>
+          >
+            {{ clocks.entries_count }}
+          </div>
           <p>Clock Entries</p>
         </div>
 
         <div class="clock-icon"></div>
       </div>
       <div class="entry-container">
-        <div :class="[entry ?  'expands': 'entries']">
+        <div :class="[entry ? 'expands' : 'entries']">
           <transition name="fade">
             <div class="grouped-entries" v-if="entry">
               <EntryList :entrys="clocks.entries" />
@@ -75,4 +77,3 @@ export default {
   }
 };
 </script>
-

@@ -5,9 +5,10 @@
     </div>
     <div class="count-down">
       <div>
-        <span>{{d_hours}}</span>:
-        <span>{{d_minutes}}</span>:
-        <span>{{d_seconds}}</span>
+        <span>{{ d_hours }}</span
+        >: <span>{{ d_minutes }}</span
+        >:
+        <span>{{ d_seconds }}</span>
       </div>
     </div>
     <div class="clock-controls">
@@ -164,4 +165,3 @@ export default {
   }
 };
 </script>
-

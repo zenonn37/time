@@ -14,13 +14,13 @@
         </div>
 
         <span @click="edit = !edit" class="cursor">
-          {{hour.name}}
+          {{ hour.name }}
           <i class="fas fa-edit"></i>
         </span>
       </div>
       <div class="task-dates">
         <h6>Ended</h6>
-        <span class="from-now">{{hour.complete | current}}</span>
+        <span class="from-now">{{ hour.complete | current }}</span>
       </div>
     </div>
     <div class="task-mid">
@@ -41,17 +41,25 @@
     <div class="task-bottom">
       <div class="task-details">
         <h6>Goal</h6>
-        <span :class="[hour.actual !== 0  ? 'not-complete':'complete' ]">{{hour.goal | hours}}</span>
+        <span :class="[hour.actual !== 0 ? 'not-complete' : 'complete']">{{
+          hour.goal | hours
+        }}</span>
       </div>
       <div class="task-details">
         <h6>Status</h6>
-        <span v-if="hour.completed && hour.actual < 1" class="success">Complete</span>
-        <span v-else-if="hour.completed && hour.actual > 0" class="success">Early</span>
+        <span v-if="hour.completed && hour.actual < 1" class="success"
+          >Complete</span
+        >
+        <span v-else-if="hour.completed && hour.actual > 0" class="success"
+          >Early</span
+        >
         <span v-else class="warning">Incomplete</span>
       </div>
       <div class="task-details">
         <h6>Remaining</h6>
-        <span :class="[hour.actual !== 0  ? 'warning':'success' ]">{{hour.actual | hours}}</span>
+        <span :class="[hour.actual !== 0 ? 'warning' : 'success']">{{
+          hour.actual | hours
+        }}</span>
       </div>
     </div>
   </div>
@@ -88,5 +96,3 @@ export default {
   }
 };
 </script>
-
- 

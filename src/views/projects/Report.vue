@@ -43,7 +43,6 @@
     </transition>
   </div>
 </template>
-    
 
 <script>
 import TaskReports from "@/components/reports/TaskReports";
@@ -74,4 +73,3 @@ export default {
   }
 };
 </script>
-

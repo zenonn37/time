@@ -1,7 +1,9 @@
 <template>
   <div>
     <transition name="fade" mode="out-in">
-      <template v-if="!active">No Task</template>
+      <template v-if="!active"
+        >No Task</template
+      >
 
       <template v-else>
         <div class="task-parent">
@@ -9,7 +11,7 @@
             <div class="task-top">
               <div class="activity-name">
                 <h6>Active Task</h6>
-                <span>{{task.name}}</span>
+                <span>{{ task.name }}</span>
               </div>
               <div class="activity-delete cursor" @click="onDelete()">
                 <i class="fas fa-trash"></i>
@@ -41,7 +43,6 @@
     </transition>
   </div>
 </template>
-
 
 <script>
 import CountDown from "@/components/timers/CountDown";
@@ -82,4 +83,3 @@ export default {
   }
 };
 </script>
-

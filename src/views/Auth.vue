@@ -15,7 +15,7 @@
 
               <h3 v-else key="register">Register</h3>
             </transition>
-            <span class="errors">{{errors !== null ? errors : ""}}</span>
+            <span class="errors">{{ errors !== null ? errors : "" }}</span>
             <transition name="fade" mode="out-in">
               <Register v-if="auth" @register="register" :error="errors" />
 
@@ -23,10 +23,9 @@
             </transition>
           </div>
 
-          <button
-            class="toggle-btn ani"
-            @click="toggleAuth()"
-          >{{auth ? 'I already have an Account.':'I need an Account.' }}</button>
+          <button class="toggle-btn ani" @click="toggleAuth()">
+            {{ auth ? "I already have an Account." : "I need an Account." }}
+          </button>
         </div>
       </div>
     </div>
@@ -89,4 +88,3 @@ export default {
   }
 };
 </script>
-

@@ -1,20 +1,41 @@
 <template>
-  <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSubmit()">
+  <ValidationObserver
+    ref="observer"
+    tag="form"
+    v-slot="{ valid }"
+    @submit.prevent="onSubmit()"
+  >
     <div class="form-field">
-      <ValidationProvider name="Email" rules="required|email|min:5|max:40" v-slot="{errors}">
-        <input type="email" v-model=" login.username" placeholder="Email" />
-        <span class="errors">{{errors[0]}}</span>
+      <ValidationProvider
+        name="Email"
+        rules="required|email|min:5|max:40"
+        v-slot="{ errors }"
+      >
+        <input type="email" v-model="login.username" placeholder="Email" />
+        <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <ValidationProvider name="Password" rules="required|min:6|max:40|alpha" v-slot="{errors}">
-        <input type="password" v-model=" login.password" placeholder="Password" />
-        <span class="errors">{{errors[0]}}</span>
+      <ValidationProvider
+        name="Password"
+        rules="required|min:6|max:40|alpha"
+        v-slot="{ errors }"
+      >
+        <input
+          type="password"
+          v-model="login.password"
+          placeholder="Password"
+        />
+        <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
 
     <div class="form-field">
-      <input :disabled="!valid" type="submit" :value="!valid ? 'Disabled' : 'Login'" />
+      <input
+        :disabled="!valid"
+        type="submit"
+        :value="!valid ? 'Disabled' : 'Login'"
+      />
     </div>
   </ValidationObserver>
 </template>
@@ -44,4 +65,3 @@ export default {
   }
 };
 </script>
-

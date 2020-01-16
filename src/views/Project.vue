@@ -13,7 +13,7 @@
     </div>
     <div v-if="!loading">
       <div class="project-head">
-        <div>Project: {{project.name}}</div>
+        <div>Project: {{ project.name }}</div>
         <div>
           Status:
           <span v-if="project.completed">Completed</span>
@@ -61,4 +61,3 @@ export default {
   }
 };
 </script>
-

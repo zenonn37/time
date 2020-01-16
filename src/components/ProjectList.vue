@@ -15,13 +15,17 @@
             <i
               @click="onComplete(project)"
               class="cursor"
-              :class="[!project.completed ?  'far fa-check-circle':'fas fa-check-circle']"
+              :class="[
+                !project.completed
+                  ? 'far fa-check-circle'
+                  : 'fas fa-check-circle'
+              ]"
             ></i>
           </h6>
 
           <h3 class="title cursor" @click="onProject(project.id)">
             <i class="fas fa-project-diagram"></i>
-            {{project.name}}
+            {{ project.name }}
           </h3>
           <h6>
             Status:
@@ -31,20 +35,20 @@
         </div>
         <div class="panel-time">
           <h6>Total Hours</h6>
-          <span class="hours">{{project.seconds | hours}}</span>
+          <span class="hours">{{ project.seconds | hours }}</span>
         </div>
       </div>
       <div class="panel-bottom">
         <div class="panel-task">
           <h6>Project Tasks</h6>
           <div class="box-task">
-            <span class="hours">{{project.tasks}}</span>
+            <span class="hours">{{ project.tasks }}</span>
           </div>
         </div>
 
         <div class="panel-goal">
           <h6>Time Goal</h6>
-          <span class="hours">{{project.goal | hours}}</span>
+          <span class="hours">{{ project.goal | hours }}</span>
         </div>
       </div>
     </div>
@@ -90,5 +94,3 @@ export default {
   }
 };
 </script>
-
- 

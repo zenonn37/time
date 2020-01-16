@@ -7,22 +7,24 @@
             <ValidationProvider
               name="Task Name"
               rules="required|min:2|max:40|alpha_spaces"
-              v-slot="{errors}"
+              v-slot="{ errors }"
             >
               <input type="text" v-model.trim="name" placeholder="Enter Task" />
-              <span class="errors">{{errors[0]}}</span>
+              <span class="errors">{{ errors[0] }}</span>
             </ValidationProvider>
           </div>
           <div>
             <select v-model="hour" name="hour">
               <option value="0" selected>0</option>
-              <option v-for="hour in time" :key="hour" :value="hour">{{hour}}</option>
+              <option v-for="hour in time" :key="hour" :value="hour">{{
+                hour
+              }}</option>
             </select>
           </div>
           <div>
             <select v-model="min" name="min">
               <option value="0" selected>0</option>
-              <option v-for="m in mins" :key="m" :value="m">{{m}}</option>
+              <option v-for="m in mins" :key="m" :value="m">{{ m }}</option>
             </select>
           </div>
         </div>
@@ -105,4 +107,3 @@ export default {
   }
 };
 </script>
-

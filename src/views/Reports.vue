@@ -1,6 +1,9 @@
 <template>
   <div class="main-report-parent">
-    <div class="report-filter-parent" v-if="!loading && clock.dates.length >= 1">
+    <div
+      class="report-filter-parent"
+      v-if="!loading && clock.dates.length >= 1"
+    >
       <i class="fas fa-sync" @click="onResetClock()"></i>
       <i @click="onSetRange()" class="fas fa-search"></i>
 
@@ -9,7 +12,7 @@
           placeholder="Start Date"
           v-model="start_clock"
           value-zone="America/New_York"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
       <div>
@@ -17,7 +20,7 @@
           placeholder="End Date"
           v-model="end_clock"
           value-zone="America/New_York"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
     </div>
@@ -29,7 +32,10 @@
       <img src="@/assets/images/charts.svg" alt="Charts" />
     </div>
 
-    <div class="report-filter-parent" v-if="!loading2 && task.dates.length >= 1">
+    <div
+      class="report-filter-parent"
+      v-if="!loading2 && task.dates.length >= 1"
+    >
       <i class="fas fa-sync" @click="onResetTask()"></i>
       <i @click="onSetRangeTask()" class="fas fa-search"></i>
       <div>
@@ -37,7 +43,7 @@
           placeholder="Start Date"
           v-model="start_task"
           value-zone="America/New_York"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
       <div>
@@ -45,7 +51,7 @@
           placeholder="End Date"
           v-model="end_task"
           value-zone="America/New_York"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
     </div>
@@ -195,4 +201,3 @@ export default {
   }
 };
 </script>
-

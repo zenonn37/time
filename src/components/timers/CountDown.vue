@@ -3,14 +3,14 @@
     <div class="count-down">
       <div class="clock-down">
         <span>
-          {{d_hours}}
+          {{ d_hours }}
           <span class="time-dots">:</span>
         </span>
         <span>
-          {{d_minutes}}
+          {{ d_minutes }}
           <span class="time-dots">:</span>
         </span>
-        <span>{{ d_seconds}}</span>
+        <span>{{ d_seconds }}</span>
       </div>
 
       <div class="count-start cursor" @click="timer()">
@@ -186,4 +186,3 @@ export default {
   }
 };
 </script>
-

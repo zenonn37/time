@@ -6,7 +6,11 @@
       <transition name="fade">
         <div v-if="!toggle">
           <div v-if="clocks.length >= 1">
-            <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
+            <ClockList
+              :clocks="clock"
+              v-for="clock in clocks"
+              :key="clock.id"
+            />
           </div>
           <div class="time-entry-empty" v-else>
             <div>
@@ -16,7 +20,10 @@
           </div>
         </div>
         <div v-else>
-          <div class="report-filter-parent" v-if="!loading && charts.time.length >= 1 ">
+          <div
+            class="report-filter-parent"
+            v-if="!loading && charts.time.length >= 1"
+          >
             <i class="fas fa-sync cursor" @click="onResetTask()"></i>
             <i @click="onSetRange()" class="fas fa-search cursor"></i>
 
@@ -25,7 +32,7 @@
                 placeholder="Start Date"
                 v-model="start_clock"
                 value-zone="America/New_York"
-                :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+                :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
               ></datetime>
             </div>
             <div>
@@ -33,7 +40,7 @@
                 placeholder="End Date"
                 v-model="end_clock"
                 value-zone="America/New_York"
-                :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+                :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
               ></datetime>
             </div>
           </div>
@@ -147,4 +154,3 @@ export default {
   }
 };
 </script>
-
