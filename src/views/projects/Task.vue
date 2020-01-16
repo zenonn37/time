@@ -94,7 +94,6 @@ export default {
     project() {
       const id = parseInt(this.$route.params.id);
       const data = this.$store.getters["projects/show_projects"](id);
-      console.log(data);
 
       if (data !== null || data !== undefined) {
         return data;
