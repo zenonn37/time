@@ -75,9 +75,7 @@ export default {
     },
     onDelete(id) {
       const ids = parseInt(id);
-      this.$store.dispatch("projects/delete_project", ids).then(() => {
-        console.log("deleted");
-      });
+      this.$store.dispatch("projects/delete_project", ids).then(() => {});
     },
     onComplete(p) {
       this.$store
@@ -87,9 +85,7 @@ export default {
           completed: (p.completed = !p.completed),
           id: p.id
         })
-        .then(() => {
-          console.log("updated");
-        });
+        .then(() => {});
     }
   }
 };

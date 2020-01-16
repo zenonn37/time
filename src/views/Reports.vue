@@ -153,7 +153,6 @@ export default {
           end: this.end_task.slice(0, 19).replace("T", " ")
         })
         .then(() => {
-          console.log("done");
           this.loading2 = false;
         });
     },

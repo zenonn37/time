@@ -235,7 +235,7 @@ const actions = {
     filter_clock_chart({ commit }, payload) {
 
         return new Promise((resolve, reject) => {
-            console.log(payload);
+            //  console.log(payload);
 
 
             Axios.post('clock-chart-filter',

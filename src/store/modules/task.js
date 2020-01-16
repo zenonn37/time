@@ -95,7 +95,7 @@ const actions = {
     filter_task_chart({ commit }, payload) {
 
         return new Promise((resolve, reject) => {
-            console.log(payload);
+            // console.log(payload);
 
 
             Axios.post('filter_task_chart',

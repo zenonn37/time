@@ -47,7 +47,6 @@ export default {
     async onSubmit() {
       const isValid = await this.$refs.observer.validate();
       if (!isValid) {
-        console.log("error on form");
         return;
       }
       this.$emit("login", this.login);
@@ -88,5 +87,3 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>

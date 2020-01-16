@@ -14,7 +14,6 @@ export default {
 
   methods: {
     sendEntry() {
-      console.log(this.entry);
       this.$emit("entry", this.entry);
     }
   }

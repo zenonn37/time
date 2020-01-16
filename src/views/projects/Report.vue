@@ -67,7 +67,6 @@ export default {
     },
     toggleTimer() {
       this.timer = !this.timer;
-      console.log("timer");
     },
     toggleTask() {
       this.task = !this.task;
