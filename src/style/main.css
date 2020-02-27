@@ -7,7 +7,14 @@
 
 body {
   background-color: #eeeeee;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
 }
 
 a {
@@ -18,7 +25,12 @@ ul {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
@@ -916,7 +928,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem .1rem 1rem .1rem;
+  padding: 1rem 0.1rem 1rem 0.1rem;
   max-width: 450px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -934,7 +946,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 0 .4rem 0 .4rem;
+  padding: 0 0.4rem 0 0.4rem;
 }
 
 .new-task-parent .new-task-submit {
@@ -946,7 +958,7 @@ h1, h2, h3, h4, h5, h6 {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 1rem;
-  padding: 0 .4rem 0 .4rem;
+  padding: 0 0.4rem 0 0.4rem;
 }
 
 select {
@@ -979,11 +991,57 @@ select {
           justify-content: space-between;
 }
 
+.mini-forms .form-btns .div-btn {
+  color: white;
+  background-color: #0295a8;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.mini-forms .form-btns .cancel {
+  color: white;
+  background-color: #db4a4a;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
 .mini-forms .form-input {
   margin-bottom: 1rem;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
   display: inline-block;
   margin: 0 auto;
@@ -1050,7 +1108,7 @@ input[type="button"] {
 }
 
 .form-field {
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
 
 .task-list-parent {

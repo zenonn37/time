@@ -1,64 +1,74 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: $background;
-    font-family: 'Poppins',sans-serif;
+body {
+  background-color: $background;
+  font-family: "Poppins", sans-serif;
+}
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
 }
 
-a{
-    text-decoration: none;
-
+a {
+  text-decoration: none;
 }
-ul{
-    list-style: none;
-}
-
-h1,h2,h3,h4,h5,h6{
-    margin: 0;
-}
-.full-screen{
-    height: 100vh;
-    display: flex;
-   //justify-content: center;
-    align-items: center;
-    flex-direction: column;
+ul {
+  list-style: none;
 }
 
-.back-btn{
-    font-size:25px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
-.cursor{
-    cursor: pointer;
-}
-.from-now{
-    font-size: 12px;
-}
-.title{
-    color: $title;
-}
-.hours{
-    color:$hours;
-}
-.container{
-    max-width: 900px;
-    margin: 0 auto;
-    width: 97%;
+.full-screen {
+  height: 100vh;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.success{
-    color: $success !important;
+.back-btn {
+  font-size: 25px;
 }
-.warning{
-   color:$warning !important;
+.cursor {
+  cursor: pointer;
 }
-.danger{
-    color:$danger !important;
+.from-now {
+  font-size: 12px;
 }
-.errors{
-    font-size: 12px;
-    color: $danger;
+.title {
+  color: $title;
+}
+.hours {
+  color: $hours;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 97%;
+}
+
+.success {
+  color: $success !important;
+}
+.warning {
+  color: $warning !important;
+}
+.danger {
+  color: $danger !important;
+}
+.errors {
+  font-size: 12px;
+  color: $danger;
 }
