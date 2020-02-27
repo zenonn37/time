@@ -85,3 +85,7 @@ input[type="button"] {
 .form-field {
   margin-bottom: 0.8rem;
 }
+
+.login-btn {
+  @include button($white, 35px, 100%, $panel, 15px, 3px);
+}
