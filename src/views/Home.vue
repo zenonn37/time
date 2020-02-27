@@ -5,7 +5,7 @@
         <transition name="slide-fade">
           <div class="project-btn cursor" v-if="!active">
             <div class="new-button" @click="onToggleActive()">
-              <i class="fas fa-project-diagram"></i>
+              <i class="fas fa-plus"></i>
             </div>
           </div>
         </transition>

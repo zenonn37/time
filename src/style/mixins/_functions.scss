@@ -1,82 +1,77 @@
 //panel mixin for all project panels aka boxes
-@mixin panels($height,$color,$padding,$min-width:260px) {
-    min-height: $height;  
-    background-color: $color;
+@mixin panels($height, $color, $padding, $min-width: 260px) {
+  min-height: $height;
+  background-color: $color;
   transition: all 0.3s ease-in;
-  margin: 1rem 0 1rem 0; 
+  margin: 1rem 0 1rem 0;
   min-width: $min-width;
-  border-radius: 6px; 
+  border-radius: 6px;
   box-shadow: $shadow;
- // overflow: hidden;
+  // overflow: hidden;
 
-   @if $padding{
-       padding: 1rem;
-   } 
-     
-   
-    
+  @if $padding {
+    padding: 1rem;
+  }
 }
 
 //flex center
 @mixin flex_center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //colors
-@mixin text($color,$opacity,$size) {
-    opacity: $opacity;
-    color: $color;
-    font-size:$size;
+@mixin text($color, $opacity, $size) {
+  opacity: $opacity;
+  color: $color;
+  font-size: $size;
 }
 //basic button
-@mixin button($color,$height,$width,$back,$font-size,$radius:50%) {
-    height: $height;
-    width: $width;
-    color:$color;
-    background-color: $back;
-    border-radius: $radius;
-    border: none;
-    font-size:$font-size;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: $shadow;
-    outline: none;
-
+@mixin button($color, $height, $width, $back, $font-size, $radius: 50%) {
+  height: $height;
+  width: $width;
+  color: $color;
+  background-color: $back;
+  border-radius: $radius;
+  border: none;
+  font-size: $font-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $shadow;
+  outline: none;
 }
 //advanced btn
-@mixin a_button($color,$height,$background,$font-size,$radius,$opacity) {
-    color:rgba($color: $color, $alpha: $opacity); 
-    background-color: $background;
-    border-radius: $radius;
-    height:$height;
-    padding: 0 1rem 0 1rem;
-    border: none;
-    font-size:$font-size;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: $shadow;
-    outline: none;
-    
+@mixin a_button($color, $height, $background, $font-size, $radius, $opacity) {
+  color: rgba($color: $color, $alpha: $opacity);
+  background-color: $background;
+  border-radius: $radius;
+  height: $height;
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-size: $font-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $shadow;
+  outline: none;
 }
 
-@mixin circle_button($color,$background,$font-size) {
-    color:$color;
-    background-color: $background;
-    border-radius: 50%;
-    height:40px;
-    width: 40px;
-  
-    border: none;
-    font-size:$font-size;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: $shadow;
-    outline: none;
+@mixin circle_button($color, $background, $font-size) {
+  color: $color;
+  background-color: $background;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+
+  border: none;
+  font-size: $font-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $shadow;
+  outline: none;
 }
 
 //basic flex

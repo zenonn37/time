@@ -848,20 +848,21 @@ h1, h2, h3, h4, h5, h6 {
       -ms-flex-pack: end;
           justify-content: flex-end;
   position: relative;
-  margin-bottom: 8rem;
+  margin: 1.5rem 1rem 2rem 0;
+  height: 75px;
 }
 
-.home-subheader .project-btn {
+.project-btn {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 0;
   color: #fff;
   background-color: #0295a8;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border: none;
-  font-size: 15px;
+  font-size: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -876,7 +877,7 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
 }
 
-.home-subheader .forms {
+.forms {
   position: absolute;
   right: 30px;
   z-index: 9999;
@@ -1493,6 +1494,7 @@ input[type="button"] {
   background-color: #fff;
   border-radius: 5px;
   width: 50%;
+  max-width: 300px;
   margin-bottom: 2rem;
 }
 

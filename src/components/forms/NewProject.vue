@@ -37,18 +37,15 @@
       </div>
 
       <div class="form-btns form-input">
-        <input
+        <div
           class="cursor"
           type="submit"
           :disabled="!valid"
           :value="!valid ? 'Disabled' : 'Complete'"
-        />
-        <input
-          class="cursor"
-          type="button"
-          value="Cancel"
-          @click="onCancel()"
-        />
+        >
+          Complete
+        </div>
+        <div class="cursor" type="button" @click="onCancel()">Cancel</div>
       </div>
     </ValidationObserver>
   </div>
@@ -64,6 +61,8 @@ export default {
       }
     };
   },
+
+  computed: {},
 
   methods: {
     async onSubmit() {

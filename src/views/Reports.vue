@@ -2,11 +2,11 @@
   <div class="main-report-parent">
     <div class="sub-header">
       <ul>
-        <router-link :to="{ name: 'user-reports' }" tag="li">
+        <router-link :to="{ name: 'user-reports' }" tag="li" class="cursor">
           <i class="fab fa-cloudscale"></i>
           Reports
         </router-link>
-        <router-link :to="{ name: 'user-charts' }" tag="li">
+        <router-link :to="{ name: 'user-charts' }" tag="li" class="cursor">
           <i class="fas fa-chart-pie"></i>
           Charts
         </router-link>
