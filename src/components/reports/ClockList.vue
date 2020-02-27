@@ -6,15 +6,14 @@
 
         <div class="time">{{ clocks.entries_sum | hours }}</div>
       </div>
+      <div class="clock-title">{{ clocks.project }}</div>
       <div class="clock-footer">
         <div class="clock-entries">
           <div
             :class="[!entry ? 'clock-btn' : 'clock-btn-active']"
             class="cursor"
             @click="onShowEntry()"
-          >
-            {{ clocks.entries_count }}
-          </div>
+          >{{ clocks.entries_count }}</div>
           <p>Clock Entries</p>
         </div>
 
@@ -35,7 +34,7 @@
 
 <script>
 import moment from "moment";
-//import GSAP from "gsap";
+
 import EntryList from "@/components/reports/EntryList";
 export default {
   props: ["clocks"],
@@ -69,10 +68,6 @@ export default {
   methods: {
     onShowEntry() {
       this.entry = !this.entry;
-      // GSAP.to(".clock-panel", {
-      //   height: 100,
-      //   duration: 1
-      // });
     }
   }
 };

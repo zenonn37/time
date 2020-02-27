@@ -18,7 +18,7 @@
           <i class="fas fa-sign-out-alt"></i>
         </div>
       </nav>
-      <div class="task-active" v-else>Active Task Enabled</div>
+      <div class="task-active" v-else>Active Clock Enabled</div>
     </transition>
   </div>
 </template>

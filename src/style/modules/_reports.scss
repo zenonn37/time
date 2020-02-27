@@ -1,107 +1,108 @@
-
-
-.report-sub-nav{
-
-    ul{
-        display: flex;
-        justify-content: space-evenly;
-        li{
-          cursor: pointer;
-        }
+.report-sub-nav {
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    li {
+      cursor: pointer;
     }
+  }
 }
 
-.reports-parent{
-  
-     .clock-panel{
-         @include panels(100px,$white,false);
-         padding: .8rem;
-         overflow: hidden;
-         //header
-         .clock-header{
-             display: flex;
-             .date{
-                 flex:1
-             }
-         }
-         //footer
-         .clock-footer{
-             display: flex;
-             .clock-entries{
-              margin-top: 1rem;
-              display: flex;
-              align-items: center;
-                 .clock-btn{
-                     @include a_button($title,40px,$white,16px,4px,0.5);
-                     transition: all .4s;
-                     margin-right:1rem;
-                     &:hover{
-                        @include a_button($success,40px,$white,20px,4px,0.5);
-                     }
-                    
-                 }
-                 .clock-btn-active{
-                    @include a_button($success,40px,$white,16px,4px,0.5);
-                    transition: all .4s;
-                    margin-right:1rem;
-                   
-                   
-                }
-                 p{
-                     color: $grey;
-                     font-size:13px;
-                 }
-             }
-         }
-         //entries
-         .entry-container{
-            overflow: hidden;
-         .entries{
-            margin-top: -100%;
-            transition: all 0.5s ease-out;
-            overflow: hidden;
-          
-             .grouped-entries{
-                 li{
-                     padding: .5rem;
-                     &:hover{
-                         background-color:$hover-light;
-                     }
-                 }
-                 .entry-line{
-                     display: flex;
-                     color: $grey;
-                     font-size:14px;
-                     .start-end{
-                         flex:1;
-                     }
-                 }
-             }
-         }
-         .expands{
-            margin-top: 1rem;
-            transition: all 0.5s ease-out;
-           // color: grey;
-            overflow: hidden;
-            .grouped-entries{
-                li{
-                    padding: .5rem;
-                    &:hover{
-                        background-color:$hover-light;
-                    }
-                }
-                .entry-line{
-                    display: flex;
-                    color: $grey;
-                    font-size:14px;
-                    .start-end{
-                        flex:1;
-                    }
-                }
+.reports-parent {
+  .clock-panel {
+    @include panels(100px, $white, false);
+    padding: 0.8rem;
+    overflow: hidden;
+    //header
+    .clock-header {
+      display: flex;
+      .date {
+        flex: 1;
+        font-size: 14px;
+        color: $grey;
+      }
+    }
+    .clock-title {
+      font-size: 14px;
+      color: $title;
+    }
+    .time {
+      font-size: 14px;
+      color: $title;
+    }
+    //footer
+    .clock-footer {
+      display: flex;
+      .clock-entries {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        .clock-btn {
+          @include a_button($title, 40px, $white, 16px, 4px, 0.5);
+          transition: all 0.4s;
+          margin-right: 1rem;
+          &:hover {
+            @include a_button($success, 40px, $white, 20px, 4px, 0.5);
+          }
+        }
+        .clock-btn-active {
+          @include a_button($success, 40px, $white, 16px, 4px, 0.5);
+          transition: all 0.4s;
+          margin-right: 1rem;
+        }
+        p {
+          color: $grey;
+          font-size: 13px;
+        }
+      }
+    }
+    //entries
+    .entry-container {
+      overflow: hidden;
+      .entries {
+        margin-top: -100%;
+        transition: all 0.5s ease-out;
+        overflow: hidden;
+
+        .grouped-entries {
+          li {
+            padding: 0.5rem;
+            &:hover {
+              background-color: $hover-light;
             }
+          }
+          .entry-line {
+            display: flex;
+            color: $grey;
+            font-size: 14px;
+            .start-end {
+              flex: 1;
+            }
+          }
         }
+      }
+      .expands {
+        margin-top: 1rem;
+        transition: all 0.5s ease-out;
+        // color: grey;
+        overflow: hidden;
+        .grouped-entries {
+          li {
+            padding: 0.5rem;
+            &:hover {
+              background-color: $hover-light;
+            }
+          }
+          .entry-line {
+            display: flex;
+            color: $grey;
+            font-size: 14px;
+            .start-end {
+              flex: 1;
+            }
+          }
         }
-     }
-
-
+      }
+    }
+  }
 }

@@ -8,6 +8,8 @@ import Auth from "../views/Auth.vue";
 
 import Report from "@/views/projects/Report";
 import Task from "@/views/projects/Task";
+import UserReport from "@/views/reports/UserReports";
+import UserCharts from "@/views/reports/UserCharts";
 
 Vue.use(VueRouter);
 
@@ -75,7 +77,27 @@ const routes = [
       layout: "user",
       requiresAuth: true
     },
-    component: Reports
+    component: Reports,
+    children: [
+      {
+        path: "",
+        name: "user-reports",
+        meta: {
+          layout: "user",
+          requiresAuth: true
+        },
+        component: UserReport
+      },
+      {
+        path: "account-charts",
+        name: "user-charts",
+        meta: {
+          layout: "user",
+          requiresAuth: true
+        },
+        component: UserCharts
+      }
+    ]
   },
   {
     path: "/about",

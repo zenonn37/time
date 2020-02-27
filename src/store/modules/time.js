@@ -142,6 +142,19 @@ const actions = {
         });
     });
   },
+  get_all_time({ commit }) {
+    return new Promise((resolve, reject) => {
+      Axios.get("clock_all")
+        .then(res => {
+          commit("set_time", res.data.data);
+          resolve(res);
+        })
+        .catch(err => {
+          reject();
+          commit("base/set_errors", err.response.data.message, { root: true });
+        });
+    });
+  },
   clock_chart({ commit }) {
     return new Promise((resolve, reject) => {
       Axios.get("clock-chart")

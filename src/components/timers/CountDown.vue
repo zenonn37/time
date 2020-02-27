@@ -99,7 +99,7 @@ export default {
       //console.log({ now, then });
       this.displayTimer();
       this.interval = setInterval(() => {
-        const secondsLeft = Math.round((then - Date.now()) / 1000);
+        let secondsLeft = Math.round((then - Date.now()) / 1000);
         this.entry--;
         this.$store.dispatch("task/count_seconds");
         // --this.store_time;
