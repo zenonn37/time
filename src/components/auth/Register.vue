@@ -1,5 +1,10 @@
 <template>
-  <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSubmit()">
+  <ValidationObserver
+    ref="observer"
+    tag="form"
+    v-slot="{ valid }"
+    @submit.prevent="onSubmit()"
+  >
     <div class="form-field">
       <ValidationProvider
         name="Name"
@@ -11,23 +16,29 @@
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <ValidationProvider name="Email" rules="required|email|min:5|max:40" v-slot="{ errors }">
+      <ValidationProvider
+        name="Email"
+        rules="required|email|min:5|max:40"
+        v-slot="{ errors }"
+      >
         <input type="email" v-model="reg.email" placeholder="Email" />
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <ValidationProvider name="Password" rules="required|min:6|max:40" v-slot="{ errors }">
+      <ValidationProvider
+        name="Password"
+        rules="required|min:6|max:40"
+        v-slot="{ errors }"
+      >
         <input type="password" v-model="reg.password" placeholder="Password" />
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <button
-        class="login-btn"
-        :disabled="!valid"
-        type="submit"
-      >{{!valid ? 'Disabled' : 'Register'}}</button>
+      <button class="login-btn" :disabled="!valid" type="submit">
+        {{ !valid ? "Disabled" : "Register" }}
+      </button>
     </div>
   </ValidationObserver>
 </template>

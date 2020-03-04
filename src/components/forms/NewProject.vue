@@ -1,20 +1,37 @@
 <template>
   <div class="mini-forms">
-    <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSubmit()">
+    <ValidationObserver
+      ref="observer"
+      tag="form"
+      v-slot="{ valid }"
+      @submit.prevent="onSubmit()"
+    >
       <div class="form-input">
         <ValidationProvider
           name="Name"
           rules="required|min:3|max:40|alpha_spaces"
           v-slot="{ errors }"
         >
-          <input type="text" v-model.trim="projects.name" placeholder="Project Title" />
+          <input
+            type="text"
+            v-model.trim="projects.name"
+            placeholder="Project Title"
+          />
           <span class="errors">{{ errors[0] }}</span>
         </ValidationProvider>
       </div>
 
       <div class="form-input">
-        <ValidationProvider name="Goal" rules="required|min:1|max:3|numeric" v-slot="{ errors }">
-          <input type="text" v-model.trim="projects.goal" placeholder="Duration Goal" />
+        <ValidationProvider
+          name="Goal"
+          rules="required|min:1|max:3|numeric"
+          v-slot="{ errors }"
+        >
+          <input
+            type="text"
+            v-model.trim="projects.goal"
+            placeholder="Duration Goal"
+          />
           <span class="errors">{{ errors[0] }}</span>
         </ValidationProvider>
       </div>
@@ -24,7 +41,9 @@
 
         <button v-else class="div-btn cursor" type="submit">Complete</button>
 
-        <button class="cursor cancel" type="button" @click="onCancel()">Cancel</button>
+        <button class="cursor cancel" type="button" @click="onCancel()">
+          Cancel
+        </button>
       </div>
     </ValidationObserver>
   </div>
