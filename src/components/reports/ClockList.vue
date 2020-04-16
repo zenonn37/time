@@ -13,7 +13,9 @@
             :class="[!entry ? 'clock-btn' : 'clock-btn-active']"
             class="cursor"
             @click="onShowEntry()"
-          >{{ clocks.entries_count }}</div>
+          >
+            {{ clocks.entries_count }}
+          </div>
           <p>Clock Entries</p>
         </div>
 

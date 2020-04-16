@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      class="report-filter-parent"
-      v-if="!loading && clock.dates.length >= 1"
-    >
+    <div class="report-filter-parent" v-if="!loading && clock.dates.length >= 1">
       <i class="fas fa-sync" @click="onResetClock()"></i>
       <i @click="onSetRange()" class="fas fa-search"></i>
 
@@ -32,10 +29,7 @@
       <img src="@/assets/images/charts.svg" alt="Charts" />
     </div>
 
-    <div
-      class="report-filter-parent"
-      v-if="!loading2 && task.dates.length >= 1"
-    >
+    <div class="report-filter-parent" v-if="!loading2 && task.dates.length >= 1">
       <i class="fas fa-sync" @click="onResetTask()"></i>
       <i @click="onSetRangeTask()" class="fas fa-search"></i>
       <div>
@@ -96,7 +90,7 @@ export default {
 
       //use foreach to clean up dates and push result
       data.forEach(el => {
-        dates.push(el.date.slice(5, 10));
+        dates.push(el.date);
       });
       //use foreach to convert seconds to hours and push result
       data.forEach(el => {
@@ -181,6 +175,10 @@ export default {
     },
     loadChartDataClock() {
       this.loading = true;
+
+      this.$store.dispatch("time/entryReport").then(() => {
+        //loaded
+      });
 
       this.$store.dispatch("time/clock_chart").then(() => {
         this.loading = false;

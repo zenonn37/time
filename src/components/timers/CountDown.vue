@@ -91,16 +91,16 @@ export default {
 
     bosTimer() {
       //needs refactor to use pause functions, next release
-      const sec = this.seconds;
-      let seconds = this.save === true ? this.pause : sec;
+      // const sec = this.seconds;
+      // let seconds = this.save === true ? this.pause : sec;
       this.stopCountDown = false;
-      const now = Date.now();
-      const then = now + seconds * 1000;
+      // const now = Date.now();
+      // const then = now + seconds * 1000;
       //console.log({ now, then });
       this.displayTimer();
       this.interval = setInterval(() => {
-        let secondsLeft = Math.round((then - Date.now()) / 1000);
-        this.entry--;
+        // let secondsLeft = Math.round((then - Date.now()) / 1000);
+        --this.entry;
         this.$store.dispatch("task/count_seconds");
         // --this.store_time;
 
@@ -109,7 +109,7 @@ export default {
 
         //check to stop
         if (
-          secondsLeft === 0 ||
+          this.entry === 0 ||
           this.stopCountDown === true ||
           this.store_stop === true
         ) {
