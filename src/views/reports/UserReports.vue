@@ -2,6 +2,10 @@
   <div>
     User Reports
     <div>
+      <div>
+        <FilterControl @filter="clockFilter" />
+      </div>
+
       <ClockList :clocks="clock" v-for="clock in clocks" :key="clock.id" />
     </div>
   </div>
@@ -9,10 +13,12 @@
 
 <script>
 import ClockList from "@/components/reports/ClockList";
+import FilterControl from "@/components/reports/reportsFilter";
 export default {
   name: "User_Reports",
   components: {
-    ClockList
+    ClockList,
+    FilterControl
   },
   data() {
     return {
@@ -22,6 +28,13 @@ export default {
   computed: {
     clocks() {
       return this.$store.getters["time/get_time"];
+    }
+  },
+  methods: {
+    clockFilter(filter) {
+      // console.log(filter);
+
+      this.$store.dispatch("time/clockFilter", filter);
     }
   },
   created() {

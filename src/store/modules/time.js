@@ -156,12 +156,27 @@ const actions = {
     });
   },
 
-  //entry report
+  //entry reports
   entryReport({ commit }) {
     return new Promise((resolve, reject) => {
       Axios.get("entry_all")
         .then((res) => {
           commit("set_chart", res.data);
+          resolve(res);
+        })
+        .catch((err) => {
+          commit("base/set_errors", err.response.data.message, { root: true });
+          reject(err);
+        });
+    });
+  },
+  clockFilter({ commit }, filter) {
+    return new Promise((resolve, reject) => {
+      Axios.get(`clock_report/${filter}`)
+        .then((res) => {
+          // console.log(res);
+          commit("set_time", res.data.data);
+
           resolve(res);
         })
         .catch((err) => {

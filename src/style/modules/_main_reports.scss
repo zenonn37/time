@@ -53,3 +53,13 @@
     position: relative;
   }
 }
+
+//filter reports
+
+.user-report-filter {
+  li {
+    display: inline;
+    padding: 0.8rem;
+    cursor: pointer;
+  }
+}

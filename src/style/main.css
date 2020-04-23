@@ -1697,6 +1697,12 @@ input[type="button"] {
   position: relative;
 }
 
+.user-report-filter li {
+  display: inline;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+
 .auth-container {
   height: 100vh;
   display: -webkit-box;
