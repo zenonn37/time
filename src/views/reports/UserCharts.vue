@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="report-filter-parent" v-if="!loading && clock.dates.length >= 1">
+    <div
+      class="report-filter-parent"
+      v-if="!loading && clock.dates.length >= 1"
+    >
       <i class="fas fa-sync" @click="onResetClock()"></i>
       <i @click="onSetRange()" class="fas fa-search"></i>
 
@@ -29,7 +32,10 @@
       <img src="@/assets/images/charts.svg" alt="Charts" />
     </div>
 
-    <div class="report-filter-parent" v-if="!loading2 && task.dates.length >= 1">
+    <div
+      class="report-filter-parent"
+      v-if="!loading2 && task.dates.length >= 1"
+    >
       <i class="fas fa-sync" @click="onResetTask()"></i>
       <i @click="onSetRangeTask()" class="fas fa-search"></i>
       <div>

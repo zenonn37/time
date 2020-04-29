@@ -4,7 +4,7 @@ import moment from "moment";
 const state = {
   time: [],
   chart: [],
-  clockActive: false,
+  clockActive: false
 };
 //mutations
 const mutations = {
@@ -21,9 +21,9 @@ const mutations = {
     state.time.push(time);
   },
   delete_time(state, id) {
-    const time = state.time.filter((time) => time.id !== id);
+    const time = state.time.filter(time => time.id !== id);
     state.time = time;
-  },
+  }
 };
 //getters
 const getters = {
@@ -36,12 +36,12 @@ const getters = {
   get_chart(state) {
     return state.chart;
   },
-  show_time: (state) => (id) => {
-    return state.time.find((time) => time.id === id);
+  show_time: state => id => {
+    return state.time.find(time => time.id === id);
   },
   dailyTotal(state) {
     return state.time;
-  },
+  }
 };
 
 //actions
@@ -55,12 +55,12 @@ const actions = {
       //check if clock parent exist for current day!
 
       Axios.post("entries-new", payload)
-        .then((res) => {
+        .then(res => {
           // console.log(res.data.data);
           dispatch("get_time", payload.project_id);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -72,7 +72,7 @@ const actions = {
       //check if clock parent exist for current day!
 
       Axios.get(`clock/${id}`, id)
-        .then((res) => {
+        .then(res => {
           const test = res.data.data;
           const today = moment()
             .format()
@@ -92,16 +92,16 @@ const actions = {
 
               resolve({
                 bool: false,
-                id: id,
+                id: id
               });
             } else {
               resolve({
-                bool: true,
+                bool: true
               });
             }
           });
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -113,13 +113,13 @@ const actions = {
       //check if clock parent exist for current day!
 
       Axios.post("clock-new", payload)
-        .then((res) => {
+        .then(res => {
           //console.log(res.data.data);
           dispatch("get_time", payload.project_id);
           commit("new_time", res.data.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -132,11 +132,11 @@ const actions = {
   get_time({ commit }, id) {
     return new Promise((resolve, reject) => {
       Axios.get(`clock/${id}`)
-        .then((res) => {
+        .then(res => {
           commit("set_time", res.data.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -145,11 +145,11 @@ const actions = {
   get_all_time({ commit }) {
     return new Promise((resolve, reject) => {
       Axios.get("clock_all")
-        .then((res) => {
+        .then(res => {
           commit("set_time", res.data.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -160,11 +160,11 @@ const actions = {
   entryReport({ commit }) {
     return new Promise((resolve, reject) => {
       Axios.get("entry_all")
-        .then((res) => {
+        .then(res => {
           commit("set_chart", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -173,13 +173,13 @@ const actions = {
   clockFilter({ commit }, filter) {
     return new Promise((resolve, reject) => {
       Axios.get(`clock_report/${filter}`)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           commit("set_time", res.data.data);
 
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -190,11 +190,11 @@ const actions = {
   clock_chart({ commit }) {
     return new Promise((resolve, reject) => {
       Axios.get("clock-chart")
-        .then((res) => {
+        .then(res => {
           commit("set_chart", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -203,11 +203,11 @@ const actions = {
   clock_chart_project({ commit }, id) {
     return new Promise((resolve, reject) => {
       Axios.get(`clock-chart/${id}`)
-        .then((res) => {
+        .then(res => {
           commit("set_chart", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -218,11 +218,11 @@ const actions = {
       //  console.log(payload);
 
       Axios.post("clock-chart-filter", payload)
-        .then((res) => {
+        .then(res => {
           commit("set_chart", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -232,18 +232,18 @@ const actions = {
     return new Promise((resolve, reject) => {
       Axios.post(`clock-chart-filter-project/${payload.id}`, {
         start: payload.start,
-        end: payload.end,
+        end: payload.end
       })
-        .then((res) => {
+        .then(res => {
           commit("set_chart", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
     });
-  },
+  }
 };
 
 export default {
@@ -251,5 +251,5 @@ export default {
   state,
   mutations,
   getters,
-  actions,
+  actions
 };

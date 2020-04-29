@@ -8,7 +8,11 @@
               <i class="fas fa-stopwatch"></i>
               Start Task
             </li>
-            <router-link :to="`/projects/${$route.params.id}/report`" tag="li" class="cursor">
+            <router-link
+              :to="`/projects/${$route.params.id}/report`"
+              tag="li"
+              class="cursor"
+            >
               <i class="far fa-chart-bar"></i>
               Reports
             </router-link>
@@ -36,7 +40,9 @@
       <ActiveTask />
       <template v-if="tasks.length <= 0 && !active">
         <div class="no-task">
-          <span class="title">No Tasks for today, Start and save a task to create one.</span>
+          <span class="title"
+            >No Tasks for today, Start and save a task to create one.</span
+          >
           <div>
             <img src="@/assets/images/cover_timer.svg" alt="Cover Image Task" />
           </div>
@@ -44,7 +50,9 @@
       </template>
       <template v-if="project.tasks >= 1 && tasks.length <= 0">
         <div class="no-task">
-          <h3 class="title cursor" @click="onAll()">You have older task's, click to load.</h3>
+          <h3 class="title cursor" @click="onAll()">
+            You have older task's, click to load.
+          </h3>
         </div>
       </template>
 
@@ -58,7 +66,11 @@
 
       <template v-else>
         <div class="loader">
-          <half-circle-spinner :animation-duration="1000" :size="50" color="#000000" />
+          <half-circle-spinner
+            :animation-duration="1000"
+            :size="50"
+            color="#000000"
+          />
         </div>
       </template>
     </div>
