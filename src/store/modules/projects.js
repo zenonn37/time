@@ -36,8 +36,6 @@ const actions = {
     return new Promise((resolve, reject) => {
       Axios.get("timer-projects")
         .then(res => {
-          console.log(res);
-
           resolve();
           commit("set_projects", res.data.data);
         })

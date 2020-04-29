@@ -1,9 +1,7 @@
 <template>
   <div>
     <transition name="fade" mode="out-in">
-      <template v-if="!active"
-        >No Task</template
-      >
+      <template v-if="!active">No Task</template>
 
       <template v-else>
         <div class="task-parent">
