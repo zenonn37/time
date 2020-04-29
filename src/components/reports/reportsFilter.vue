@@ -15,7 +15,6 @@
 export default {
   methods: {
     filter(num) {
-      console.log(num);
       this.$emit("filter", num);
     }
   }
