@@ -12,6 +12,12 @@
         </router-link>
       </ul>
     </div>
+    <div class="total-hours">
+      <div class="hours">
+        {{ hours | hours }}
+        <span>hrs</span>
+      </div>
+    </div>
 
     <div>
       <transition
@@ -27,5 +33,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    hours() {
+      return this.$store.getters["time/getTotal"];
+    }
+  }
+};
 </script>

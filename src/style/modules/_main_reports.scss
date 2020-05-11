@@ -18,6 +18,20 @@
       }
     }
   }
+  .total-hours {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    .hours {
+      font-size: 30px;
+      font-weight: 700;
+      color: $title;
+      span {
+        font-size: 13px;
+        color: $grey;
+      }
+    }
+  }
   .empty-chart {
     text-align: center;
     margin: 5rem 0 10rem 0;

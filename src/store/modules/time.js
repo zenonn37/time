@@ -4,7 +4,8 @@ import moment from "moment";
 const state = {
   time: [],
   chart: [],
-  clockActive: false
+  clockActive: false,
+  total: 0
 };
 //mutations
 const mutations = {
@@ -23,6 +24,9 @@ const mutations = {
   delete_time(state, id) {
     const time = state.time.filter(time => time.id !== id);
     state.time = time;
+  },
+  set_total(state, time) {
+    state.total = time;
   }
 };
 //getters
@@ -41,6 +45,9 @@ const getters = {
   },
   dailyTotal(state) {
     return state.time;
+  },
+  getTotal(state) {
+    return state.total;
   }
 };
 
@@ -142,11 +149,13 @@ const actions = {
         });
     });
   },
-  get_all_time({ commit }) {
+  get_all_time({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
       Axios.get("clock_all")
         .then(res => {
           commit("set_time", res.data.data);
+
+          dispatch("entryTimeTotal", res.data.data);
           resolve(res);
         })
         .catch(err => {
@@ -170,13 +179,13 @@ const actions = {
         });
     });
   },
-  clockFilter({ commit }, filter) {
+  clockFilter({ commit, dispatch }, filter) {
     return new Promise((resolve, reject) => {
       Axios.get(`clock_report/${filter}`)
         .then(res => {
           // console.log(res);
           commit("set_time", res.data.data);
-
+          dispatch("entryTimeTotal", res.data.data);
           resolve(res);
         })
         .catch(err => {
@@ -243,8 +252,24 @@ const actions = {
           commit("base/set_errors", err.response.data.message, { root: true });
         });
     });
+  },
+  //pluck out each entry total from array, create a new array and use
+  //reduce for total time
+  entryTimeTotal({ commit }, data) {
+    let time = [];
+
+    data.forEach(ele => {
+      time.push(ele.entries_sum);
+    });
+    const hours = time.reduce((acc, seconds) => {
+      return acc + seconds;
+    }, 0);
+
+    commit("set_total", hours);
   }
 };
+
+//non state funcions
 
 export default {
   namespaced: true,

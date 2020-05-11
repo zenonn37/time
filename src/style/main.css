@@ -1637,6 +1637,27 @@ input[type="button"] {
   color: #b4b4b4;
 }
 
+.main-report-parent .total-hours {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+.main-report-parent .total-hours .hours {
+  font-size: 30px;
+  font-weight: 700;
+  color: #3d3d3d;
+}
+
+.main-report-parent .total-hours .hours span {
+  font-size: 13px;
+  color: #b4b4b4;
+}
+
 .main-report-parent .empty-chart {
   text-align: center;
   margin: 5rem 0 10rem 0;
