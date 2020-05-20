@@ -2,7 +2,7 @@ import Axios from "axios";
 Axios.defaults.baseURL = `${process.env.VUE_APP_API}`;
 
 const state = {
-  projects: []
+  projects: [],
 };
 //mutations
 const mutations = {
@@ -13,33 +13,35 @@ const mutations = {
     state.projects.unshift(payload);
   },
   delete_projects(state, id) {
-    const project = state.projects.filter(project => project.id !== id);
+    const project = state.projects.filter((project) => project.id !== id);
     state.projects = project;
-  }
+  },
 };
 //getters
 const getters = {
   get_projects(state) {
     return state.projects;
   },
-  show_projects: state => id => {
-    return state.projects.find(project => project.id === id);
+  show_projects: (state) => (id) => {
+    return state.projects.find((project) => project.id === id);
   },
   dailyTotal(state) {
     return state.projects;
-  }
+  },
 };
 
 //actions
 const actions = {
-  get_projects({ commit }) {
+  get_projects({ commit }, boolean) {
     return new Promise((resolve, reject) => {
-      Axios.get("timer-projects")
-        .then(res => {
+      //convert boolean to 1 and 0 for API
+      const bool = boolean ? 1 : 0;
+      Axios.get(`timer-projects/${bool}`)
+        .then((res) => {
           resolve();
           commit("set_projects", res.data.data);
         })
-        .catch(err => {
+        .catch((err) => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -48,14 +50,14 @@ const actions = {
   new_projects({ commit }, payload) {
     return new Promise((resolve, reject) => {
       Axios.post("/timer-projects-new", { ...payload, completed: false })
-        .then(res => {
+        .then((res) => {
           //console.log(res);
 
           resolve();
 
           commit("new_projects", res.data.data);
         })
-        .catch(err => {
+        .catch((err) => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -65,27 +67,28 @@ const actions = {
     return new Promise((resolve, reject) => {
       Axios.patch(
         `/timer-projects-update/${payload.id}`,
+        //refactor to partial update only
         payload.completed === true
           ? {
               name: payload.name,
               goal: payload.goal,
-              completed: true
+              completed: true,
             }
           : {
               name: payload.name,
               goal: payload.goal,
-              completed: false
+              completed: false,
             }
       )
 
-        .then(res => {
+        .then((res) => {
           // console.log(res);
 
           resolve(res);
 
           dispatch("get_projects");
         })
-        .catch(err => {
+        .catch((err) => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -98,12 +101,12 @@ const actions = {
           commit("delete_projects", id);
           resolve();
         })
-        .catch(err => {
+        .catch((err) => {
           reject();
           commit("base/set_errors", err.response.data.message, { root: true });
         });
     });
-  }
+  },
 };
 
 export default {
@@ -111,5 +114,5 @@ export default {
   state,
   mutations,
   getters,
-  actions
+  actions,
 };

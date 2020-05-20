@@ -28,12 +28,9 @@
       </template>
       <template v-else>
         <div>
+          <FilterBar @status="onStatus" />
           <transition-group name="fade" mode="out-in">
-            <ProjectList
-              :project="proj"
-              v-for="proj in projects"
-              :key="proj.id"
-            />
+            <ProjectList :project="proj" v-for="proj in projects" :key="proj.id" />
           </transition-group>
         </div>
       </template>
@@ -45,18 +42,21 @@
 // import NewEntry from "@/components/NewEntry";
 // import moment from "moment";
 // import Countdown from "@/components/timers/CountDown";
+import FilterBar from "@/components/home/filterBar";
 import ProjectList from "@/components/ProjectList";
 import NewProject from "@/components/forms/NewProject";
 export default {
   name: "home",
   components: {
     // Countdown
+    FilterBar,
     ProjectList,
     NewProject
   },
   data() {
     return {
-      active: false
+      active: false,
+      loading: false
     };
   },
 
@@ -68,11 +68,18 @@ export default {
   methods: {
     onToggleActive() {
       this.active = !this.active;
+    },
+    onStatus(boolean) {
+      this.loading = true;
+      this.$store.dispatch("projects/get_projects", boolean).then(() => {
+        this.loading = false;
+      });
     }
   },
   created() {
+    const boolean = false;
     this.loading = true;
-    this.$store.dispatch("projects/get_projects").then(() => {
+    this.$store.dispatch("projects/get_projects", boolean).then(() => {
       this.loading = false;
     });
   }
