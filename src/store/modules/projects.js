@@ -32,6 +32,20 @@ const getters = {
 
 //actions
 const actions = {
+  search({ commit }, term) {
+    return new Promise((resolve, reject) => {
+      Axios.post("timer-projects", { term: term })
+        .then((res) => {
+          commit("set_projects", res.data.data);
+          resolve(res);
+        })
+        .catch((err) => {
+          reject();
+          commit("base/set_errors", err.response.data.message, { root: true });
+        });
+    });
+  },
+
   get_projects({ commit }, boolean) {
     return new Promise((resolve, reject) => {
       //convert boolean to 1 and 0 for API

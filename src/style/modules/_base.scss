@@ -7,6 +7,15 @@
 body {
   background-color: $background;
   font-family: "Poppins", sans-serif;
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgb(194, 72, 194);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: purple;
+  }
 }
 /**
  * 1. Change the font styles in all browsers.

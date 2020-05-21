@@ -18,6 +18,7 @@
     </div>
 
     <div class="home-parent">
+      <FilterBar @status="onStatus" @refresh="onStatus" />
       <template v-if="projects.length < 1">
         <div class="no-projects">
           Please Create a Project
@@ -28,7 +29,6 @@
       </template>
       <template v-else>
         <div>
-          <FilterBar @status="onStatus" />
           <transition-group name="fade" mode="out-in">
             <ProjectList :project="proj" v-for="proj in projects" :key="proj.id" />
           </transition-group>

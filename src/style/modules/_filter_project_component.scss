@@ -1,0 +1,25 @@
+.filter-projects {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-container {
+  width: 80%;
+  margin: 1rem auto;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    i {
+      //   padding-right: 1rem;
+      position: absolute;
+      padding: 10px;
+      min-width: 40px;
+    }
+    .search-input {
+      padding: 10px;
+      text-align: center;
+    }
+  }
+}
