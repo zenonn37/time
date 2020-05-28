@@ -3,6 +3,7 @@ Axios.defaults.baseURL = `${process.env.VUE_APP_API}`;
 
 const state = {
   projects: [],
+  complete: false,
 };
 //mutations
 const mutations = {
@@ -16,6 +17,13 @@ const mutations = {
     const project = state.projects.filter((project) => project.id !== id);
     state.projects = project;
   },
+  filter_status(state, id) {
+    const project = state.projects.filter((project) => project.id !== id);
+    state.projects = project;
+  },
+  toggleComplete(state) {
+    state.complete = !state.complete;
+  },
 };
 //getters
 const getters = {
@@ -28,10 +36,17 @@ const getters = {
   dailyTotal(state) {
     return state.projects;
   },
+  toggle(state) {
+    return state.complete;
+  },
 };
 
 //actions
 const actions = {
+  toggleComplete({ commit }) {
+    commit("toggleComplete");
+  },
+
   search({ commit }, term) {
     return new Promise((resolve, reject) => {
       Axios.post("timer-projects", { term: term })
@@ -46,10 +61,12 @@ const actions = {
     });
   },
 
-  get_projects({ commit }, boolean) {
+  get_projects({ commit, getters }) {
     return new Promise((resolve, reject) => {
       //convert boolean to 1 and 0 for API
-      const bool = boolean ? 1 : 0;
+      const bool = getters.toggle ? 1 : 0;
+      console.log(bool);
+
       Axios.get(`timer-projects/${bool}`)
         .then((res) => {
           resolve();
@@ -77,7 +94,7 @@ const actions = {
         });
     });
   },
-  edit_projects({ commit, dispatch }, payload) {
+  edit_projects({ commit }, payload) {
     return new Promise((resolve, reject) => {
       Axios.patch(
         `/timer-projects-update/${payload.id}`,
@@ -98,9 +115,11 @@ const actions = {
         .then((res) => {
           // console.log(res);
 
+          commit("filter_status", payload.id);
+
           resolve(res);
 
-          dispatch("get_projects");
+          //dispatch("get_projects");
         })
         .catch((err) => {
           reject();

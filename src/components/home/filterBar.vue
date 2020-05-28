@@ -36,15 +36,22 @@
 export default {
   data() {
     return {
-      complete: false,
+      //complete: false,
       term: "",
       search: false
     };
   },
+  computed: {
+    complete() {
+      // return
+      return this.$store.getters["projects/toggle"];
+    }
+  },
   methods: {
     toggleStatus() {
-      this.complete = !this.complete;
-      this.$emit("status", this.complete);
+      this.$emit("status");
+
+      this.$store.dispatch("projects/toggleComplete");
     },
     onSearch() {
       if (this.term === "") {

@@ -69,17 +69,17 @@ export default {
     onToggleActive() {
       this.active = !this.active;
     },
-    onStatus(boolean) {
+    onStatus() {
       this.loading = true;
-      this.$store.dispatch("projects/get_projects", boolean).then(() => {
+      this.$store.dispatch("projects/get_projects").then(() => {
         this.loading = false;
       });
     }
   },
   created() {
-    const boolean = false;
+    // const boolean = false;
     this.loading = true;
-    this.$store.dispatch("projects/get_projects", boolean).then(() => {
+    this.$store.dispatch("projects/get_projects").then(() => {
       this.loading = false;
     });
   }
