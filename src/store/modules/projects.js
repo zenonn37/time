@@ -21,8 +21,8 @@ const mutations = {
     const project = state.projects.filter((project) => project.id !== id);
     state.projects = project;
   },
-  toggleComplete(state) {
-    state.complete = !state.complete;
+  toggleComplete(state, boolean) {
+    state.complete = boolean;
   },
 };
 //getters
@@ -43,8 +43,8 @@ const getters = {
 
 //actions
 const actions = {
-  toggleComplete({ commit }) {
-    commit("toggleComplete");
+  toggleComplete({ commit }, boolean) {
+    commit("toggleComplete", boolean);
   },
 
   search({ commit }, term) {
@@ -61,11 +61,12 @@ const actions = {
     });
   },
 
-  get_projects({ commit, getters }) {
+  get_projects({ commit }, payload) {
     return new Promise((resolve, reject) => {
       //convert boolean to 1 and 0 for API
-      const bool = getters.toggle ? 1 : 0;
-      console.log(bool);
+      const bool = payload ? 1 : 0;
+
+      console.log(bool + "gotcha");
 
       Axios.get(`timer-projects/${bool}`)
         .then((res) => {
@@ -78,15 +79,22 @@ const actions = {
         });
     });
   },
-  new_projects({ commit }, payload) {
+  new_projects({ commit, getters, dispatch }, payload) {
     return new Promise((resolve, reject) => {
       Axios.post("/timer-projects-new", { ...payload, completed: false })
         .then((res) => {
           //console.log(res);
 
+          const boolean = getters.toggle;
+          console.log(boolean);
+
           resolve();
+          commit("toggleComplete", false);
 
           commit("new_projects", res.data.data);
+          if (boolean) {
+            dispatch("get_projects", false);
+          }
         })
         .catch((err) => {
           reject();

@@ -8,6 +8,7 @@
 body {
   background-color: #eeeeee;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -1899,6 +1900,10 @@ input[type="button"] {
 
 .report-filter-parent div:nth-child(2) {
   margin-right: .6rem;
+}
+
+h2 {
+  margin-bottom: 2rem;
 }
 
 .filter-projects {

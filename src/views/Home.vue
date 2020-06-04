@@ -71,7 +71,7 @@ export default {
     },
     onStatus() {
       this.loading = true;
-      this.$store.dispatch("projects/get_projects").then(() => {
+      this.$store.dispatch("projects/get_projects", false).then(() => {
         this.loading = false;
       });
     }
@@ -79,7 +79,7 @@ export default {
   created() {
     // const boolean = false;
     this.loading = true;
-    this.$store.dispatch("projects/get_projects").then(() => {
+    this.$store.dispatch("projects/get_projects", false).then(() => {
       this.loading = false;
     });
   }

@@ -1,30 +1,39 @@
 <template>
   <div>
+    <h2>{{!complete ? 'Projects in Progress' : 'Completed Projects'}}</h2>
     <ul class="filter-projects">
-      <li class="cursor" v-if="!complete" @click="toggleStatus()">
+      <li class="cursor" @click="toggleStatus(false)">
+        <i class="far fa-check-circle"></i>
+        In-Progress
+      </li>
+
+      <li class="cursor" @click="toggleStatus(true)">
         <i class="fas fa-check-circle"></i>
         Completed
-      </li>
-      <li class="cursor" v-if="complete" @click="toggleStatus()">
-        <i class="far fa-check-circle"></i>
-        On Going
       </li>
 
       <li class="cursor" @click="onSearchToggle()">
         <i class="fas fa-search"></i>
         Search
       </li>
-
-      <li class="cursor" @click="onRefresh()">
-        <i class="fas fa-sync-alt"></i>
-        Refresh
-      </li>
+      <transition name="fade" mode="in-out">
+        <li class="cursor" v-if="search" @click="onRefresh()">
+          <i class="fas fa-sync-alt"></i>
+          Refresh
+        </li>
+      </transition>
     </ul>
     <transition name="fade" mode="in-out">
       <div class="search-container" v-if="search">
         <div>
           <i class="fas fa-search cursor" @click="onSearch()"></i>
-          <input class="search-input" placeholder="Search Projects" type="text" v-model="term" />
+          <input
+            class="search-input"
+            v-on:keyup.enter="onSearch()"
+            placeholder="Search Projects"
+            type="text"
+            v-model="term"
+          />
         </div>
         <!-- <button @click="onSearch()">Send</button> -->
       </div>
@@ -48,12 +57,16 @@ export default {
     }
   },
   methods: {
-    toggleStatus() {
-      this.$emit("status");
+    toggleStatus(bool) {
+      //this.$emit("status");
+      console.log(bool);
 
-      this.$store.dispatch("projects/toggleComplete");
+      this.$store.dispatch("projects/toggleComplete", bool);
+      this.$store.dispatch("projects/get_projects", bool);
     },
     onSearch() {
+      console.log("called");
+
       if (this.term === "") {
         return;
       }

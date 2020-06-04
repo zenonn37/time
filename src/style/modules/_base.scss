@@ -16,6 +16,7 @@ body {
   &::-webkit-scrollbar-thumb {
     background: purple;
   }
+  overflow-x: hidden;
 }
 /**
  * 1. Change the font styles in all browsers.
