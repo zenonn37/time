@@ -59,14 +59,11 @@ export default {
   methods: {
     toggleStatus(bool) {
       //this.$emit("status");
-      console.log(bool);
 
       this.$store.dispatch("projects/toggleComplete", bool);
       this.$store.dispatch("projects/get_projects", bool);
     },
     onSearch() {
-      console.log("called");
-
       if (this.term === "") {
         return;
       }
