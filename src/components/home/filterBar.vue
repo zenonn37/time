@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{!complete ? 'Projects in Progress' : 'Completed Projects'}}</h2>
+    <h2>{{ !complete ? "Projects in Progress" : "Completed Projects" }}</h2>
     <ul class="filter-projects">
       <li class="cursor" @click="toggleStatus(false)">
         <i class="far fa-check-circle"></i>
@@ -82,4 +82,3 @@ export default {
   }
 };
 </script>
-
