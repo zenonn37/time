@@ -11,10 +11,10 @@ body {
     width: 0.25rem;
   }
   &::-webkit-scrollbar-track {
-    background: rgb(194, 72, 194);
+    background: $panel;
   }
   &::-webkit-scrollbar-thumb {
-    background: purple;
+    background: $thumb;
   }
   overflow-x: hidden;
 }
