@@ -6,12 +6,9 @@
   margin: 1rem 0 1rem 0;
   min-width: $min-width;
   border-radius: 6px;
-  box-shadow: $shadow;
+  padding: $padding;
+  //box-shadow: $shadow;
   // overflow: hidden;
-
-  @if $padding {
-    padding: 1rem;
-  }
 }
 
 //flex center

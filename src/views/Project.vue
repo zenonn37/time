@@ -1,24 +1,28 @@
 <template>
   <div>
-    <div class="clock-header">
-      <transition name="slide-fade" mode="out-in">
+    <div class="exit-header">
+      <transition name="slide-fade">
         <div class="cancel cursor" v-if="!check" @click="onCancel()">
           <i class="fas fa-times"></i>
         </div>
-        <div class="cancel" v-else>To Exit Cancel Timer</div>
+        <div class="cancel" v-else>
+          <h4>To Exit Stop Timer</h4>
+        </div>
       </transition>
+    </div>
+    <div class="clock-header">
       <div class="project-timer">
         <CountUp />
       </div>
     </div>
     <div v-if="!loading">
       <div class="project-head">
-        <div>Project: {{ project.name }}</div>
-        <div>
+        <h1><i class="far fa-clock"></i>{{ project.name }}</h1>
+        <h5>
           Status:
           <span v-if="project.completed">Completed</span>
-          <span v-else>On Going</span>
-        </div>
+          <span v-else>In Progress</span>
+        </h5>
       </div>
       <router-view :project="project"></router-view>
     </div>

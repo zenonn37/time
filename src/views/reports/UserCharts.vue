@@ -96,8 +96,9 @@ export default {
 
       //use foreach to clean up dates and push result
       data.forEach(el => {
-        dates.push(el.date);
+        dates.push(el.new_entry);
       });
+      console.log(dates);
       //use foreach to convert seconds to hours and push result
       data.forEach(el => {
         if (parseInt(el.seconds) < 3600) {

@@ -1,42 +1,40 @@
-.count-up-parent{
-    display: flex;
-    
-    width: 160px;
-    justify-content: space-evenly;
-    align-items: center;
-  
+.count-up-parent {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    .count-down{
-      font-size: 18px;
-      min-width: 88px;
-    
+  .count-down {
+    font-size: 1.7rem;
+    max-width: 135px !important;
+    overflow: hidden;
+    font-weight: 600;
+    color: rgb(78, 78, 78);
+    span {
+      width: 35px;
+    }
+  }
+
+  .edit {
+    i {
+      color: $grey;
+      font-size: 2rem;
+    }
+  }
+
+  .clock-controls {
+    .play {
+      i {
+        font-size: xx-large;
+        color: $success;
+      }
     }
 
-    .edit{
-
-        i{
-            color:$grey;
-        }
-        
+    .stop {
+      i {
+        font-size: xx-large;
+        color: red;
+      }
     }
-
-    .clock-controls{
-
-        .play{
-            i{
-                font-size:xx-large;
-                color: $success;
-            }
-        }
-
-        .stop{
-            i{
-                font-size:xx-large;
-                color: red;
-            }
-        }
-        
-       
-    }
-    
+  }
 }

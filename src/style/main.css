@@ -16,11 +16,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #c248c2;
+  background: #0295a8;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: purple;
+  background: #52d0e0;
 }
 
 /**
@@ -353,7 +353,7 @@ h6 {
 }
 
 .count-down-parent .count-down .count-start:hover {
-  background-color: #027EC3;
+  background-color: #027ec3;
 }
 
 .count-down-parent .count-down .button-group {
@@ -400,7 +400,7 @@ h6 {
 }
 
 .count-down-parent .count-down .button-group .pause:hover {
-  background-color: #027EC3;
+  background-color: #027ec3;
 }
 
 .count-down-parent .count-down .button-group .resume {
@@ -448,25 +448,33 @@ h6 {
 }
 
 .count-up-parent {
+  width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 160px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .count-up-parent .count-down {
-  font-size: 18px;
-  min-width: 88px;
+  font-size: 1.7rem;
+  max-width: 135px !important;
+  overflow: hidden;
+  font-weight: 600;
+  color: #4e4e4e;
+}
+
+.count-up-parent .count-down span {
+  width: 35px;
 }
 
 .count-up-parent .edit i {
   color: #b4b4b4;
+  font-size: 2rem;
 }
 
 .count-up-parent .clock-controls .play i {
@@ -487,8 +495,7 @@ h6 {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: false;
   position: relative;
 }
 
@@ -641,8 +648,7 @@ h6 {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: false;
 }
 
 .task-parent .task-container {
@@ -683,8 +689,7 @@ h6 {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: false;
   margin: 0 -20px 0 -20px;
 }
 
@@ -720,10 +725,23 @@ h6 {
   font-size: 20px;
 }
 
+.exit-header {
+  padding: 1rem;
+}
+
+.exit-header h4 {
+  font-size: 0.9rem;
+  color: #b4b4b4;
+}
+
 .clock-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -748,21 +766,32 @@ h6 {
 }
 
 .clock-header .project-timer {
-  max-width: 180px;
+  max-width: 300px;
   min-height: inherit;
   background-color: #fff;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
   margin: 1rem 0 1rem 0;
-  min-width: 150px;
+  min-width: 200px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
 }
 
 .project-head {
   margin-bottom: 1.8rem;
+  max-width: 100%;
+  min-height: inherit;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  margin: 1rem 0 1rem 0;
+  min-width: 200px;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.project-head h1 {
+  text-transform: capitalize;
 }
 
 .sub-header .project-header {
@@ -811,7 +840,7 @@ h6 {
 }
 
 .filter-bar div:hover {
-  background-color: #027EC3;
+  background-color: #027ec3;
 }
 
 .project-parent .project-header {
@@ -981,8 +1010,7 @@ h6 {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: false;
   padding: 1rem 0.1rem 1rem 0.1rem;
   max-width: 450px;
   -webkit-box-flex: 1;
@@ -1032,8 +1060,6 @@ select {
   margin: 1rem 0 1rem 0;
   min-width: 250px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
 }
 
@@ -1137,7 +1163,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #027EC3;
+  background-color: #027ec3;
 }
 
 input[type="button"] {
@@ -1197,9 +1223,7 @@ input[type="button"] {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: true;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -1213,9 +1237,7 @@ input[type="button"] {
   margin: 1rem 0 1rem 0;
   min-width: 150px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: true;
   left: 0;
   top: 18px;
   z-index: 1000;
@@ -1435,8 +1457,7 @@ input[type="button"] {
   margin: 1rem 0 1rem 0;
   min-width: 260px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: false;
   padding: 0.8rem;
   overflow: hidden;
 }

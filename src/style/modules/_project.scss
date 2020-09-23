@@ -1,6 +1,15 @@
+.exit-header {
+  padding: 1rem;
+  h4 {
+    font-size: 0.9rem;
+    color: $grey;
+  }
+}
+
 .clock-header {
   display: flex;
-  // justify-content: space-between;
+  width: 100%;
+  justify-content: center;
   align-items: center;
   .cancel {
     padding-left: 0.5rem;
@@ -17,13 +26,18 @@
   }
 
   .project-timer {
-    max-width: 180px;
-    @include panels(inherit, $white, true, 150px);
+    max-width: 300px;
+    @include panels(inherit, $white, 1rem, 200px);
   }
 }
 
 .project-head {
   margin-bottom: 1.8rem;
+  max-width: 100%;
+  @include panels(inherit, $white, 1rem, 200px);
+  h1 {
+    text-transform: capitalize;
+  }
 }
 
 .sub-header {
