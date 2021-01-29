@@ -114,21 +114,16 @@ const actions = {
     });
   },
   edit_projects({ commit }, payload) {
-  
     return new Promise((resolve, reject) => {
-      Axios.patch(
-        `/timer-projects-update/${payload.id}`,
-        payload
-            )
+      Axios.patch(`/timer-projects-update/${payload.id}`, payload)
         .then(res => {
           commit("update", payload);
-         
+
           if (payload.action) {
             commit("filter_status", payload.id);
           }
-         
+
           resolve(res);
-        
         })
         .catch(err => {
           reject();

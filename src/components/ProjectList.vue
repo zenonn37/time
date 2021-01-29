@@ -18,7 +18,7 @@
               :class="[
                 !project.completed
                   ? 'far fa-check-circle'
-                  : 'fas fa-check-circle',
+                  : 'fas fa-check-circle'
               ]"
             ></i>
           </h6>
@@ -60,12 +60,12 @@ import EditProject from "@/components/forms/EditProject";
 export default {
   props: ["project"],
   components: {
-    EditProject,
+    EditProject
   },
 
   data() {
     return {
-      edit: false,
+      edit: false
     };
   },
 
@@ -88,10 +88,10 @@ export default {
           goal: p.goal,
           completed: (p.completed = !p.completed),
           id: p.id,
-          action: true,
+          action: true
         })
         .then(() => {});
-    },
-  },
+    }
+  }
 };
 </script>

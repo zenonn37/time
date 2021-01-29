@@ -74,11 +74,11 @@ export default {
   props: ["hour"],
   name: "TimeList",
   components: {
-    EditTask,
+    EditTask
   },
   data() {
     return {
-      edit: false,
+      edit: false
     };
   },
   methods: {
@@ -95,7 +95,7 @@ export default {
         //refactor to call this function within module!!
         this.$store.dispatch("task/set_tasks", this.$route.params.id);
       });
-    },
-  },
+    }
+  }
 };
 </script>

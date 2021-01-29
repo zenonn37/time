@@ -19,8 +19,8 @@ export default {
     return {
       edit: {
         name: this.task.name,
-        id: this.task.id,
-      },
+        id: this.task.id
+      }
     };
   },
   methods: {
@@ -29,7 +29,7 @@ export default {
     },
     editName() {
       this.$emit("save", this.edit);
-    },
-  },
+    }
+  }
 };
 </script>

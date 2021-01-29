@@ -36,12 +36,12 @@
 import CountUp from "@/components/timers/CountUp";
 export default {
   components: {
-    CountUp,
+    CountUp
   },
   data() {
     return {
       name: "Project",
-      loading: false,
+      loading: false
     };
   },
   computed: {
@@ -52,12 +52,12 @@ export default {
     project() {
       const ids = parseInt(this.$route.params.id);
       return this.$store.getters["projects/show_projects"](ids);
-    },
+    }
   },
   methods: {
     onCancel() {
       this.$router.push("/home");
-    },
+    }
   },
 
   created() {
@@ -65,6 +65,6 @@ export default {
     this.$store.dispatch("projects/get_projects").then(() => {
       this.loading = false;
     });
-  },
+  }
 };
 </script>
