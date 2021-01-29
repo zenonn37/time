@@ -8,13 +8,13 @@
 import bar from "@/components/charts/bar/bar.vue";
 
 export default {
-  name: "BarChart",
+  name: "BarChartClock",
   props: ["chart"],
   components: { bar },
 
   data: () => ({
     chartdata: {
-      labels: [],
+      labels: ["2021-01-25", "2021-01-28", "2021-01-29"],
       datasets: [
         {
           label: "Daily Hours",

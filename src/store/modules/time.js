@@ -171,6 +171,7 @@ const actions = {
       Axios.get("entry_all")
         .then(res => {
           commit("set_chart", res.data);
+
           resolve(res);
         })
         .catch(err => {

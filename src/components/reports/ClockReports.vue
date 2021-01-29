@@ -63,6 +63,7 @@
 import ClockList from "@/components/reports/ClockList";
 import Bar from "@/components/charts/Bar";
 export default {
+  name: "ClockReports",
   props: ["nav"],
   components: {
     ClockList,
@@ -91,11 +92,12 @@ export default {
       charts.forEach(el => {
         if (el.seconds < 3600) {
           time.push(0);
+          dates.push(el.date);
         } else {
           time.push(Math.round(el.seconds / 3600));
         }
 
-        dates.push(el.date.slice(0, 10));
+        dates.push(el.date);
       });
 
       //console.log(time);

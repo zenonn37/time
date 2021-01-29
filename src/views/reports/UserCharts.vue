@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div
-      class="report-filter-parent"
-      v-if="!loading && clock.dates.length >= 1"
-    >
+    <div class="report-filter-parent" v-if="!loading">
       <i class="fas fa-sync" @click="onResetClock()"></i>
       <i @click="onSetRange()" class="fas fa-search"></i>
 
       <div>
         <datetime
           placeholder="Start Date"
+          id="start_clock"
           v-model="start_clock"
           value-zone="America/New_York"
           :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
@@ -18,6 +16,7 @@
       <div>
         <datetime
           placeholder="End Date"
+          id="end_clock"
           v-model="end_clock"
           value-zone="America/New_York"
           :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
@@ -69,7 +68,7 @@
 <script>
 import BarClockReports from "@/components/charts/BarClockReports";
 import BarTaskReports from "@/components/charts/BarTaskReports";
-
+import moment from "moment";
 export default {
   name: "MainReports",
 
@@ -96,7 +95,7 @@ export default {
 
       //use foreach to clean up dates and push result
       data.forEach(el => {
-        dates.push(el.new_entry);
+        dates.push(moment(el.new_entry).format("MM-DD-YY"));
       });
 
       //use foreach to convert seconds to hours and push result
@@ -121,7 +120,7 @@ export default {
 
       //use foreach to clean up dates and push result
       data.forEach(el => {
-        dates.push(el.date.slice(5, 10));
+        dates.push(moment(el.date).format("MM-DD-YY"));
       });
       //use foreach to convert seconds to hours and push result
       data.forEach(el => {
@@ -185,11 +184,12 @@ export default {
 
       this.$store.dispatch("time/entryReport").then(() => {
         //loaded
-      });
-
-      this.$store.dispatch("time/clock_chart").then(() => {
         this.loading = false;
       });
+
+      // this.$store.dispatch("time/clock_chart").then(() => {
+      //   this.loading = false;
+      // });
     },
     loadChartDataTask() {
       this.loading2 = true;
