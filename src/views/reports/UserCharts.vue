@@ -186,10 +186,6 @@ export default {
         //loaded
         this.loading = false;
       });
-
-      // this.$store.dispatch("time/clock_chart").then(() => {
-      //   this.loading = false;
-      // });
     },
     loadChartDataTask() {
       this.loading2 = true;
