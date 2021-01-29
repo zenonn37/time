@@ -13,6 +13,20 @@ const mutations = {
   new_projects(state, payload) {
     state.projects.unshift(payload);
   },
+  update(state, payload) {
+    const projects = state.projects.map(project =>
+      project.id === payload.id
+        ? {
+            ...project,
+            name: payload.name,
+            goal: payload.goal,
+            complete: payload.complete
+          }
+        : project
+    );
+
+    state.projects = projects;
+  },
   delete_projects(state, id) {
     const project = state.projects.filter(project => project.id !== id);
     state.projects = project;
@@ -100,31 +114,21 @@ const actions = {
     });
   },
   edit_projects({ commit }, payload) {
+  
     return new Promise((resolve, reject) => {
       Axios.patch(
         `/timer-projects-update/${payload.id}`,
-        //refactor to partial update only
-        payload.completed === true
-          ? {
-              name: payload.name,
-              goal: payload.goal,
-              completed: true
-            }
-          : {
-              name: payload.name,
-              goal: payload.goal,
-              completed: false
-            }
-      )
-
+        payload
+            )
         .then(res => {
-          // console.log(res);
-
-          commit("filter_status", payload.id);
-
+          commit("update", payload);
+         
+          if (payload.action) {
+            commit("filter_status", payload.id);
+          }
+         
           resolve(res);
-
-          //dispatch("get_projects");
+        
         })
         .catch(err => {
           reject();
