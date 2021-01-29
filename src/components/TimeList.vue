@@ -1,6 +1,6 @@
 <template>
   <div class="task-list-parent">
-    <transition name="fade" mode="out-in">
+    <transition name="slide-fade" mode="out-in">
       <div v-if="edit" class="edit-task">
         <EditTask :task="hour" @close="close" @save="save" />
       </div>
@@ -8,21 +8,23 @@
 
     <div class="task-top">
       <div class="task-title">
-        <div class="task-title-sub cursor" @click="onDelete(hour.id)">
-          <h6>Task</h6>
-          <i class="fas fa-trash"></i>
-        </div>
-
-        <span @click="edit = !edit" class="cursor">
-          {{ hour.name }}
-          <i class="fas fa-edit"></i>
-        </span>
+        <i class="far fa-stopwatch"></i>
+        <div class="title">{{ hour.name }}</div>
       </div>
-      <div class="task-dates">
-        <h6>Ended</h6>
-        <span class="from-now">{{ hour.complete | current }}</span>
+
+      <div class="cursor" @click="edit = !edit">
+        <i class="far fa-edit"></i>
+      </div>
+      <div class="cursor" @click="onDelete(hour.id)">
+        <i class="far fa-trash"></i>
       </div>
     </div>
+
+    <div class="task-dates">
+      <h6>Ended</h6>
+      <div class="from-now">{{ hour.complete | current }}</div>
+    </div>
+
     <div class="task-mid">
       <div class="not-complete" v-if="!hour.completed">
         <i class="far fa-sad-tear"></i>
@@ -67,15 +69,16 @@
 
 <script>
 import EditTask from "@/components/forms/EditTask";
+
 export default {
   props: ["hour"],
   name: "TimeList",
   components: {
-    EditTask
+    EditTask,
   },
   data() {
     return {
-      edit: false
+      edit: false,
     };
   },
   methods: {
@@ -92,7 +95,7 @@ export default {
         //refactor to call this function within module!!
         this.$store.dispatch("task/set_tasks", this.$route.params.id);
       });
-    }
-  }
+    },
+  },
 };
 </script>

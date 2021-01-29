@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import Guest from "./layouts/Guest";
 import User from "./layouts/User";
-import "./style/main.css";
+import "./style/main.scss";
 import "./plugs/v-select";
 import "./filters/dates";
 import "./plugs/vee-validate";

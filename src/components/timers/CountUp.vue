@@ -1,7 +1,7 @@
 <template>
   <div class="count-up-parent">
     <div class="edit">
-      <i class="far fa-clock"></i>
+      <i class="far fa-history"></i>
     </div>
     <div class="count-down">
       <div>
@@ -47,7 +47,7 @@ export default {
       interval: "",
       today: "",
       start: "",
-      end: ""
+      end: "",
     };
   },
 
@@ -55,21 +55,21 @@ export default {
     check() {
       //get clock state
       return this.$store.getters["time/get_clock_active"];
-    }
+    },
   },
   methods: {
     saveMoment() {
       let id = this.$route.params.id;
       //we will check if a daily clock is setup for the project_id and for one per 24hrs
       //refactor move to server
-      this.$store.dispatch("time/check_clock_parent", id).then(res => {
+      this.$store.dispatch("time/check_clock_parent", id).then((res) => {
         if (!res.bool) {
           const data = {
             time: this.entry,
             project_id: id,
             start: this.start,
             end: this.end,
-            clock_id: res.id
+            clock_id: res.id,
           };
           this.$store.dispatch("time/entry", data);
         } else {
@@ -77,7 +77,7 @@ export default {
             time: this.entry,
             project_id: id,
             start: this.start,
-            end: this.end
+            end: this.end,
           };
 
           this.$store.dispatch("time/new_time", data);
@@ -144,7 +144,7 @@ export default {
       }
 
       this.setStart();
-    }
+    },
   },
   created() {
     this.$store.dispatch("time/clock_active", true);
@@ -162,6 +162,6 @@ export default {
     // } else {
     //   console.log("clock not running " + this.entry);
     // }
-  }
+  },
 };
 </script>

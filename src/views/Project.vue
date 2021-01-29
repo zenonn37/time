@@ -17,7 +17,10 @@
     </div>
     <div v-if="!loading">
       <div class="project-head">
-        <h1><i class="far fa-clock"></i>{{ project.name }}</h1>
+        <div class="title">
+          <i class="far fa-clock"></i>
+          <h2>{{ project.name }}</h2>
+        </div>
         <h5>
           Status:
           <span v-if="project.completed">Completed</span>
@@ -33,12 +36,12 @@
 import CountUp from "@/components/timers/CountUp";
 export default {
   components: {
-    CountUp
+    CountUp,
   },
   data() {
     return {
       name: "Project",
-      loading: false
+      loading: false,
     };
   },
   computed: {
@@ -49,12 +52,12 @@ export default {
     project() {
       const ids = parseInt(this.$route.params.id);
       return this.$store.getters["projects/show_projects"](ids);
-    }
+    },
   },
   methods: {
     onCancel() {
       this.$router.push("/home");
-    }
+    },
   },
 
   created() {
@@ -62,6 +65,6 @@ export default {
     this.$store.dispatch("projects/get_projects").then(() => {
       this.loading = false;
     });
-  }
+  },
 };
 </script>
