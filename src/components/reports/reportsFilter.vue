@@ -16,10 +16,9 @@ export default {
   methods: {
     filter(num) {
       this.$emit("filter", num);
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

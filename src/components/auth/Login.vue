@@ -41,8 +41,8 @@ export default {
     return {
       login: {
         password: "",
-        username: "",
-      },
+        username: ""
+      }
     };
   },
   methods: {
@@ -55,7 +55,7 @@ export default {
       requestAnimationFrame(() => {
         this.$refs.observer.reset();
       });
-    },
-  },
+    }
+  }
 };
 </script>

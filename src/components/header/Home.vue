@@ -29,14 +29,14 @@ export default {
     //get clock active state
     check() {
       return this.$store.getters["time/get_clock_active"];
-    },
+    }
   },
   methods: {
     onLogout() {
       this.$store.dispatch("LOGOUT").then(() => {
         this.$router.push("/auth");
       });
-    },
-  },
+    }
+  }
 };
 </script>

@@ -50,8 +50,8 @@ export default {
       reg: {
         username: "",
         password: "",
-        name: "",
-      },
+        name: ""
+      }
     };
   },
   methods: {
@@ -64,7 +64,7 @@ export default {
       requestAnimationFrame(() => {
         this.$refs.observer.reset();
       });
-    },
-  },
+    }
+  }
 };
 </script>

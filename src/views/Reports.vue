@@ -37,7 +37,7 @@ export default {
   computed: {
     hours() {
       return this.$store.getters["time/getTotal"];
-    },
-  },
+    }
+  }
 };
 </script>
