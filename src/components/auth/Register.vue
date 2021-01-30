@@ -28,7 +28,7 @@
     <div class="form-field">
       <ValidationProvider
         name="Password"
-        rules="required|min:6|max:40"
+        rules="required|min:8|max:40"
         v-slot="{ errors }"
       >
         <input type="password" v-model="reg.password" placeholder="Password" />
@@ -50,8 +50,8 @@ export default {
       reg: {
         username: "",
         password: "",
-        name: ""
-      }
+        name: "",
+      },
     };
   },
   methods: {
@@ -64,7 +64,7 @@ export default {
       requestAnimationFrame(() => {
         this.$refs.observer.reset();
       });
-    }
-  }
+    },
+  },
 };
 </script>

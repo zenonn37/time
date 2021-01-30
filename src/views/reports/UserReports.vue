@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="title">
     User Reports
     <div>
       <div>
@@ -18,30 +18,30 @@ export default {
   name: "User_Reports",
   components: {
     ClockList,
-    FilterControl
+    FilterControl,
   },
   data() {
     return {
-      loading: false
+      loading: false,
     };
   },
   computed: {
     clocks() {
       return this.$store.getters["time/get_time"];
-    }
+    },
   },
   methods: {
     clockFilter(filter) {
       // console.log(filter);
 
       this.$store.dispatch("time/clockFilter", filter);
-    }
+    },
   },
   created() {
     this.loading = true;
     this.$store.dispatch("time/get_all_time").then(() => {
       this.loading = false;
     });
-  }
+  },
 };
 </script>

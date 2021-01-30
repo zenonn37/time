@@ -40,7 +40,7 @@ export default {
   name: "Auth",
   components: {
     Register,
-    Login
+    Login,
   },
   data() {
     return {};
@@ -51,7 +51,7 @@ export default {
     },
     auth() {
       return this.$store.getters["base/get_auth"];
-    }
+    },
   },
   methods: {
     toggleAuth() {
@@ -76,15 +76,15 @@ export default {
         //this.$router.push("/");
         this.$store.dispatch("base/set_auth_login");
       });
-    }
+    },
   },
   mounted() {
     GSAP.from(".ani", {
       opacity: 0,
       duration: 0.3,
       y: -70,
-      stagger: 0.5
+      stagger: 0.5,
     });
-  }
+  },
 };
 </script>

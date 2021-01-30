@@ -3,7 +3,7 @@
     <div class="sub-header">
       <ul>
         <router-link :to="{ name: 'user-reports' }" tag="li" class="cursor">
-          <i class="fab fa-cloudscale"></i>
+          <i class="far fa-list"></i>
           Reports
         </router-link>
         <router-link :to="{ name: 'user-charts' }" tag="li" class="cursor">
@@ -37,7 +37,7 @@ export default {
   computed: {
     hours() {
       return this.$store.getters["time/getTotal"];
-    }
-  }
+    },
+  },
 };
 </script>

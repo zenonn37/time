@@ -62,19 +62,20 @@
 <script>
 import ClockList from "@/components/reports/ClockList";
 import Bar from "@/components/charts/Bar";
+import moment from "moment";
 export default {
   name: "ClockReports",
   props: ["nav"],
   components: {
     ClockList,
-    Bar
+    Bar,
   },
 
   data() {
     return {
       loading: false,
       start_clock: "",
-      end_clock: ""
+      end_clock: "",
       //toggle: this.nav
     };
   },
@@ -84,39 +85,41 @@ export default {
     },
 
     charts() {
-      const charts = this.$store.getters["time/get_chart"];
+      const data = this.$store.getters["time/get_chart"];
+      //int arrrays to split data from DB
+      const dates = [];
+      const time = [];
 
-      let time = [];
-      let dates = [];
-
-      charts.forEach(el => {
-        if (el.seconds < 3600) {
-          time.push(0);
-          dates.push(el.date);
-        } else {
-          time.push(Math.round(el.seconds / 3600));
-        }
-
-        dates.push(el.date);
+      //use foreach to clean up dates and push result
+      data.forEach((el) => {
+        dates.push(moment(el.new_entry).format("MM-DD-YY"));
       });
 
-      //console.log(time);
+      //use foreach to convert seconds to hours and push result
+      data.forEach((el) => {
+        if (parseInt(el.seconds) < 3600) {
+          time.push(0);
+        } else {
+          time.push(Math.round(parseInt(el.seconds) / 3600));
+        }
+      });
 
       return {
+        dates,
         time,
-        dates
       };
     },
+
     toggle() {
       return this.nav;
-    }
+    },
   },
   methods: {
     warningToast() {
       this.$toast.open({
         message: "Date Range fields cannot be empty.",
         type: "info",
-        position: "top"
+        position: "top",
       });
     },
 
@@ -130,7 +133,7 @@ export default {
         .dispatch("time/filter_clock_chart_project", {
           id: this.$route.params.id,
           start: this.start_clock.slice(0, 19).replace(" T ", " "),
-          end: this.end_clock.slice(0, 19).replace(" T ", " ")
+          end: this.end_clock.slice(0, 19).replace(" T ", " "),
         })
         .then(() => {
           this.loading = false;
@@ -146,13 +149,13 @@ export default {
         .then(() => {
           this.loading = false;
         });
-    }
+    },
   },
   created() {
     this.taskCall();
     this.$store.dispatch("time/get_time", this.$route.params.id).then(() => {
       this.loading = false;
     });
-  }
+  },
 };
 </script>

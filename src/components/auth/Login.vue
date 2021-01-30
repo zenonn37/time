@@ -8,7 +8,7 @@
     <div class="form-field">
       <ValidationProvider
         name="Email"
-        rules="required|email|min:5|max:40"
+        rules="required|email"
         v-slot="{ errors }"
       >
         <input type="email" v-model="login.username" placeholder="Email" />
@@ -16,11 +16,7 @@
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <ValidationProvider
-        name="Password"
-        rules="required|min:6|max:40|alpha"
-        v-slot="{ errors }"
-      >
+      <ValidationProvider name="Password" rules="required" v-slot="{ errors }">
         <input
           type="password"
           v-model="login.password"
@@ -45,8 +41,8 @@ export default {
     return {
       login: {
         password: "",
-        username: ""
-      }
+        username: "",
+      },
     };
   },
   methods: {
@@ -59,7 +55,7 @@ export default {
       requestAnimationFrame(() => {
         this.$refs.observer.reset();
       });
-    }
-  }
+    },
+  },
 };
 </script>
