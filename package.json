@@ -15,7 +15,7 @@
     "epic-spinners": "^1.1.0",
     "gsap": "^3.5.1",
     "lodash": "^4.17.15",
-    "luxon": "^1.23.0",
+    "luxon": "^2.5.2",
     "moment": "^2.24.0",
     "node-sass": "^5.0.0",
     "numeral": "^2.0.6",
